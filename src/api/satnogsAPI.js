@@ -1,9 +1,7 @@
 
-const BASE_URL = `http://localhost:${import.meta.env.VITE_BACKEND_PORT}/api`; 
-
 const fetchData = async (endpoint, queryParams = "") => {
   try {
-    const url = `${BASE_URL}/${endpoint}?${queryParams}`;
+    const url = `${VITE_SERVER_URL}/api/${endpoint}?${queryParams}`;
     const response = await fetch(url);
 
     if (!response.ok) {
