@@ -28,5 +28,6 @@ export const getObservationsByStationId = (id) => {
 };
 
 export const getStationById = (id) => {
-  return fetchData('stations', `stationId=${id}`);
+  const data = fetchData('stations', `stationId=${id}`);  
+  return data[0];
 };
