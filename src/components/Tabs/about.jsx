@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-// Section
+// Sections
 import Location from './About/location';
 import Installation from './About/installation';
 
@@ -16,24 +16,22 @@ function About() {
   const { t } = useTranslation();
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-12">
-          <div className="bg-light rounded p-3"> 
-            <h2 className="mt-4">{t('about.title')}</h2> 
-            <p>{t('about.description')}</p>
+    <div className="container"> {/* Main container */}
 
-            <ul className="list-unstyled"> 
-              <li><Location /></li>
-              <li><Installation /></li>
-              <li><Software /></li>
-              <li><Antenna /></li>
-              <li><Raspberry /></li>
-              <li><Power /></li>
-              <li><Enclosure /></li>
-            </ul>
-          </div>
-        </div>
+      <div className="container rounded p-4"> {/* About container */}
+        <h2 className="mt-4">{t('about.title')}</h2>
+        <p>{t('about.description')}</p>
+      </div>
+
+      <Location /> 
+      <Installation />
+
+      <div className="container rounded p-4 mt-4"> {/* Collapsible container */}
+        <Software />
+        <Antenna />
+        <Raspberry />
+        <Power />
+        <Enclosure />
       </div>
     </div>
   );
