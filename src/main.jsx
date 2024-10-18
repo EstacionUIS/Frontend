@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <div className="d-flex flex-column min-vh-100"> {/* Added flex container */}
+      <App />
+    </div>
   </React.StrictMode>
 );

@@ -1,7 +1,8 @@
 {
-    "observations": "Observations",
-    "information": "Information",
-    "contact": "Contact",
+    "About": "About",
+    "Observations": "Observations",
+    "Information": "Information",
+    "Contact": "Contact",
     "stationDetails": "Station Details:",
     "loading": "Loading...",
     "error": "Error: {{message}}",

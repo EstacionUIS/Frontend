@@ -10,8 +10,8 @@ import Observations from './components/observations';
 import Information from './components/information';
 import Contact from './components/contact';
 
-import logo1 from '../public/Images/logo1.png'; // Replace with the actual path to your first logo
-import logo2 from '../public/Images/logo2.png'; // Replace with the actual path to your second logo
+import logo1 from '../public/Images/logo/logo1.png'; 
+import logo2 from '../public/Images/logo/logo2.png'; 
 
 function App() {
   const { t, i18n } = useTranslation();
