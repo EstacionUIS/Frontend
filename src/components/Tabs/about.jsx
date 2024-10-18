@@ -24,41 +24,13 @@ function About() {
             <p>{t('about.description')}</p>
 
             <ul className="list-unstyled"> 
-              <li>
-                <div className="bg-light rounded p-3 shadow-sm"> 
-                  <Location />
-                </div>
-              </li>
-              <li>
-                <div className="bg-light rounded p-3 shadow-sm"> 
-                  <Installation />
-                </div>
-              </li>
-              <li>
-                <div className="bg-light rounded p-3 shadow-sm"> 
-                  <Software />
-                </div>
-              </li>
-              <li>
-                <div className="bg-light rounded p-3 shadow-sm"> 
-                  <Antenna />
-                </div>
-              </li>
-              <li>
-                <div className="bg-light rounded p-3 shadow-sm"> 
-                  <Raspberry />
-                </div>
-              </li>
-              <li>
-                <div className="bg-light rounded p-3 shadow-sm"> 
-                  <Power />
-                </div>
-              </li>
-              <li>
-                <div className="bg-light rounded p-3 shadow-sm"> 
-                  <Enclosure />
-                </div>
-              </li>
+              <li><Location /></li>
+              <li><Installation /></li>
+              <li><Software /></li>
+              <li><Antenna /></li>
+              <li><Raspberry /></li>
+              <li><Power /></li>
+              <li><Enclosure /></li>
             </ul>
           </div>
         </div>
