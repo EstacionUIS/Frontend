@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getObservationsByStationId } from '../api/satnogsAPI';
+import { getObservationsByStationId } from '../../api/satnogsAPI';
 import { useTranslation } from 'react-i18next';
 
 function Observations() {

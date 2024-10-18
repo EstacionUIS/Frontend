@@ -1,13 +1,16 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+// Section
 import Location from './About/location';
 import Installation from './About/installation';
-import Software from './About/software';
-import Antenna from './About/antenna';
-import Raspberry from './About/raspberry';
-import Power from './About/power';
-import Enclosure from './About/enclosure';
+
+// Collapsible
+import Software from './About/collapsible/software';
+import Antenna from './About/collapsible/antenna';
+import Raspberry from './About/collapsible/raspberry';
+import Power from './About/collapsible/power';
+import Enclosure from './About/collapsible/enclosure';
 
 function About() {
 

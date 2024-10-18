@@ -6,7 +6,7 @@ import moment from 'moment';
 import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button';
 
-import { getStationById } from '../api/satnogsAPI';
+import { getStationById } from '../../api/satnogsAPI';
 
 function Station() {
   const [station, setStation] = useState(null);

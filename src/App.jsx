@@ -4,9 +4,12 @@ import { useTranslation } from 'react-i18next';
 
 import 'react-tabs/style/react-tabs.css';
 
-import About from './components/about';
-import Station from './components/station';
-import Observations from './components/observations';
+// Tabs
+import About from './components/Tabs/about';
+import Station from './components/Tabs/station';
+import Observations from './components/Tabs/observations';
+
+// Parts
 import Information from './components/information';
 import Contact from './components/contact';
 

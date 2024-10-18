@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import CollapsibleSection from './collapsible/collapsibleSection';
+import CollapsibleSection from '../../../Collapsible/collapsibleSection';
 
-import power from '../../../public/Images/station/power.png'; 
+import power from '../../../../../public/Images/station/power.png'; 
 
 function Enclosure() {
 

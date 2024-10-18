@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import CollapsibleSection from './collapsible/collapsibleSection';
+import CollapsibleSection from '../../../Collapsible/collapsibleSection';
 
-import antenna from '../../../public/Images/station/station_2.jpg'; 
+import antenna from '../../../../../public/Images/station/station_2.jpg'; 
 
 function Antenna() {
 

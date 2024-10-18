@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import CollapsibleSection from './collapsible/collapsibleSection';
+import CollapsibleSection from '../../../Collapsible/collapsibleSection';
 
-import raspberry from '../../../public/Images/station/raspberry.jpg'; 
+import raspberry from '../../../../../public/Images/station/raspberry.jpg'; 
 
 function Raspberry() {
 
