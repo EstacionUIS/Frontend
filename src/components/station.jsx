@@ -50,10 +50,14 @@ function Station() {
   };
 
   return (
+
     <div className="container">
+
+      // Top
+
       <div className="row mt-4">
-        <div className="col-md-12">
-          <div className="d-flex justify-content-between align-items-center">
+        <div className="col-md-12 text-center">
+          <div className="d-flex justify-content-center align-items-center">
             <Badge bg={getStatusBadgeVariant(station.status)} className="me-3">
               {station.id}
             </Badge>
@@ -62,35 +66,46 @@ function Station() {
         </div>
       </div>
 
+      // Content
+
       <div className="row mt-4">
         <div className="col-md-6">
           <div className="card p-3 mb-3 rounded"> {/* Description box */}
             <p>{station.description}</p>
           </div>
           <div className="card p-3 mb-3 rounded"> {/* Location box */}
-            <h5>{t('location')}:</h5>
-            <ul className="list-unstyled">
-              {/* ... (latitude, longitude, altitude) */}
+            <h5>{t('location')}</h5>
+            <ul className="list-unstyled"> {/* ... (latitude, longitude, altitude) */}
+              <li><b>{t('latitude')}:</b> {station.lat}</li>
+              <li><b>{t('longitude')}:</b> {station.lng}</li>
+              <li><b>{t('altitude')}:</b> {station.altitude} m</li>
             </ul>
           </div>
           <div className="card p-3 mb-3 rounded"> {/* Activity box */}
-            <h5>{t('activity')}:</h5>
-            <ul className="list-unstyled">
-              {/* ... (last seen and created) */}
+            <h5>{t('activity')}</h5>
+            <ul className="list-unstyled"> {/* ... (last seen and created) */}
+              <li><b>{t('lastSeen')}:</b> {moment(station.last_seen).format('LLL')}</li>
+              <li><b>{t('created')}:</b> {moment(station.created).format('LLL')}</li> 
             </ul>
           </div>
           <div className="card p-3 rounded"> {/* Observations box */}
-            <h5>{t('observations')}:</h5>
+            <h5>{t('observations')}</h5>
             <p>{station.observations}</p>
           </div>
         </div>
         <div className="col-md-6">
-          <img src={station.image} alt={`Station: ${station.name}`} className="img-fluid w-75" /> {/* Resized image */}
-          <div className="card p-3 mt-3 rounded"> {/* Bar with template text */}
-            <p>More details about the station, antenna specifications, and recent activities will be displayed here.</p>
+          <div className='p-3'>
+            <img src={station.image} alt={`Station: ${station.name}`} className="img-fluid w-50" /> {/* Resized image */}
           </div>
         </div>
       </div>
+
+      // Bottom
+
+      <div className="card p-3 mt-3 rounded"> {/* Bar with template text */}
+        <p>More details about the station, antenna specifications, and recent activities will be displayed here.</p>
+      </div>
+
     </div>
   );
 }
