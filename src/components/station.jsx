@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { getStationById } from '../api/satnogsAPI';
 import { useTranslation } from 'react-i18next';
 import Badge from 'react-bootstrap/Badge';
 import moment from 'moment';
+import Spinner from 'react-bootstrap/Spinner';
+
+import { getStationById } from '../api/satnogsAPI';
 
 function Station() {
   const [station, setStation] = useState(null);
@@ -32,7 +34,13 @@ function Station() {
   }
 
   if (isLoading) {
-    return <div>{t('loading')}...</div>;
+    return ( 
+      <div className="d-flex justify-content-center align-items-center vh-100"> {/* Center the spinner */}
+        <Spinner animation="border" role="status"> {/* Display the spinner */}
+          <span className="visually-hidden">{t('loading')}...</span>
+        </Spinner>
+      </div>
+    );
   }
 
   // Function to determine badge color based on status
