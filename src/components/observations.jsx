@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { getObservationsByStationId } from '../api/satnogsAPI';
+import { useTranslation } from 'react-i18next';
 
 function Observations() {
   const [observations, setObservations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,16 +30,16 @@ function Observations() {
   }
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>{t('loading')}...</div>;
   } else {
     return (
       <div>
-        <h2>Observations:</h2>
+        <h2>{t('observations')}:</h2>
         <ul>
           {observations.map((observation) => (
             <li key={observation.id}>
               {/* Adjust the output below to display relevant observation details */}
-              <b>Observation ID:</b> {observation.id}, <b>Timestamp:</b> {observation.timestamp}
+              <b>Id:</b> {observation.id}, <b>{observation.status}</b>, <b>t{('timestamp')}</b> {observation.start}
             </li>
           ))}
         </ul>

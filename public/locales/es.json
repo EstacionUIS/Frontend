@@ -4,5 +4,6 @@
     "contact": "Contacto",
     "stationDetails": "Detalles de la estación:",
     "loading": "Cargando...",
-    "error": "Error: {{message}}"
+    "error": "Error: {{message}}",
+    "timestamp": "Marca de Tiempo"
 }

@@ -4,6 +4,7 @@
     "contact": "Contact",
     "stationDetails": "Station Details:",
     "loading": "Loading...",
-    "error": "Error: {{message}}"
+    "error": "Error: {{message}}",
+    "timestamp": "Timestamp"
 }
   
