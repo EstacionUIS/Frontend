@@ -13,45 +13,28 @@ import Power from './About/collapsible/power';
 import Enclosure from './About/collapsible/enclosure';
 
 function About() {
-
   const { t } = useTranslation();
 
   return (
     <div className="container">
-
-      {/* Header */}
       <div className="row">
-        <div className="col-12">
-          <h2 className="mt-4">About This Project</h2>
-          <p>
-            This project is designed to monitor and analyze environmental 
-            conditions in real-time. It provides valuable data for research, 
-            education, and public awareness.
-          </p>
+        <div className="col-12"> 
+          <div className="about-container rounded p-4"> {/* Add a container with rounded corners and padding */}
+            <h2 className="mt-4">{t('about.title')}</h2> 
+            <p>{t('about.description')}</p>
+
+            <ul className="list-unstyled"> {/* Use a list for better organization */}
+              <li><Location /></li>
+              <li><Installation /></li>
+              <li><Software /></li>
+              <li><Antenna /></li>
+              <li><Raspberry /></li>
+              <li><Power /></li>
+              <li><Enclosure /></li>
+            </ul>
+          </div>
         </div>
       </div>
-
-      {/* location */}
-      <Location />
-
-      {/* Installation and Materials */}
-      <Installation />
-
-      {/* Software (Collapsible) */}
-      <Software />
-
-      {/* Antenna (Collapsible) */}
-      <Antenna />
-
-      {/* Raspberry Pi (Collapsible) */}
-      <Raspberry />
-
-      {/* Power Source (Collapsible) */}
-      <Power />
-
-      {/* Enclosure (Collapsible) */}
-      <Enclosure/>
-
     </div>
   );
 }

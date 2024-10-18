@@ -33,6 +33,11 @@
   }
 }
 
+.about-container {
+  background-color: lightgrey; /* Or any shade of grey you prefer */
+  border-radius: 10px; /* Adjust the value for desired roundness */
+}
+
 .card {
   padding: 2em;
 }

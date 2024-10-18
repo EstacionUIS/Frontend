@@ -1,5 +1,4 @@
 {
-    "About": "About",
     "Observations": "Observations",
     "Information": "Information",
     "Contact": "Contact",
@@ -14,6 +13,12 @@
     "lastSeen": "Last Seen",
     "created": "Created",
     "update": "Update",
-    "lastUpdated": "Last Updated"
+    "lastUpdated": "Last Updated",
+
+    "About": 
+    {
+        "Title": "About this project",
+        "description": "This project is designed to monitor and analyze environmental conditions in real-time. It provides valuable data for research, education, and public awareness."
+    }
 }
   
