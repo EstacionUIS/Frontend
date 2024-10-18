@@ -46,7 +46,7 @@ function Observations() {
         <h2>Observations:</h2>
         <ul>
           {currentObservations.map((observation) => (
-            <li key={observation.id} style={{ backgroundColor: index % 2 === 0 ? '#f2f2f2' : 'white' }}> 
+            <li key={observation.id}> 
               {/* Display relevant observation details */}
               <b>Id:</b> {observation.id}, <b>{observation.status}</b>, <b>t{('timestamp')}</b> {observation.start}
             </li>
