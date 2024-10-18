@@ -18,19 +18,47 @@ function About() {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-12"> 
-          <div className="about-container rounded p-4"> {/* Add a container with rounded corners and padding */}
+        <div className="col-12">
+          <div className="bg-light rounded p-3"> {/* Add a container with rounded corners and padding */}
             <h2 className="mt-4">{t('about.title')}</h2> 
             <p>{t('about.description')}</p>
 
             <ul className="list-unstyled"> {/* Use a list for better organization */}
-              <li><Location /></li>
-              <li><Installation /></li>
-              <li><Software /></li>
-              <li><Antenna /></li>
-              <li><Raspberry /></li>
-              <li><Power /></li>
-              <li><Enclosure /></li>
+              <li>
+                <div className="bg-light rounded p-3">
+                  <Location />
+                </div>
+              </li>
+              <li>
+                <div className="bg-light rounded p-3">
+                  <Installation />
+                </div>
+                </li>
+              <li>
+                <div className="bg-light rounded p-3">
+                  <Software />
+                </div>
+                </li>
+              <li>
+                <div className="bg-light rounded p-3">
+                  <Antenna />
+                </div>
+                </li>
+              <li>
+                <div className="bg-light rounded p-3">
+                  <Raspberry />
+                </div>
+                </li>
+              <li>
+                <div className="bg-light rounded p-3">
+                  <Power />
+                </div>
+                </li>
+              <li>
+                <div className="bg-light rounded p-3">
+                  <Enclosure />
+                </div>
+              </li>
             </ul>
           </div>
         </div>
