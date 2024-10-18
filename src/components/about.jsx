@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import panel from '../../public/Images/station/station_1.jpg';
 import location from '../../public/Images/station/station_2.jpg';
-
+import antenna from '../../public/Images/station/station_2.jpg'; 
+import raspberry from '../../public/Images/station/raspberry.jpg'; 
+import power from '../../public/Images/station/power.png'; 
 
 function About() {
+
+  const { t } = useTranslation();
+
   const [isAntennaOpen, setIsAntennaOpen] = useState(false);
   const [isRaspberryOpen, setIsRaspberryOpen] = useState(false);
   const [isPowerOpen, setIsPowerOpen] = useState(false);
@@ -76,64 +82,85 @@ function About() {
       {/* Antenna (Collapsible) */}
       <div className="row mt-4">
         <div className="col-12">
-          <button 
-            className="btn btn-primary" 
-            onClick={() => setIsAntennaOpen(!isAntennaOpen)}
-          >
-            Antenna
-          </button>
-          {isAntennaOpen && (
-            <div className="mt-3">
-              <p>
-                A high-gain antenna is used to ensure reliable data transmission 
-                from the remote monitoring station to the central server. The 
-                antenna is positioned for optimal signal strength and coverage.
-              </p>
-            </div>
-          )}
+          <div className="bg-light rounded p-3"> {/* Rounded background for button and content */}
+            <button 
+              className="btn btn-primary w-100" 
+              onClick={() => setIsAntennaOpen(!isAntennaOpen)}
+            > 
+              Antenna
+            </button>
+            {isAntennaOpen && (
+              <div className="row mt-3">
+                <div className="col-md-6">
+                  <p>
+                    A high-gain antenna is used to ensure reliable data transmission 
+                    from the remote monitoring station to the central server. The 
+                    antenna is positioned for optimal signal strength and coverage.
+                  </p>
+                </div>
+                <div className="col-md-6">
+                  <img src={antenna} alt="Antenna" className="img-fluid" />
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
       {/* Raspberry Pi (Collapsible) */}
       <div className="row mt-4">
         <div className="col-12">
-          <button 
-            className="btn btn-primary" 
-            onClick={() => setIsRaspberryOpen(!isRaspberryOpen)}
-          >
-            Raspberry Pi
-          </button>
-          {isRaspberryOpen && (
-            <div className="mt-3">
-              <p>
-                A Raspberry Pi serves as the central processing unit of the 
-                monitoring station. It collects data from the sensors, processes 
-                it, and transmits it to the server. Its low power consumption 
-                and compact size make it ideal for this application.
-              </p>
-            </div>
-          )}
+          <div className="bg-light rounded p-3">
+            <button 
+              className="btn btn-primary w-100" 
+              onClick={() => setIsRaspberryOpen(!isRaspberryOpen)}
+            >
+              Raspberry Pi
+            </button>
+            {isRaspberryOpen && (
+              <div className="row mt-3">
+                <div className="col-md-6">
+                  <p>
+                    A Raspberry Pi serves as the central processing unit of the 
+                    monitoring station. It collects data from the sensors, processes 
+                    it, and transmits it to the server. Its low power consumption 
+                    and compact size make it ideal for this application.
+                  </p>
+                </div>
+                <div className="col-md-6">
+                  <img src={raspberry} alt="Raspberry Pi" className="img-fluid" />
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
       {/* Power Source (Collapsible) */}
       <div className="row mt-4">
         <div className="col-12">
-          <button 
-            className="btn btn-primary" 
-            onClick={() => setIsPowerOpen(!isPowerOpen)}
-          >
-            Power Source
-          </button>
-          {isPowerOpen && (
-            <div className="mt-3">
-              <p>
-                The monitoring station is powered by a combination of solar panels 
-                and a battery backup system. This ensures continuous operation, 
-                even during periods of low sunlight or power outages.
-              </p>
-            </div>
-          )}
+          <div className="bg-light rounded p-3">
+            <button 
+              className="btn btn-primary w-100" 
+              onClick={() => setIsPowerOpen(!isPowerOpen)}
+            >
+              Power Source
+            </button>
+            {isPowerOpen && (
+              <div className="row mt-3">
+                <div className="col-md-6">
+                  <p>
+                    The monitoring station is powered by a combination of solar panels 
+                    and a battery backup system. This ensures continuous operation, 
+                    even during periods of low sunlight or power outages.
+                  </p>
+                </div>
+                <div className="col-md-6">
+                  <img src={power} alt="Power Source" className="img-fluid" />
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
