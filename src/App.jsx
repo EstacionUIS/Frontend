@@ -1,39 +1,34 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
-// Components
-import Station from './components/station';
-import Observations from './components/observations';
-import Information from './components/information';
-import Contact from './components/contact';
+import 'react-tabs/style/react-tabs.css';
+
+import Station from './components/Station';
+import Observations from './components/Observations';
+import Information from './components/Information';
+import Contact from './components/Contact';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('observations');
-
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
-  };
-
   return (
-    <div className="app-container">
-      <div className="station-container">
-        <Station />
-      </div>
+    <div>
+      <Station /> {/* Station component always displayed on top */}
+      <Tabs>
+        <TabList>
+          <Tab>Observations</Tab>
+          <Tab>Information</Tab>
+          <Tab>Contact</Tab>
+        </TabList>
 
-      <div className="tabs-container">
-        <button onClick={() => handleTabClick('observations')}>
-          Observations
-        </button>
-        <button onClick={() => handleTabClick('information')}>
-          Information
-        </button>
-        <button onClick={() => handleTabClick('contact')}>Contact</button>
-      </div>
-
-      <div className="content-container">
-        {activeTab === 'observations' && <Observations />}
-        {activeTab === 'information' && <Information />}
-        {activeTab === 'contact' && <Contact />}
-      </div>
+        <TabPanel>
+          <Observations />
+        </TabPanel>
+        <TabPanel>
+          <Information />
+        </TabPanel>
+        <TabPanel>
+          <Contact />
+        </TabPanel>
+      </Tabs>
     </div>
   );
 }
