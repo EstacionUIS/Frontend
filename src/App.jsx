@@ -3,10 +3,10 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 import 'react-tabs/style/react-tabs.css';
 
-import Station from './components/Station';
-import Observations from './components/Observations';
-import Information from './components/Information';
-import Contact from './components/Contact';
+import Station from './components/station';
+import Observations from './components/observations';
+import Information from './components/information';
+import Contact from './components/contact';
 
 function App() {
   return (
