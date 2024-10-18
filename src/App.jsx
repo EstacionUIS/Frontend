@@ -1,6 +1,6 @@
-import React, { useTransition } from 'react';
+import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import { useTransition } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import 'react-tabs/style/react-tabs.css';
 
@@ -11,7 +11,7 @@ import Contact from './components/contact';
 
 function App() {
 
-  const {t} = useTransition();
+  const {t} = useTranslation();
 
   return (
     <div>
