@@ -35,6 +35,14 @@ function Station() {
     return <div>{t('loading')}...</div>;
   }
 
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (isLoading) {
+    return <div>{t('loading')}...</div>;
+  }
+
   // Function to determine badge color based on status
   const getStatusBadgeVariant = (status) => {
     switch (status) {
@@ -45,7 +53,7 @@ function Station() {
       case 'Test':
         return 'warning';
       default:
-        return 'secondary'; 
+        return 'secondary';
     }
   };
 
@@ -59,7 +67,7 @@ function Station() {
             </Badge>
             <div>
               <h1 className="display-4">{station.name}</h1> {/* Large heading */}
-              <p>{station.description}</p>
+              <p>{station.description}</p> {/* Move description to the top */}
             </div>
           </div>
         </div>
@@ -68,7 +76,7 @@ function Station() {
       <div className="row mt-4"> {/* Content container */}
         <div className="col-md-6"> {/* Left column */}
           <ul className="list-unstyled">
-            <li className="mb-3"> {/* Latitude, longitude, altitude */}
+            <li className="mb-3 bg-light"> {/* Location with grey background */}
               <h5>{t('location')}:</h5>
               <ul className="list-unstyled">
                 <li><b>{t('latitude')}:</b> {station.lat}</li>
@@ -76,14 +84,14 @@ function Station() {
                 <li><b>{t('altitude')}:</b> {station.altitude} m</li>
               </ul>
             </li>
-            <li className="mb-3"> {/* Last seen and created */}
+            <li className="mb-3 bg-light"> {/* Activity with grey background */}
               <h5>{t('activity')}:</h5>
               <ul className="list-unstyled">
                 <li><b>{t('lastSeen')}:</b> {moment(station.last_seen).format('LLL')}</li>
                 <li><b>{t('created')}:</b> {moment(station.created).format('LLL')}</li>
               </ul>
             </li>
-            <li> {/* Observations */}
+            <li className="mb-3"> {/* Observations */}
               <h5>{t('observations')}:</h5>
               <p>{station.observations}</p>
             </li>
