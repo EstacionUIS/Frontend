@@ -4,45 +4,40 @@ import { useTranslation } from 'react-i18next';
 import panel from '../../../../public/Images/station/station_1.jpg';
 
 function Installation() {
+  const { t } = useTranslation("About"); // Specify the namespace 
 
-    const { t } = useTranslation();
+  return (
+    <div className="container mt-4"> {/* Container to center the content */}
+      <div className="row justify-content-center">
+        <div className="col-md-8"> {/* Adjust column width as needed */}
+          {/* Installation */}
+          <div className="row">
+            <div className="col-md-6 order-md-2"> {/* Image on the left for medium screens and above */}
+              <img src={panel} alt={t("Installation.ImageAlt")} className="img-fluid" style={{ maxWidth: '60%' }} /> 
+            </div>
+            <div className="col-md-6 order-md-1"> {/* Text on the right for medium screens and above */}
+              <h3>{t("Installation.Title")}</h3>
+              <p>{t("Installation.Description")}</p>
+            </div>
+          </div>
 
-    return(
-
-    <div className="row mt-4">
-      
-        {/* Installation */}
-        <div className="col-md-6"> {/* Text on the left */}
-            <h3>Installation</h3>
-            <p>
-            The installation process was carefully planned and executed to 
-            ensure the stability and accuracy of the monitoring station. 
-            The station was securely mounted and the sensors were calibrated 
-            to provide reliable data.
-            </p>
-        </div>
-        <div className="col-md-6"> {/* Image on the right */}
-            <img src={panel} alt="Installation" className="img-fluid" style={{ maxWidth: '60%' }} />
-        </div> 
-
-        {/* Materials */}
-        <div className="col-12">
-          <h3>Materials</h3>
-          <p>
-            The station is constructed using high-quality, weather-resistant 
-            materials to ensure durability and longevity. Key components 
-            include:
-            <ul>
-              <li>Solar panels for power generation</li>
-              <li>Sensors for data collection</li>
-              <li>Data logger for storage and transmission</li>
-              <li>Protective enclosure</li>
-            </ul>
-          </p>
+          {/* Materials */}
+          <div className="row mt-4">
+            <div className="col-12">
+              <h3>{t("Installation.MaterialsTitle")}</h3>
+              <p>{t("Installation.MaterialsDescription")}</p>
+              <ul>
+                <li>{t("Installation.MaterialsList1")}</li>
+                <li>{t("Installation.MaterialsList2")}</li>
+                <li>{t("Installation.MaterialsList3")}</li>
+                <li>{t("Installation.MaterialsList4")}</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-
-    )
+    </div>
+  );
 }
 
 export default Installation;

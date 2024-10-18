@@ -6,21 +6,22 @@ import CollapsibleSection from '../../../Collapsible/collapsibleSection';
 import antenna from '../../../../../public/Images/station/station_2.jpg'; 
 
 function Software() {
-
-  const { t } = useTranslation();
+  const { t } = useTranslation("About"); 
 
   return (
-    <CollapsibleSection title="Software"> {/* Use the CollapsibleSection */}
-      <div className="row">
-        <div className="col-md-6">
-          <p>
-            A high-gain antenna is used to ensure reliable data transmission 
-            from the remote monitoring station to the central server. The 
-            antenna is positioned for optimal signal strength and coverage.
-          </p>
-        </div>
-        <div className="col-md-6">
-          <img src={antenna} alt="Antenna" className="img-fluid" />
+    <CollapsibleSection title={t("Software.Title")}> {/* Use translation for the title */}
+      <div className="container"> {/* Container to center the content */}
+        <div className="row justify-content-center">
+          <div className="col-md-8"> {/* Adjust column width as needed */}
+            <div className="row">
+              <div className="col-md-6 order-md-2">
+                <img src={antenna} alt={t("Software.ImageAlt")} className="img-fluid" /> 
+              </div>
+              <div className="col-md-6 order-md-1">
+                <p>{t("Software.Description")}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </CollapsibleSection>

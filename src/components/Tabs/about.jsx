@@ -20,8 +20,8 @@ function About() {
       <div className="row justify-content-center"> {/* Center the entire content horizontally */}
         <div className="col-md-8"> {/* Adjust the column width as needed */}
           <div className="container rounded p-4">
-            <h2 className="mt-4 text-center">{t('about.title')}</h2> {/* Center the title */}
-            <p className="text-center">{t('about.description')}</p> {/* Center the description */}
+            <h2 className="mt-4 text-center">{t('About.Intro.Title')}</h2> {/* Center the title */}
+            <p className="text-center">{t('About.Intro.Description')}</p> {/* Center the description */}
 
             <div className="container"> {/* Container for Location and Installation */}
               <div className="row justify-content-center">

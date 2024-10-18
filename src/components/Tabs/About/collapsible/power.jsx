@@ -6,21 +6,22 @@ import CollapsibleSection from '../../../Collapsible/collapsibleSection';
 import power from '../../../../../public/Images/station/power.png'; 
 
 function Power() {
-
-  const { t } = useTranslation();
+  const { t } = useTranslation("About");
 
   return (
-    <CollapsibleSection title="Power"> {/* Use the CollapsibleSection */}
-      <div className="row">
-        <div className="col-md-6">
-          <p>
-            The monitoring station is powered by a combination of solar panels 
-            and a battery backup system. This ensures continuous operation, 
-            even during periods of low sunlight or power outages
-          </p>
-        </div>
-        <div className="col-md-6">
-            <img src={power} alt="Power Source" className="img-fluid" />
+    <CollapsibleSection title={t("Power.Title")}>
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-8">
+            <div className="row">
+              <div className="col-md-6 order-md-2">
+                <img src={power} alt={t("Power.ImageAlt")} className="img-fluid" />
+              </div>
+              <div className="col-md-6 order-md-1">
+                <p>{t("Power.Description")}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </CollapsibleSection>

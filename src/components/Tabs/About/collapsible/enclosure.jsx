@@ -3,24 +3,25 @@ import { useTranslation } from 'react-i18next';
 
 import CollapsibleSection from '../../../Collapsible/collapsibleSection';
 
-import power from '../../../../../public/Images/station/power.png'; 
+import enclosure from '../../../../../public/Images/station/station_1.jpg'; // Make sure to import the correct image
 
 function Enclosure() {
-
-  const { t } = useTranslation();
+  const { t } = useTranslation("About");
 
   return (
-    <CollapsibleSection title="Enclosure"> {/* Use the CollapsibleSection */}
-      <div className="row">
-        <div className="col-md-6">
-          <p>
-            The monitoring station is powered by a combination of solar panels 
-            and a battery backup system. This ensures continuous operation, 
-            even during periods of low sunlight or power outages
-          </p>
-        </div>
-        <div className="col-md-6">
-            <img src={power} alt="Power Source" className="img-fluid" />
+    <CollapsibleSection title={t("Enclosure.Title")}>
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-8">
+            <div className="row">
+              <div className="col-md-6 order-md-2">
+                <img src={enclosure} alt={t("Enclosure.ImageAlt")} className="img-fluid" /> {/* Use the enclosure image */}
+              </div>
+              <div className="col-md-6 order-md-1">
+                <p>{t("Enclosure.Description")}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </CollapsibleSection>

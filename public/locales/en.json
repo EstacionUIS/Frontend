@@ -15,10 +15,53 @@
     "update": "Update",
     "lastUpdated": "Last Updated",
 
-    "About": 
-    {
-        "Title": "About this project",
-        "description": "This project is designed to monitor and analyze environmental conditions in real-time. It provides valuable data for research, education, and public awareness."
+
+    "About": {
+        "Intro": {
+            "Title": "About this project",
+            "Description": "This project is designed to monitor and analyze environmental conditions in real-time. It provides valuable data for research, education, and public awareness."
+        },
+        "Location": {
+            "Title": "Location",
+            "Description": "The monitoring station is strategically located in a pristine natural environment to capture accurate and representative data. It is situated away from major sources of pollution and human activity to minimize interference.",
+            "ImageAlt": "Location of the monitoring station"
+        },
+        "Installation": {
+            "Title": "Installation",
+            "Description": "The installation process was carefully planned and executed to ensure the stability and accuracy of the monitoring station. The station was securely mounted and the sensors were calibrated to provide reliable data.",
+            "ImageAlt": "Installation of the monitoring station",
+            "MaterialsTitle": "Materials",
+            "MaterialsDescription": "The station is constructed using high-quality, weather-resistant materials to ensure durability and longevity. Key components include:",
+            "MaterialsList1": "Solar panels for power generation",
+            "MaterialsList2": "Sensors for data collection",
+            "MaterialsList3": "Data logger for storage and transmission",
+            "MaterialsList4": "Protective enclosure"
+        },
+        "Software": {
+            "Title": "Software",
+            "Description": "A high-gain antenna is used to ensure reliable data transmission from the remote monitoring station to the central server. The antenna is positioned for optimal signal strength and coverage.",
+            "ImageAlt": "Antenna used for data transmission" 
+        },
+        "Antenna": {
+            "Title": "Antenna & SDR-RTL",
+            "Description": "A high-gain antenna is used to ensure reliable data transmission from the remote monitoring station to the central server. The antenna is positioned for optimal signal strength and coverage.",
+            "ImageAlt": "Antenna and SDR-RTL"
+        },
+        "Raspberry": {
+            "Title": "Raspberry Pi",
+            "Description": "A Raspberry Pi serves as the central processing unit of the monitoring station. It collects data from the sensors, processes it, and transmits it to the server. Its low power consumption and compact size make it ideal for this application.",
+            "ImageAlt": "Raspberry Pi"
+        },
+        "Power": {
+            "Title": "Power",
+            "Description": "The monitoring station is powered by a combination of solar panels and a battery backup system. This ensures continuous operation, even during periods of low sunlight or power outages.",
+            "ImageAlt": "Power source"
+        },
+        "Enclosure": {
+            "Title": "Enclosure",
+            "Description": "A robust enclosure protects the monitoring station's components from the elements, ensuring reliable operation in various weather conditions.",
+            "ImageAlt": "Enclosure"
+        }
     }
 }
   

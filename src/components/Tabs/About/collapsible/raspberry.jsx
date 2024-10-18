@@ -6,22 +6,22 @@ import CollapsibleSection from '../../../Collapsible/collapsibleSection';
 import raspberry from '../../../../../public/Images/station/raspberry.jpg'; 
 
 function Raspberry() {
-
-  const { t } = useTranslation();
+  const { t } = useTranslation("About");
 
   return (
-    <CollapsibleSection title="Raspberry Pi"> {/* Use the CollapsibleSection */}
-      <div className="row">
-        <div className="col-md-6">
-          <p>
-            A Raspberry Pi serves as the central processing unit of the 
-            monitoring station. It collects data from the sensors, processes 
-            it, and transmits it to the server. Its low power consumption 
-            and compact size make it ideal for this application.
-          </p>
-        </div>
-        <div className="col-md-6">
-            <img src={raspberry} alt="Raspberry Pi" className="img-fluid" />
+    <CollapsibleSection title={t("RaspberryPi.Title")}>
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-8">
+            <div className="row">
+              <div className="col-md-6 order-md-2">
+                <img src={raspberry} alt={t("RaspberryPi.ImageAlt")} className="img-fluid" />
+              </div>
+              <div className="col-md-6 order-md-1">
+                <p>{t("RaspberryPi.Description")}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </CollapsibleSection>
