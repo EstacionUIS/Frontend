@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-// Sections
+// Section
 import Location from './About/location';
 import Installation from './About/installation';
 
@@ -16,22 +16,35 @@ function About() {
   const { t } = useTranslation();
 
   return (
-    <div className="container"> {/* Main container */}
+    <div className="container"> 
+      <div className="row justify-content-center"> {/* Center the entire content horizontally */}
+        <div className="col-md-8"> {/* Adjust the column width as needed */}
+          <div className="container rounded p-4">
+            <h2 className="mt-4 text-center">{t('about.title')}</h2> {/* Center the title */}
+            <p className="text-center">{t('about.description')}</p> {/* Center the description */}
 
-      <div className="container rounded p-4"> {/* About container */}
-        <h2 className="mt-4">{t('about.title')}</h2>
-        <p>{t('about.description')}</p>
-      </div>
+            <div className="container"> {/* Container for Location and Installation */}
+              <div className="row justify-content-center">
+                <div className="col-md-6"> {/* Adjust column width as needed */}
+                  <Location />
+                  <Installation />
+                </div>
+              </div>
+            </div>
 
-      <Location /> 
-      <Installation />
-
-      <div className="container rounded p-4 mt-4"> {/* Collapsible container */}
-        <Software />
-        <Antenna />
-        <Raspberry />
-        <Power />
-        <Enclosure />
+            <div className="container mt-4"> {/* Container for the collapsible sections */}
+              <div className="row justify-content-center">
+                <div className="col-md-6"> {/* Adjust column width as needed */}
+                  <Software />
+                  <Antenna />
+                  <Raspberry />
+                  <Power />
+                  <Enclosure />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
