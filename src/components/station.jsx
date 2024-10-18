@@ -53,7 +53,7 @@ function Station() {
 
     <div className="container">
 
-      // Top
+      /* Top */
 
       <div className="row mt-4">
         <div className="col-md-12 text-center">
@@ -66,7 +66,7 @@ function Station() {
         </div>
       </div>
 
-      // Content
+      /* Content */
 
       <div className="row mt-4">
         <div className="col-md-6">
@@ -95,12 +95,12 @@ function Station() {
         </div>
         <div className="col-md-6">
           <div className='p-3'>
-            <img src={station.image} alt={`Station: ${station.name}`} className="img-fluid w-50" /> {/* Resized image */}
+            <img src={station.image} alt={`Station: ${station.name}`} className="img-fluid w-75" /> {/* Resized image */}
           </div>
         </div>
       </div>
 
-      // Bottom
+      /* Bottom */
 
       <div className="card p-3 mt-3 rounded"> {/* Bar with template text */}
         <p>More details about the station, antenna specifications, and recent activities will be displayed here.</p>
