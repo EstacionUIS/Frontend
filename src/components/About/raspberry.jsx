@@ -10,7 +10,7 @@ function Raspberry() {
   const { t } = useTranslation();
 
   return (
-    <CollapsibleSection title="Antenna"> {/* Use the CollapsibleSection */}
+    <CollapsibleSection title="Raspberry Pi"> {/* Use the CollapsibleSection */}
       <div className="row">
         <div className="col-md-6">
           <p>

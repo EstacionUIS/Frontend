@@ -5,12 +5,12 @@ import CollapsibleSection from './collapsible/collapsibleSection';
 
 import antenna from '../../../public/Images/station/station_2.jpg'; 
 
-function Antenna() {
+function Software() {
 
   const { t } = useTranslation();
 
   return (
-    <CollapsibleSection title="Antenna & SDR-RTL"> {/* Use the CollapsibleSection */}
+    <CollapsibleSection title="Software"> {/* Use the CollapsibleSection */}
       <div className="row">
         <div className="col-md-6">
           <p>
@@ -27,4 +27,4 @@ function Antenna() {
   );
 }
 
-export default Antenna;
+export default Software;

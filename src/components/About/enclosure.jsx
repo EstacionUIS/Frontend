@@ -5,12 +5,12 @@ import CollapsibleSection from './collapsible/collapsibleSection';
 
 import power from '../../../public/Images/station/power.png'; 
 
-function Power() {
+function Enclosure() {
 
   const { t } = useTranslation();
 
   return (
-    <CollapsibleSection title="Power"> {/* Use the CollapsibleSection */}
+    <CollapsibleSection title="Enclosure"> {/* Use the CollapsibleSection */}
       <div className="row">
         <div className="col-md-6">
           <p>
@@ -27,4 +27,4 @@ function Power() {
   );
 }
 
-export default Power;
+export default Enclosure;

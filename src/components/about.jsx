@@ -3,9 +3,11 @@ import { useTranslation } from 'react-i18next';
 
 import Location from './About/location';
 import Installation from './About/installation';
+import Software from './About/software';
 import Antenna from './About/antenna';
 import Raspberry from './About/raspberry';
 import Power from './About/power';
+import Enclosure from './About/enclosure';
 
 function About() {
 
@@ -32,6 +34,9 @@ function About() {
       {/* Installation and Materials */}
       <Installation />
 
+      {/* Software (Collapsible) */}
+      <Software />
+
       {/* Antenna (Collapsible) */}
       <Antenna />
 
@@ -40,6 +45,9 @@ function About() {
 
       {/* Power Source (Collapsible) */}
       <Power />
+
+      {/* Enclosure (Collapsible) */}
+      <Enclosure/>
 
     </div>
   );
