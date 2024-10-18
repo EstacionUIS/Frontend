@@ -12,7 +12,7 @@ function App() {
         const stationId = import.meta.env.VITE_GROUND_ID; // Replace with the desired station ID
         const data = await getStationById(stationId); 
         
-        setStation(data); 
+        setStation(data[0]); 
       } catch (error) {
         setError(error);
       } finally {
