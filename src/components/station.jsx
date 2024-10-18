@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getStationById } from './api/satnogsAPI';
+import { getStationById } from '../api/satnogsAPI';
 
 function Station() {
   const [station, setStation] = useState(null);
