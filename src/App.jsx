@@ -2,68 +2,69 @@ import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { useTranslation } from 'react-i18next';
 
-// Tabs format
 import 'react-tabs/style/react-tabs.css';
 
-// Components
 import Station from './components/station';
 import Observations from './components/observations';
 import Information from './components/information';
 import Contact from './components/contact';
 
 function App() {
-    const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-    const changeLanguage = (lng) => {
-        i18n.changeLanguage(lng);
-    }
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
 
-    return (
-        <div className="container">
-            <header className="bg-light p-3"> {/* Header bar */}
-                <div className="row">
-                    <div className="col-md-12 d-flex justify-content-end"> {/* Align language selection to the right */}
-                        <select
-                            className="form-select mt-3"
-                            value={i18n.language}
-                            onChange={(e) => changeLanguage(e.target.value)}
-                        >
-                            <option value="en">English</option>
-                            <option value="es">Español</option>
-                        </select>
-                    </div>
-                </div>
-            </header>
-
-            <main> {/* Main content area */}
-                <Station /> {/* Always visible information */}
-
-                <div className="mt-4"> {/* Add some spacing */}
-                    <Tabs>
-                        <TabList className="nav nav-tabs"> {/* Use Bootstrap nav-tabs class */}
-                            <Tab className="nav-item nav-link">{t('Observations')}</Tab> {/* Use Bootstrap nav-item and nav-link classes */}
-                            <Tab className="nav-item nav-link">{t('Information')}</Tab>
-                            <Tab className="nav-item nav-link">{t('Contact')}</Tab>
-                        </TabList>
-
-                        <TabPanel>
-                            <Observations />
-                        </TabPanel>
-                        <TabPanel>
-                            <Information />
-                        </TabPanel>
-                        <TabPanel>
-                            {/* Contact component is always visible, so no need to include it in the tabs */}
-                        </TabPanel>
-                    </Tabs>
-                </div>
-            </main>
-
-            <footer className="bg-light p-3 mt-4"> {/* Footer with Contact component */}
-                <Contact />
-            </footer>
+  return (
+    <div className="container-fluid"> {/* Use container-fluid for full width */}
+      <div className="row">
+        <div className="col-12">
+          <header className="d-flex justify-content-end align-items-center py-3"> {/* Header with flexbox for alignment */}
+            <span className="me-2">{t('Language')}:</span> {/* Text for "Language" */}
+            <select
+              className="form-select"
+              value={i18n.language}
+              onChange={(e) => changeLanguage(e.target.value)}
+            >
+              <option value="en">English</option>
+              <option value="es">Español</option>
+            </select>
+          </header>
         </div>
-    );
+      </div>
+
+      <div className="row">
+        <div className="col-12">
+          <Information /> {/* Information component always visible */}
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col-12">
+          <Tabs>
+            <TabList>
+              <Tab>{t('Station')}</Tab>
+              <Tab>{t('Observations')}</Tab>
+            </TabList>
+
+            <TabPanel>
+              <Station />
+            </TabPanel>
+            <TabPanel>
+              <Observations />
+            </TabPanel>
+          </Tabs>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col-12">
+          <Contact /> {/* Contact component always visible */}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default App;
