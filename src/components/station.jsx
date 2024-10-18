@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { getStationById } from '../api/satnogsAPI';
+import { useTranslation } from 'react-i18next';
 
 function Station() {
   const [station, setStation] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,11 +30,11 @@ function Station() {
   }
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>{t('loading')}...</div>;
   } else {
     return (
       <div>
-        <h2>Station Details:</h2>
+        <h2>{t('stationDetails')}:</h2>
         <ul>
           {Object.entries(station).map(([key, value]) => (
             <li key={key}>

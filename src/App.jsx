@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useTransition } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { useTransition } from 'react-i18next';
 
 import 'react-tabs/style/react-tabs.css';
 
@@ -9,14 +10,17 @@ import Information from './components/information';
 import Contact from './components/contact';
 
 function App() {
+
+  const {t} = useTransition();
+
   return (
     <div>
       <Station /> {/* Station component always displayed on top */}
       <Tabs>
         <TabList>
-          <Tab>Observations</Tab>
-          <Tab>Information</Tab>
-          <Tab>Contact</Tab>
+          <Tab>{t(Observations)}</Tab>
+          <Tab>{t(Information)}</Tab>
+          <Tab>{t(Contact)}</Tab>
         </TabList>
 
         <TabPanel>

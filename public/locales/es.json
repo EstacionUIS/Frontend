@@ -1,0 +1,8 @@
+{
+    "observations": "Observaciones",
+    "information": "Información",
+    "contact": "Contacto",
+    "stationDetails": "Detalles de la estación:",
+    "loading": "Cargando...",
+    "error": "Error: {{message}}"
+}
