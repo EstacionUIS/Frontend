@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import Badge from 'react-bootstrap/Badge';
-import moment from 'moment';
-
 import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button';
+import moment from 'moment';
 
 import { getStationById } from '../../api/satnogsAPI';
+
+import Header from './Station/header';
+import Desc from './Station/desc';
+import Location from './Station/location';
+import Activity from './Station/activity';
+import Observation from './Station/observation';
+import Image from './Station/image';
 
 function Station() {
   const [station, setStation] = useState(null);
@@ -63,109 +68,46 @@ function Station() {
     );
   }
 
-  // Function to determine badge color based on status
-  const getStatusBadgeVariant = (status) => {
-    switch (status) {
-      case 'Online':
-        return 'success';
-      case 'Offline':
-        return 'danger';
-      case 'Test':
-        return 'warning';
-      default:
-        return 'secondary';
-    }
-  };
-
   return (
+      <div className="container">
+          {station && <Header station={station} />}
 
-    <div className="container">
+          <div className="row mt-4">
+              <div className="col-md-6">
+                  {station && <Desc station={station} />}
+                  {station && <Location station={station} />}
+                  {station && <Activity station={station} />}
+                  {station && <Observation station={station} />}
+              </div>
 
-      {/* Top */}
-
-      <div className="row mt-4">
-        <div className="col-md-12 text-center">
-          <div className="d-flex justify-content-center align-items-center">
-            <Badge bg={getStatusBadgeVariant(station.status)} className="me-3">
-              {station.id}
-            </Badge>
-            <h1>{station.name}</h1>
+              <div className="col-md-6">
+                  {station && <Image station={station} />}
+              </div>
           </div>
-        </div>
+
+          {/* Update Button */}
+          <div className="row mt-3">
+              <div className="col-md-12 text-center">
+                  <Button variant="primary" onClick={fetchData} disabled={isLoading}>
+                      {isLoading ? (
+                          <>
+                              <Spinner animation="border" size="sm" role="status" aria-hidden="true" className="me-2" />
+                              {t('loading')}...
+                          </>
+                      ) : (
+                          <>
+                              {t('update')}
+                              {lastUpdated && (
+                                  <span className="ms-2">
+                                      ({t('lastUpdated')}: {moment(lastUpdated).fromNow()})
+                                  </span>
+                              )}
+                          </>
+                      )}
+                  </Button>
+              </div>
+          </div>
       </div>
-
-      {/* Content */}
-
-      <div className="row mt-4">
-        <div className="col-md-6">
-          <div className="card p-3 mb-3 rounded"> {/* Description box */}
-            <p>{station.description}</p>
-          </div>
-          <div className="card p-3 mb-3 rounded"> {/* Location box */}
-            <h5>{t('location')}</h5>
-            <ul className="list-unstyled"> {/* ... (latitude, longitude, altitude) */}
-              <li><b>{t('latitude')}:</b> {station.lat}</li>
-              <li><b>{t('longitude')}:</b> {station.lng}</li>
-              <li><b>{t('altitude')}:</b> {station.altitude} m</li>
-            </ul>
-          </div>
-          <div className="card p-3 mb-3 rounded"> {/* Activity box */}
-            <h5>{t('activity')}</h5>
-            <ul className="list-unstyled"> {/* ... (last seen and created) */}
-              <li><b>{t('lastSeen')}:</b> {moment(station.last_seen).format('LLL')}</li>
-              <li><b>{t('created')}:</b> {moment(station.created).format('LLL')}</li> 
-            </ul>
-          </div>
-          <div className="card p-3 rounded"> {/* Observations box */}
-            <h5>{t('observations')}</h5>
-            <ul className="list-unstyled"> {/* ... (last seen and created) */}
-              <li><b>{t('observations')}:</b> {moment(station.observations).format('LLL')}</li>
-              <li><b>{t('success')}:</b> {moment(station.success_rate).format('LLL')}</li> 
-            </ul>
-          </div>
-        </div>
-
-        {/* Image */}
-
-        <div className="col-md-6">
-          <div className='p-3'>
-            <img src={station.image} alt={`Station: ${station.name}`} className="img-fluid w-75" /> {/* Resized image */}
-          </div>
-        </div>
-
-      </div>
-
-      {/* Bottom */}
-
-      <div className="card p-3 mt-3 rounded">
-            <p>More details about the station, antenna specifications, and recent activities will be displayed here.</p>
-      </div>
-
-      {/* Update Button */}
-
-      <div className="row mt-3"> {/* Row for the update button */}
-        <div className="col-md-12 text-center">
-          <Button variant="primary" onClick={fetchData} disabled={isLoading}>
-            {isLoading ? (
-              <>
-                <Spinner animation="border" size="sm" role="status" aria-hidden="true" className="me-2" />
-                {t('loading')}...
-              </>
-            ) : (
-              <>
-                {t('update')}
-                {lastUpdated && (
-                  <span className="ms-2">
-                    ({t('lastUpdated')}: {moment(lastUpdated).fromNow()})
-                  </span>
-                )}
-              </>
-            )}
-          </Button>
-        </div>
-      </div>
-
-    </div>
   );
 }
 

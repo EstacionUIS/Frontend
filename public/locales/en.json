@@ -15,6 +15,14 @@
     "update": "Update",
     "lastUpdated": "Last Updated",
 
+    "Station": {
+        "Header": "",
+        "Description": "",
+        "Location": "",
+        "Activity": "",
+        "Observations": "",
+        
+    },
 
     "About": {
         "Intro": {
