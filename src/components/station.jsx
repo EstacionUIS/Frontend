@@ -14,7 +14,7 @@ function Station() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [lastUpdated, setLastUpdated] = useState(null);
-  const [open, setOpen] = useState(false);
+  const [openAntenna, setOpenAntenna] = useState(false);
 
   const { t } = useTranslation();
 
@@ -139,34 +139,36 @@ function Station() {
 
       {/* Bottom */}
 
-      <div className="card p-3 mt-3 rounded"> {/* Bar with template text */}
-        <p>More details about the station, antenna specifications, and recent activities will be displayed here.</p>
-        <Button
-              onClick={() => setOpen(!open)}
-              aria-controls="antenna-details"
-              aria-expanded={open}
+      <div className="card p-3 mt-3 rounded">
+            <p>More details about the station, antenna specifications, and recent activities will be displayed here.</p>
+
+            <Button
+              onClick={() => setOpenAntenna(!openAntenna)}
+              aria-controls="antenna-collapse-text"
+              aria-expanded={openAntenna}
+              variant="outline-secondary"
+              size="sm"
             >
               {t('antennaDetails')}
             </Button>
-            <Collapse in={open}> {/* Collapsible antenna details */}
-              <div id="antenna-details">
+            <Collapse in={openAntenna}> {/* Collapsible antenna details */}
+              <div id="antenna-collapse-text" className="mt-2">
                 <ul>
                   {station.antenna.map((antenna, index) => (
                     <li key={index}>
                       <b>{t('antenna')} {index + 1}:</b>
                       <ul>
-                        {Object.entries(antenna).map(([key, value]) => (
-                          <li key={key}>
-                            <b>{key}:</b> {value}
-                          </li>
-                        ))}
+                        <li>{t('band')}: {antenna.band}</li>
+                        <li>{t('type')}: {antenna.antenna_type_name}</li>
+                        <li>{t('frequency')}: {antenna.frequency} - {antenna.frequency_max} Hz</li>
+                        {/* Add more antenna details as needed */}
                       </ul>
                     </li>
                   ))}
                 </ul>
               </div>
             </Collapse>
-      </div>
+          </div>
 
       {/* Update Button */}
 
