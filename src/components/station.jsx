@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Badge from 'react-bootstrap/Badge';
 import moment from 'moment';
 import Spinner from 'react-bootstrap/Spinner';
+import Button from 'react-bootstrap/Button';
 
 import { getStationById } from '../api/satnogsAPI';
 
@@ -10,24 +11,42 @@ function Station() {
   const [station, setStation] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [lastUpdated, setLastUpdated] = useState(null);
 
   const { t } = useTranslation();
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const stationId = import.meta.env.VITE_GROUND_ID;
-        const data = await getStationById(stationId);
-        setStation(data[0]);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+    // Load station data from localStorage if available
+    const storedStation = localStorage.getItem('stationData');
+    if (storedStation) {
+      setStation(JSON.parse(storedStation));
+      setLastUpdated(localStorage.getItem('lastUpdated'));
+      setIsLoading(false);
+    }
 
+    // Fetch data initially
     fetchData();
   }, []);
+
+  const fetchData = async () => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const stationId = import.meta.env.VITE_GROUND_ID;
+      const data = await getStationById(stationId);
+      setStation(data[0]);
+      setLastUpdated(new Date()); // Update last updated time
+
+      // Store station data in localStorage
+      localStorage.setItem('stationData', JSON.stringify(data[0]));
+      localStorage.setItem('lastUpdated', new Date());
+    } catch (error) {
+      setError(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -61,7 +80,7 @@ function Station() {
 
     <div className="container">
 
-      /* Top */
+      {/* Top */}
 
       <div className="row mt-4">
         <div className="col-md-12 text-center">
@@ -74,7 +93,31 @@ function Station() {
         </div>
       </div>
 
-      /* Content */
+      {/* Update Button */}
+
+      <div className="row mt-3"> {/* Row for the update button */}
+        <div className="col-md-12 text-center">
+          <Button variant="primary" onClick={fetchData} disabled={isLoading}>
+            {isLoading ? (
+              <>
+                <Spinner animation="border" size="sm" role="status" aria-hidden="true" className="me-2" />
+                {t('loading')}...
+              </>
+            ) : (
+              <>
+                {t('update')}
+                {lastUpdated && (
+                  <span className="ms-2">
+                    ({t('lastUpdated')}: {moment(lastUpdated).fromNow()})
+                  </span>
+                )}
+              </>
+            )}
+          </Button>
+        </div>
+      </div>
+
+      {/* Content */}
 
       <div className="row mt-4">
         <div className="col-md-6">
@@ -108,7 +151,7 @@ function Station() {
         </div>
       </div>
 
-      /* Bottom */
+      {/* Bottom */}
 
       <div className="card p-3 mt-3 rounded"> {/* Bar with template text */}
         <p>More details about the station, antenna specifications, and recent activities will be displayed here.</p>
