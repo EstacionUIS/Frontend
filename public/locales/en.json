@@ -5,6 +5,12 @@
     "stationDetails": "Station Details:",
     "loading": "Loading...",
     "error": "Error: {{message}}",
-    "timestamp": "Timestamp"
+    "location": "Location",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "altitude": "Altitude",
+    "activity": "Activity",
+    "lastSeen": "Last Seen",
+    "created": "Created"
 }
   
