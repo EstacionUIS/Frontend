@@ -93,30 +93,6 @@ function Station() {
         </div>
       </div>
 
-      {/* Update Button */}
-
-      <div className="row mt-3"> {/* Row for the update button */}
-        <div className="col-md-12 text-center">
-          <Button variant="primary" onClick={fetchData} disabled={isLoading}>
-            {isLoading ? (
-              <>
-                <Spinner animation="border" size="sm" role="status" aria-hidden="true" className="me-2" />
-                {t('loading')}...
-              </>
-            ) : (
-              <>
-                {t('update')}
-                {lastUpdated && (
-                  <span className="ms-2">
-                    ({t('lastUpdated')}: {moment(lastUpdated).fromNow()})
-                  </span>
-                )}
-              </>
-            )}
-          </Button>
-        </div>
-      </div>
-
       {/* Content */}
 
       <div className="row mt-4">
@@ -155,6 +131,30 @@ function Station() {
 
       <div className="card p-3 mt-3 rounded"> {/* Bar with template text */}
         <p>More details about the station, antenna specifications, and recent activities will be displayed here.</p>
+      </div>
+
+      {/* Update Button */}
+
+      <div className="row mt-3"> {/* Row for the update button */}
+        <div className="col-md-12 text-center">
+          <Button variant="primary" onClick={fetchData} disabled={isLoading}>
+            {isLoading ? (
+              <>
+                <Spinner animation="border" size="sm" role="status" aria-hidden="true" className="me-2" />
+                {t('loading')}...
+              </>
+            ) : (
+              <>
+                {t('update')}
+                {lastUpdated && (
+                  <span className="ms-2">
+                    ({t('lastUpdated')}: {moment(lastUpdated).fromNow()})
+                  </span>
+                )}
+              </>
+            )}
+          </Button>
+        </div>
       </div>
 
     </div>

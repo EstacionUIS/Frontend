@@ -11,6 +11,8 @@
     "altitude": "Altitude",
     "activity": "Activity",
     "lastSeen": "Last Seen",
-    "created": "Created"
+    "created": "Created",
+    "update": "Update",
+    "lastUpdated": "Last Updated"
 }
   

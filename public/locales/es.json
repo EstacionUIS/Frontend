@@ -5,12 +5,13 @@
     "stationDetails": "Detalles de la estación:",
     "loading": "Cargando...",
     "error": "Error: {{message}}",
-    "timestamp": "Marca de Tiempo",
     "location": "Posicion",
     "latitude": "Latitud",
     "longitude": "Longitud",
     "altitude": "Altitud",
     "activity": "Actividad",
     "lastSeen": "Ultima vez visto",
-    "created": "Creado"
+    "created": "Creado",
+    "update": "Actualizar",
+    "lastUpdated": "Ultima vez Actualizado"
 }
