@@ -4,10 +4,14 @@ import { useTranslation } from 'react-i18next';
 
 import 'react-tabs/style/react-tabs.css';
 
+import About from './components/about';
 import Station from './components/station';
 import Observations from './components/observations';
 import Information from './components/information';
 import Contact from './components/contact';
+
+import logo1 from '../public/Images/logo1.png'; // Replace with the actual path to your first logo
+import logo2 from '../public/Images/logo2.png'; // Replace with the actual path to your second logo
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -17,50 +21,63 @@ function App() {
   };
 
   return (
-    <div className="container-fluid"> {/* Use container-fluid for full width */}
-      <div className="row">
+    <div className="container-fluid">
+      {/* Colored header with logos and language options */}
+      <header className="bg-primary d-flex align-items-center py-3 px-4"> 
+        <div className="d-flex align-items-center">
+          <img src={logo1} alt="Logo 1" className="me-3" style={{ height: '50px' }} /> {/* Adjust height as needed */}
+          <img src={logo2} alt="Logo 2" style={{ height: '50px' }} /> {/* Adjust height as needed */}
+        </div>
+        <div className="ms-auto"> {/* Push language options to the right */}
+          <span className="me-2 text-white">{t('Language')}:</span>
+          <select
+            className="form-select"
+            value={i18n.language}
+            onChange={(e) => changeLanguage(e.target.value)}
+          >
+            <option value="en">English</option>
+            <option value="es">Español</option>
+          </select>
+        </div>
+      </header>
+
+      {/* Information component */}
+      <div className="row mt-4"> {/* Add margin-top for spacing */}
         <div className="col-12">
-          <header className="d-flex justify-content-end align-items-center py-3"> {/* Header with flexbox for alignment */}
-            <span className="me-2">{t('Language')}:</span> {/* Text for "Language" */}
-            <select
-              className="form-select"
-              value={i18n.language}
-              onChange={(e) => changeLanguage(e.target.value)}
-            >
-              <option value="en">English</option>
-              <option value="es">Español</option>
-            </select>
-          </header>
+          <Information />
         </div>
       </div>
 
-      <div className="row">
-        <div className="col-12">
-          <Information /> {/* Information component always visible */}
-        </div>
-      </div>
-
-      <div className="row">
+      {/* Tabs container with a bar and content space */}
+      <div className="row mt-4">
         <div className="col-12">
           <Tabs>
-            <TabList>
-              <Tab>{t('Station')}</Tab>
-              <Tab>{t('Observations')}</Tab>
-            </TabList>
-
-            <TabPanel>
-              <Station />
-            </TabPanel>
-            <TabPanel>
-              <Observations />
-            </TabPanel>
+            <div className="bg-light p-3"> {/* Bar for tabs */}
+              <TabList>
+                <Tab>{t('About')}</Tab> {/* New "About" tab */}
+                <Tab>{t('Station')}</Tab>
+                <Tab>{t('Observations')}</Tab>
+              </TabList>
+            </div>
+            <div className="p-3"> {/* Content space */}
+              <TabPanel>
+                <About />
+              </TabPanel>
+              <TabPanel>
+                <Station />
+              </TabPanel>
+              <TabPanel>
+                <Observations />
+              </TabPanel>
+            </div>
           </Tabs>
         </div>
       </div>
 
-      <div className="row">
+      {/* Contact component at the bottom */}
+      <div className="row mt-4">
         <div className="col-12">
-          <Contact /> {/* Contact component always visible */}
+          <Contact />
         </div>
       </div>
     </div>

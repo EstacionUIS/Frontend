@@ -5,7 +5,6 @@ import moment from 'moment';
 
 import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button';
-import Collapse from 'react-bootstrap/Collapse';
 
 import { getStationById } from '../api/satnogsAPI';
 
@@ -14,7 +13,6 @@ function Station() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [lastUpdated, setLastUpdated] = useState(null);
-  const [openAntenna, setOpenAntenna] = useState(false);
 
   const { t } = useTranslation();
 
