@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Badge from 'react-bootstrap/Badge';
 import moment from 'moment';
+
 import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button';
+import Collapse from 'react-bootstrap/Collapse';
 
 import { getStationById } from '../api/satnogsAPI';
 
@@ -12,6 +14,7 @@ function Station() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [lastUpdated, setLastUpdated] = useState(null);
+  const [open, setOpen] = useState(false);
 
   const { t } = useTranslation();
 
@@ -117,20 +120,52 @@ function Station() {
           </div>
           <div className="card p-3 rounded"> {/* Observations box */}
             <h5>{t('observations')}</h5>
-            <p>{station.observations}</p>
+            <ul className="list-unstyled"> {/* ... (last seen and created) */}
+              <li><b>{t('observations')}:</b> {moment(station.observations).format('LLL')}</li>
+              <li><b>{t('success')}:</b> {moment(station.success_rate).format('LLL')}</li> 
+            </ul>
           </div>
         </div>
+
+        {/* Image */}
+
         <div className="col-md-6">
           <div className='p-3'>
             <img src={station.image} alt={`Station: ${station.name}`} className="img-fluid w-75" /> {/* Resized image */}
           </div>
         </div>
+
       </div>
 
       {/* Bottom */}
 
       <div className="card p-3 mt-3 rounded"> {/* Bar with template text */}
         <p>More details about the station, antenna specifications, and recent activities will be displayed here.</p>
+        <Button
+              onClick={() => setOpen(!open)}
+              aria-controls="antenna-details"
+              aria-expanded={open}
+            >
+              {t('antennaDetails')}
+            </Button>
+            <Collapse in={open}> {/* Collapsible antenna details */}
+              <div id="antenna-details">
+                <ul>
+                  {station.antenna.map((antenna, index) => (
+                    <li key={index}>
+                      <b>{t('antenna')} {index + 1}:</b>
+                      <ul>
+                        {Object.entries(antenna).map(([key, value]) => (
+                          <li key={key}>
+                            <b>{key}:</b> {value}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Collapse>
       </div>
 
       {/* Update Button */}
