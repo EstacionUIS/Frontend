@@ -53,7 +53,7 @@ function Observations() {
     return (
       <div>
 
-        <h2>t{('Observations.Title')}</h2>
+        <h2>{t('Observations.Title')}</h2>
         <ul>
           {currentObservations.map((observation) => (
             <Entry key={observation.id} observation={observation} />
@@ -63,10 +63,10 @@ function Observations() {
         {/* Pagination controls */}
         <div>
           <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
-            t{('Observations.Previous')}
+            {t('Observations.Previous')}
           </button>
           <button onClick={() => paginate(currentPage + 1)} disabled={indexOfLastObservation >= observations.length}>
-          t{('Observations.Next')}
+          {t('Observations.Next')}
           </button>
         </div>
       </div>
