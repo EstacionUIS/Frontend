@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Badge from 'react-bootstrap/Badge';
 import { useTranslation } from 'react-i18next';
-import moment from 'moment';
-
 import Collapse from 'react-bootstrap/Collapse';
-import Spinner from 'react-bootstrap/Spinner';
 import Card from 'react-bootstrap/Card';
-
+import moment from 'moment';
 import { getSatelliteByNoradId } from '../../../api/satnogsAPI'; 
 
 import sat from '../../../../public/Images/sat_purple.png'; 
@@ -15,41 +12,21 @@ function Entry({ observation }) {
     const { t } = useTranslation();
     const [open, setOpen] = useState(false);
     const [satelliteData, setSatelliteData] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchSatelliteData = async () => {
-            setIsLoading(true);
-            try {
-                if (observation && observation.norad_cat_id) {
-                    const data = await getSatelliteByNoradId(observation.norad_cat_id);
-                    setSatelliteData(data);
-                }
-            } catch (err) {
-                setError(err); 
-            } finally {
-                setIsLoading(false);
+            if (observation && observation.norad_cat_id) {
+                const data = await getSatelliteByNoradId(observation.norad_cat_id);
+                setSatelliteData(data);
             }
         };
-    
+
         fetchSatelliteData();
-    }, [observation]);
+    }, [observation]); // Run effect whenever observation changes
 
-    if (error) {
-        return <div>{t('Error')}: {error.message}</div>;
+    if (!observation) {
+        return null; 
     }
-
-    if (isLoading) {
-        return ( 
-            <div className="d-flex justify-content-center align-items-center vh-100">
-                <Spinner animation="border" role="status">
-                    <span className="visually-hidden">{t('loading')}...</span>  
-    
-                </Spinner>
-            </div>
-        );
-    } 
 
     let badgeVariant;
     switch (observation.status) {
@@ -72,51 +49,42 @@ function Entry({ observation }) {
             badgeVariant = 'secondary';
     }
 
-    const formattedDate = moment(observation.start).format('YYYY-MM-DD HH:mm:ss');
+  const formattedDate = moment(observation.start).format('YYYY-MM-DD HH:mm:ss');
 
-    const imageUrl = satelliteData ? `${import.meta.env.VITE_MEDIA_URL}/${satelliteData.image}` : sat;
-    const databaseUrl = `${import.meta.env.VITE_SATELLITES_URL}/${observation.sat_id}`; 
+  const imageUrl = satelliteData ? `${import.meta.env.VITE_MEDIA_URL}/${satelliteData.image}` : sat;
+  const databaseUrl = `${import.meta.env.VITE_SATELLITES_URL}/${observation.sat_id}`; 
 
-    const satelliteStatus = satelliteData ? satelliteData.status : null; // Get satellite status
-    let badgeStatusVariant = satelliteStatus === 'alive' ? 'success' : 'danger'; 
-
-    return (
-        <Card key={observation.id} className="mb-3">
-            <Card.Header
-                onClick={() => setOpen(!open)}
-                aria-controls="observation-details"
-                aria-expanded={open}
-                style={{ cursor: 'pointer' }}
-            >
-                <div className="d-flex justify-content-between align-items-center"> 
-                    <div className="d-flex flex-column align-items-center"> {/* Center content vertically */}
-                        <div>
-                            <b>{t('Observations.Id')}:</b> {observation.id}, <b>{t('Observations.TimeStamp')}:</b> {formattedDate}
-                        </div>
-                        <div>
-                            <Badge bg={badgeVariant}>{t(`Observations.Status.${observation.status}`)}</Badge>
-                        </div>
-                    </div>
-                </div>
-            </Card.Header>
-            <Collapse in={open}>
+  return (
+    <Card key={observation.id} className="mb-3">
+      <Card.Header
+        onClick={() => setOpen(!open)}
+        aria-controls="observation-details"
+        aria-expanded={open}
+        style={{ cursor: 'pointer' }}
+      >
+        <div className="d-flex justify-content-between align-items-center">
+          <div>
+            <b>{t('Observations.Id')}:</b> {observation.id}, <b>{t('Observations.TimeStamp')}:</b> {formattedDate}
+          </div>
+          <div>
+            <Badge bg={badgeVariant}>{t(`Observations.Status.${observation.status}`)}</Badge>
+          </div>
+        </div>
+      </Card.Header>
+      <Collapse in={open}>
                 <div id="observation-details">
                     <Card.Body>
-                        <div className="d-flex justify-content-between"> {/* Distribute content to left and right */}
-                            <div className="d-flex flex-column align-items-start w-50"> {/* Container to the left, content aligned to the start */}
-                                <p>
-                                    <b>Status:</b> {satelliteStatus ? 
-                                        <Badge bg={badgeStatusVariant}>{satelliteStatus}</Badge> : 
-                                        'Loading...'
-                                    }
-                                </p> 
+                        <div className="d-flex"> 
+                            <div> 
+                                {/* ... (your existing left section code) ... */}
+                                <p><b>Status:</b> {satelliteData ? satelliteData.status : 'Loading...'}</p> {/* Display satellite status */}
                             </div>
-                            <div className="w-50 d-flex justify-content-end"> {/* Container to the right */}
+                            <div> 
                                 <Card>
                                     <Card.Body>
                                         <div className="d-flex flex-column align-items-center"> 
                                             <Card.Title>{observation.tle0 ? observation.tle0 : ''}</Card.Title>
-                                            {imageUrl && <Card.Img variant="top" src={imageUrl} alt="Satellite Image" style={{ width: '150px' }} />}
+                                            {imageUrl && <Card.Img variant="top" src={imageUrl} alt="Satellite Image" style={{ width: '150px' }} />} {/* Conditionally render image */}
                                             <a href={databaseUrl} target="_blank" rel="noopener noreferrer">
                                                 View on SatNOGS DB
                                             </a>
@@ -128,8 +96,8 @@ function Entry({ observation }) {
                     </Card.Body>
                 </div>
             </Collapse>
-        </Card>
-    );
+    </Card>
+  );
 }
 
 export default Entry;
