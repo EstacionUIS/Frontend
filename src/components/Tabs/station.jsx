@@ -96,10 +96,10 @@ function Station() {
                           </>
                       ) : (
                           <>
-                              {t('update')}
+                              {t('Station.Button.Title')}
                               {lastUpdated && (
                                   <span className="ms-2">
-                                      ({t('lastUpdated')}: {moment(lastUpdated).fromNow()})
+                                      ({t('Station.Button.LastUpdated')}: {moment(lastUpdated).fromNow()})
                                   </span>
                               )}
                           </>

@@ -6,7 +6,7 @@ function Contact() {
       <h2>Contact Us</h2>
       {/* Add your contact information here */}
       <p>
-        If you have any questions or inquiries, please feel free to contact us:
+        
       </p>
       <ul>
         <li>Email: info@example.com</li>

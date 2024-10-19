@@ -7,10 +7,10 @@ function Activity({ station }) {
 
     return (
         <div className="card p-3 mb-3 rounded">
-            <h5>{t('activity')}</h5>
+            <h5>{t('Station.Activity')}</h5>
             <ul className="list-unstyled">
-                <li><b>{t('lastSeen')}:</b> {moment(station.last_seen).format('LLL')}</li>
-                <li><b>{t('created')}:</b> {moment(station.created).format('LLL')}</li>
+                <li><b>{t('Station.Activity.LastSeen')}:</b> {moment(station.last_seen).format('LLL')}</li>
+                <li><b>{t('Station.Activity.Created')}:</b> {moment(station.created).format('LLL')}</li>
             </ul>
         </div>
     );

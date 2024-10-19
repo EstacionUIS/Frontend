@@ -1,26 +1,48 @@
 {
-    "Observations": "Observations",
-    "Information": "Information",
-    "Contact": "Contact",
-    "stationDetails": "Station Details:",
-    "loading": "Loading...",
-    "error": "Error: {{message}}",
-    "location": "Location",
-    "latitude": "Latitude",
-    "longitude": "Longitude",
-    "altitude": "Altitude",
-    "activity": "Activity",
-    "lastSeen": "Last Seen",
-    "created": "Created",
-    "update": "Update",
-    "lastUpdated": "Last Updated",
+    "Contact": {
+        "Title": "Contact",
+        "Text1": "If you have any questions or inquiries, please feel free to contact us:",
+        "Text2": "Email: info@example.com",
+        "Text3": "Phone: +1 (555) 123-4567"
+    },
+
+    "Information": {
+        "Title": "Information",
+        "Text1": "Welcome to our website! We are dedicated to providing you with up-to-date information about our ground station and its observations.",
+        "Text2": "Our mission is to contribute to the understanding of space by tracking satellites and sharing valuable data with the community."
+    },
+
+    "Observations": {
+        "Title": "Observations",
+        "Previous": "Previous",
+        "Next": "Next",
+        "Id": "Id", "TimeStamp": "Time Stamp"
+    },
+
+    "Loading": "Loading...",
+    "Error": "Error: {{message}}",
 
     "Station": {
-        "Header": "",
-        "Description": "",
-        "Location": "",
-        "Activity": "",
-        "Observations": ""
+        "Location": {
+            "Title": "Location",
+            "Latitude": "Latitude",
+            "Longitude": "Longitude",
+            "Altitude": "Altitude"
+        },
+        "Activity": {
+            "Title": "Activity",
+            "LastSeen": "Last Seen",
+            "Created": "Created"
+        },
+        "Observations": {
+            "Title": "Observations",
+            "Number": "Number of Observations",
+            "SuccessRate": "Success Rate"
+        },
+        "Button": {
+            "Title": "Update",
+            "LastUpdated": "Last Updated"
+        }
     },
 
     "About": {
