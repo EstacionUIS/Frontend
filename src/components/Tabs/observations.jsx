@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { getObservationsByStationId } from '../../api/satnogsAPI';
 import { useTranslation } from 'react-i18next';
 
+import Entry from './Observations/entry';
+
 function Observations() {
   const [observations, setObservations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -39,17 +41,21 @@ function Observations() {
   }
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return ( 
+      <div className="d-flex justify-content-center align-items-center vh-100"> {/* Center the spinner */}
+        <Spinner animation="border" role="status"> {/* Display the spinner */}
+          <span className="visually-hidden">{t('loading')}...</span>
+        </Spinner>
+      </div>
+    );
   } else {
     return (
       <div>
+
         <h2>t{('Observations.Title')}</h2>
         <ul>
           {currentObservations.map((observation) => (
-            <li key={observation.id}> 
-              {/* Display relevant observation details */}
-              <b>{t('Observations.Id')}:</b> {observation.id}, <b>{observation.status}</b>, <b>t{('Observations.TimeStamp')}</b> {observation.start}
-            </li>
+            <Entry key={observation.id} observation={observation} />
           ))}
         </ul>
 

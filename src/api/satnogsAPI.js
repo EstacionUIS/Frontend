@@ -1,7 +1,7 @@
 
 const fetchData = async (endpoint, queryParams = "") => {
   try {
-    const url = `${import.meta.env.VITE_SERVER_URL}/api/${endpoint}?${queryParams}`;
+    const url = `${import.meta.env.VITE_SERVER_URL}/${endpoint}?${queryParams}`;
     const response = await fetch(url);
 
     if (!response.ok) {
