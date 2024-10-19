@@ -49,43 +49,65 @@ function Entry({ observation }) {
             badgeVariant = 'secondary';
     }
 
-  const formattedDate = moment(observation.start).format('YYYY-MM-DD HH:mm:ss');
+    const formattedDate = moment(observation.start).format('YYYY-MM-DD HH:mm:ss');
 
-  const imageUrl = satelliteData ? `${import.meta.env.VITE_MEDIA_URL}/${satelliteData.image}` : sat;
-  const databaseUrl = `${import.meta.env.VITE_SATELLITES_URL}/${observation.sat_id}`; 
+    // Use optional chaining and a fallback to handle potentially undefined image URLs
+    const imageUrl = satelliteData?.image
+        ? `${import.meta.env.VITE_MEDIA_URL}/${satelliteData.image}`
+        : sat;
 
-  return (
-    <Card key={observation.id} className="mb-3">
-      <Card.Header
-        onClick={() => setOpen(!open)}
-        aria-controls="observation-details"
-        aria-expanded={open}
-        style={{ cursor: 'pointer' }}
-      >
-        <div className="d-flex justify-content-between align-items-center">
-          <div>
-            <b>{t('Observations.Id')}:</b> {observation.id}, <b>{t('Observations.TimeStamp')}:</b> {formattedDate}
-          </div>
-          <div>
-            <Badge bg={badgeVariant}>{t(`Observations.Status.${observation.status}`)}</Badge>
-          </div>
-        </div>
-      </Card.Header>
-      <Collapse in={open}>
+    const databaseUrl = `${import.meta.env.VITE_SATELLITES_URL}/${observation.sat_id}`; 
+
+    return (
+        <Card key={observation.id} className="mb-3">
+            <Card.Header
+                onClick={() => setOpen(!open)}
+                aria-controls="observation-details"
+                aria-expanded={open}
+                style={{ cursor: 'pointer' }}
+            >
+                <div className="d-flex justify-content-between align-items-center">
+                    <div>
+                        <b>{t('Observations.Id')}:</b> {observation.id}, <b>{t('Observations.TimeStamp')}:</b>{' '}
+                        {formattedDate}
+                    </div>
+                    <div>
+                        <Badge bg={badgeVariant}>
+                            {t(`Observations.Status.${observation.status}`)}
+                        </Badge>
+                    </div>
+                </div>
+            </Card.Header>
+            <Collapse in={open}>
                 <div id="observation-details">
                     <Card.Body>
-                        <div className="d-flex"> 
-                            <div> 
-                                {/* ... (your existing left section code) ... */}
-                                <p><b>Status:</b> {satelliteData ? satelliteData.status : 'Loading...'}</p> {/* Display satellite status */}
-                            </div>
-                            <div> 
+                        <div className="d-flex justify-content-center"> {/* Center the content */}
+                            <div>
+                                <p>
+                                    <b>Status:</b> {satelliteData ? satelliteData.status : 'Loading...'}
+                                </p>
                                 <Card>
                                     <Card.Body>
-                                        <div className="d-flex flex-column align-items-center"> 
-                                            <Card.Title>{observation.tle0 ? observation.tle0 : ''}</Card.Title>
-                                            {imageUrl && <Card.Img variant="top" src={imageUrl} alt="Satellite Image" style={{ width: '150px' }} />} {/* Conditionally render image */}
-                                            <a href={databaseUrl} target="_blank" rel="noopener noreferrer">
+                                        <div className="d-flex flex-column align-items-center">
+                                            <Card.Title>
+                                                {observation.tle0 ? observation.tle0 : ''}
+                                            </Card.Title>
+                                            {/* Conditionally render the image */}
+                                            <Card.Img
+                                                variant="top"
+                                                src={imageUrl}
+                                                alt="Satellite Image"
+                                                style={{ width: '150px' }}
+                                                onError={(e) => {
+                                                    e.target.onerror = null;
+                                                    e.target.src = sat;
+                                                }}
+                                            />
+                                            <a
+                                                href={databaseUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
                                                 View on SatNOGS DB
                                             </a>
                                         </div>
@@ -96,8 +118,8 @@ function Entry({ observation }) {
                     </Card.Body>
                 </div>
             </Collapse>
-    </Card>
-  );
+        </Card>
+    );
 }
 
 export default Entry;
