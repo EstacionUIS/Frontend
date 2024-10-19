@@ -51,8 +51,8 @@ function Entry({ observation }) {
 
   const formattedDate = moment(observation.start).format('YYYY-MM-DD HH:mm:ss');
 
-  const imageUrl = satelliteData ? `${VITE_MEDIA_URL}/${satelliteData.image}` : sat;
-  const databaseUrl = `${VITE_SATELLITES_URL}/${observation.norad_cat_id}`; 
+  const imageUrl = satelliteData ? `${import.meta.env.VITE_MEDIA_URL}/${satelliteData.image}` : sat;
+  const databaseUrl = `${import.meta.env.VITE_SATELLITES_URL}/${observation.sat_id}`; 
 
   return (
     <Card key={observation.id} className="mb-3">
