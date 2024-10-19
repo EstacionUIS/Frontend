@@ -24,13 +24,13 @@ const fetchData = async (endpoint, queryParams = "") => {
 };
 
 export const getObservationsByStationId = (id) => {
-  return fetchData('observations', `stationId=${id}`);
+  return fetchData('observations', `id=${id}`);
 };
 
 export const getStationById = (id) => {
-  return fetchData('stations', `stationId=${id}`);
+  return fetchData('stations', `id=${id}`);
 };
 
 export const getSatelliteByNoradId = (id) => {
-  return fetchData('satellites', `stationId=${id}`);
+  return fetchData('satellites', `id=${id}`);
 }
