@@ -1,39 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Badge from 'react-bootstrap/Badge';
 import { useTranslation } from 'react-i18next';
 import Collapse from 'react-bootstrap/Collapse';
 import Card from 'react-bootstrap/Card';
 import moment from 'moment';
+import { getSatelliteByNoradId } from '../../../api/satnogsAPI'; 
 
 function Entry({ observation }) {
-  const { t } = useTranslation();
-  const [open, setOpen] = useState(false);
+    const { t } = useTranslation();
+    const [open, setOpen] = useState(false);
+    const [satelliteData, setSatelliteData] = useState(null);
 
-  // Check if observation is defined before accessing its properties
-  if (!observation) {
-    return null; // Or you could display a loading indicator or error message
-  }
+    useEffect(() => {
+        const fetchSatelliteData = async () => {
+            if (observation && observation.norad_cat_id) {
+                const data = await getSatelliteByNoradId(observation.norad_cat_id);
+                setSatelliteData(data);
+            }
+        };
 
-  let badgeVariant;
-  switch (observation.status) {
-    case 'future':
-      badgeVariant = 'primary';
-      break;
-    case 'good':
-      badgeVariant = 'success';
-      break;
-    case 'bad':
-      badgeVariant = 'danger';
-      break;
-    case 'unknown':
-      badgeVariant = 'warning';
-      break;
-    case 'failed':
-      badgeVariant = 'secondary';
-      break;
-    default:
-      badgeVariant = 'secondary';
-  }
+        fetchSatelliteData();
+    }, [observation]); // Run effect whenever observation changes
+
+    if (!observation) {
+        return null; 
+    }
+
+    let badgeVariant;
+    switch (observation.status) {
+        case 'future':
+            badgeVariant = 'primary';
+            break;
+        case 'good':
+            badgeVariant = 'success';
+            break;
+        case 'bad':
+            badgeVariant = 'danger';
+            break;
+        case 'unknown':
+            badgeVariant = 'warning';
+            break;
+        case 'failed':
+            badgeVariant = 'secondary';
+            break;
+        default:
+            badgeVariant = 'secondary';
+    }
 
   const formattedDate = moment(observation.start).format('YYYY-MM-DD HH:mm:ss');
   const imageUrl = satelliteData ? `https://db-satnogs.freetls.fastly.net/media/${satelliteData.image}` : '';
