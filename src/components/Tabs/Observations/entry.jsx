@@ -49,86 +49,88 @@ function Entry({ observation }) {
                 </Spinner>
             </div>
         );
-    } else {
-        let badgeVariant;
-        switch (observation.status) {
-            case 'future':
-                badgeVariant = 'primary';
-                break;
-            case 'good':
-                badgeVariant = 'success';
-                break;
-            case 'bad':
-                badgeVariant = 'danger';
-                break;
-            case 'unknown':
-                badgeVariant = 'warning';
-                break;
-            case 'failed':
-                badgeVariant = 'secondary';
-                break;
-            default:
-                badgeVariant = 'secondary';
-        }
-    
-      const formattedDate = moment(observation.start).format('YYYY-MM-DD HH:mm:ss');
-    
-      const imageUrl = satelliteData ? `${import.meta.env.VITE_MEDIA_URL}/${satelliteData.image}` : sat;
-      const databaseUrl = `${import.meta.env.VITE_SATELLITES_URL}/${observation.sat_id}`; 
-    
-      const satelliteStatus = satelliteData ? satelliteData.status : null; // Get satellite status
-      let badgeStatusVariant = satelliteStatus === 'alive' ? 'success' : 'danger'; 
+    } 
 
-      return (
-        <Card key={observation.id} className="mb-3">
-          <Card.Header
-            onClick={() => setOpen(!open)}
-            aria-controls="observation-details"
-            aria-expanded={open}
-            style={{ cursor: 'pointer' }}
-          >
-            <div className="d-flex justify-content-between align-items-center">
-              <div>
-                <b>{t('Observations.Id')}:</b> {observation.id}, <b>{t('Observations.TimeStamp')}:</b> {formattedDate}
-              </div>
-              <div>
-                <Badge bg={badgeVariant}>{t(`Observations.Status.${observation.status}`)}</Badge>
-              </div>
-            </div>
-          </Card.Header>
-          <Collapse in={open}>
-                    <div id="observation-details">
-                        <Card.Body>
-                            <div className="d-flex"> 
-                                <div> 
-                                    {/* ... (your existing left section code) ... */}
-                                    <p>
-                                        <b>Status:</b> {satelliteStatus ? 
-                                            <Badge bg={badgeStatusVariant}>{satelliteStatus}</Badge> : 
-                                            'Loading...'
-                                        }
-                                    </p> 
-                                </div>
-                                <div> 
-                                    <Card>
-                                        <Card.Body>
-                                            <div className="d-flex flex-column align-items-center"> 
-                                                <Card.Title>{observation.tle0 ? observation.tle0 : ''}</Card.Title>
-                                                {imageUrl && <Card.Img variant="top" src={imageUrl} alt="Satellite Image" style={{ width: '150px' }} />} {/* Conditionally render image */}
-                                                <a href={databaseUrl} target="_blank" rel="noopener noreferrer">
-                                                    View on SatNOGS DB
-                                                </a>
-                                            </div>
-                                        </Card.Body>
-                                    </Card>
-                                </div>
-                            </div>
-                        </Card.Body>
-                    </div>
-                </Collapse>
-        </Card>
-      );
+    let badgeVariant;
+    switch (observation.status) {
+        case 'future':
+            badgeVariant = 'primary';
+            break;
+        case 'good':
+            badgeVariant = 'success';
+            break;
+        case 'bad':
+            badgeVariant = 'danger';
+            break;
+        case 'unknown':
+            badgeVariant = 'warning';
+            break;
+        case 'failed':
+            badgeVariant = 'secondary';
+            break;
+        default:
+            badgeVariant = 'secondary';
     }
+
+    const formattedDate = moment(observation.start).format('YYYY-MM-DD HH:mm:ss');
+
+    const imageUrl = satelliteData ? `${import.meta.env.VITE_MEDIA_URL}/${satelliteData.image}` : sat;
+    const databaseUrl = `${import.meta.env.VITE_SATELLITES_URL}/${observation.sat_id}`; 
+
+    const satelliteStatus = satelliteData ? satelliteData.status : null; // Get satellite status
+    let badgeStatusVariant = satelliteStatus === 'alive' ? 'success' : 'danger'; 
+
+    return (
+        <Card key={observation.id} className="mb-3">
+            <Card.Header
+                onClick={() => setOpen(!open)}
+                aria-controls="observation-details"
+                aria-expanded={open}
+                style={{ cursor: 'pointer' }}
+            >
+                <div className="d-flex justify-content-between align-items-center"> 
+                    <div className="d-flex flex-column align-items-center"> {/* Center content vertically */}
+                        <div>
+                            <b>{t('Observations.Id')}:</b> {observation.id}, <b>{t('Observations.TimeStamp')}:</b> {formattedDate}
+                        </div>
+                        <div>
+                            <Badge bg={badgeVariant}>{t(`Observations.Status.${observation.status}`)}</Badge>
+                        </div>
+                    </div>
+                </div>
+            </Card.Header>
+            <Collapse in={open}>
+                <div id="observation-details">
+                    <Card.Body>
+                        <div className="d-flex justify-content-between"> {/* Distribute content to left and right */}
+                            <div className="d-flex flex-column align-items-start w-50"> {/* Container to the left, content aligned to the start */}
+                                {/* ... (your existing left section code) ... */}
+                                <p>
+                                    <b>Status:</b> {satelliteStatus ? 
+                                        <Badge bg={badgeStatusVariant}>{satelliteStatus}</Badge> : 
+                                        'Loading...'
+                                    }
+                                </p> 
+                            </div>
+                            <div className="w-50 d-flex justify-content-end"> {/* Container to the right */}
+                                <Card>
+                                    <Card.Body>
+                                        <div className="d-flex flex-column align-items-center"> 
+                                            <Card.Title>{observation.tle0 ? observation.tle0 : ''}</Card.Title>
+                                            {imageUrl && <Card.Img variant="top" src={imageUrl} alt="Satellite Image" style={{ width: '150px' }} />}
+                                            <a href={databaseUrl} target="_blank" rel="noopener noreferrer">
+                                                View on SatNOGS DB
+                                            </a>
+                                        </div>
+                                    </Card.Body>
+                                </Card>
+                            </div>
+                        </div>
+                    </Card.Body>
+                </div>
+            </Collapse>
+        </Card>
+    );
 }
 
 export default Entry;
