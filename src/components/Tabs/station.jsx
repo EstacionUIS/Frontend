@@ -55,7 +55,7 @@ function Station() {
   };
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div>t{('Error')}: {error.message}</div>;
   }
 
   if (isLoading) {

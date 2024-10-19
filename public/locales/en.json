@@ -20,7 +20,7 @@
     },
 
     "Loading": "Loading...",
-    "Error": "Error: {{message}}",
+    "Error": "An error ocurred",
 
     "Station": {
         "Location": {
