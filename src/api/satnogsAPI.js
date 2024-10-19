@@ -32,5 +32,5 @@ export const getStationById = (id) => {
 };
 
 export const getSatelliteByNoradId = (id) => {
-  return fetchData('satellites', id);
+  return fetchData('satellites', `stationId=${id}`);
 }
