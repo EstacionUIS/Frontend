@@ -76,6 +76,9 @@ function Entry({ observation }) {
       const imageUrl = satelliteData ? `${import.meta.env.VITE_MEDIA_URL}/${satelliteData.image}` : sat;
       const databaseUrl = `${import.meta.env.VITE_SATELLITES_URL}/${observation.sat_id}`; 
     
+      const satelliteStatus = satelliteData ? satelliteData.status : null; // Get satellite status
+      let badgeStatusVariant = satelliteStatus === 'alive' ? 'success' : 'danger'; 
+
       return (
         <Card key={observation.id} className="mb-3">
           <Card.Header
@@ -101,7 +104,7 @@ function Entry({ observation }) {
                                     {/* ... (your existing left section code) ... */}
                                     <p>
                                         <b>Status:</b> {satelliteStatus ? 
-                                            <Badge bg={badgeVariant}>{satelliteStatus}</Badge> : 
+                                            <Badge bg={badgeStatusVariant}>{satelliteStatus}</Badge> : 
                                             'Loading...'
                                         }
                                     </p> 
