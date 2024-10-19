@@ -57,18 +57,18 @@ function Entry({ observation }) {
       <Collapse in={open}>
         <div id="observation-details">
           <Card.Body>
-            <div className="d-flex">
-              <div>
+            <div className="d-flex"> {/* Container for left and right sections */}
+              <div> {/* Left section */}
                 <p><b>Ground Station:</b> {observation.ground_station}</p>
                 <p><b>NORAD CAT ID:</b> {observation.norad_cat_id}</p>
+                {/* Add more details as needed */}
               </div>
-              <div>
+              <div> {/* Right section */}
                 <Card>
                   <Card.Body>
-                    <div>
-                      {/* Check if tle0 is defined before accessing it */}
+                    <div className="d-flex flex-column align-items-center"> {/* Changed to flex-column and added align-items-center */}
                       <Card.Title>{observation.tle0 ? observation.tle0 : ''}</Card.Title>
-                      <Card.Img variant="top" src="..." alt="Satellite Image" />
+                      <Card.Img variant="top" src="..." alt="Satellite Image" style={{ width: '150px' }} /> {/* Added width for the image */}
                       <a href={`https://db.satnogs.org/satellites/${observation.norad_cat_id}`} target="_blank" rel="noopener noreferrer">
                         View on SatNOGS DB
                       </a>
@@ -85,3 +85,5 @@ function Entry({ observation }) {
 }
 
 export default Entry;
+
+
