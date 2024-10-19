@@ -1,17 +1,100 @@
 {
-    "observations": "Observaciones",
-    "information": "Información",
-    "contact": "Contacto",
-    "stationDetails": "Detalles de la estación:",
-    "loading": "Cargando...",
-    "error": "Error: {{message}}",
-    "location": "Posicion",
-    "latitude": "Latitud",
-    "longitude": "Longitud",
-    "altitude": "Altitud",
-    "activity": "Actividad",
-    "lastSeen": "Ultima vez visto",
-    "created": "Creado",
-    "update": "Actualizar",
-    "lastUpdated": "Ultima vez Actualizado"
-}
+    "Contact": {
+      "Title": "Contacto",
+      "Text1": "Si tienes alguna pregunta o consulta, no dudes en contactarnos:",
+      "Text2": "Correo electrónico: info@example.com",
+      "Text3": "Teléfono: +1 (555) 123-4567"
+    },
+  
+    "Information": {
+      "Title": "Información",
+      "Text1": "¡Bienvenido a nuestro sitio web! Nos dedicamos a proporcionarte información actualizada sobre nuestra estación terrestre y sus observaciones.",
+      "Text2": "Nuestra misión es contribuir a la comprensión del espacio mediante el seguimiento de satélites y el intercambio de datos valiosos con la comunidad."
+    },
+  
+    "Observations": {
+      "Tab": "Observaciones",
+      "Title": "Observaciones",
+      "Previous": "Anterior",
+      "Next": "Siguiente",
+      "Id": "Id",
+      "TimeStamp": "Fecha y hora"
+    },
+  
+    "Loading": "Cargando...",
+    "Error": "Ocurrió un error",
+  
+    "Station": {
+      "Tab": "Estación",
+      "Location": {
+        "Title": "Ubicación",
+        "Latitude": "Latitud",
+        "Longitude": "Longitud",
+        "Altitude": "Altitud"
+      },
+      "Activity": {
+        "Title": "Actividad",
+        "LastSeen": "Última vez visto",
+        "Created": "Creado"
+      },
+      "Observations": {
+        "Title": "Observaciones",
+        "Number": "Número de observaciones",
+        "SuccessRate": "Tasa de éxito"
+      },
+      "Button": {
+        "Title": "Actualizar",
+        "LastUpdated": "Última actualización"
+      }
+    },
+  
+    "About": {
+      "Tab": "Acerca de",
+      "Intro": {
+        "Title": "Acerca de este proyecto",
+        "Description": "Este proyecto está diseñado para monitorear y analizar las condiciones ambientales en tiempo real. Proporciona datos valiosos para la investigación, la educación y la conciencia pública."
+      },
+      "Location": {
+        "Title": "Ubicación",
+        "Description": "La estación de monitoreo está estratégicamente ubicada en un entorno natural prístino para capturar datos precisos y representativos. Está situada lejos de las principales fuentes de contaminación y actividad humana para minimizar la interferencia.",
+        "ImageAlt": "Ubicación de la estación de monitoreo"
+      },
+      "Installation": {
+        "Title": "Instalación",
+        "Description": "El proceso de instalación fue cuidadosamente planeado y ejecutado para garantizar la estabilidad y precisión de la estación de monitoreo. La estación se montó de forma segura y los sensores se calibraron para proporcionar datos fiables.",
+        "ImageAlt": "Instalación de la estación de monitoreo",
+        "MaterialsTitle": "Materiales",
+        "MaterialsDescription": "La estación está construida con materiales de alta calidad y resistentes a la intemperie para garantizar su durabilidad y longevidad. Los componentes clave incluyen:",
+        "MaterialsList1": "Paneles solares para la generación de energía",
+        "MaterialsList2": "Sensores para la recolección de datos",
+        "MaterialsList3": "Registrador de datos para almacenamiento y transmisión",
+        "MaterialsList4": "Recinto protector"
+      },
+      "Software": {
+        "Title": "Software",
+        "Description": "Se utiliza una antena de alta ganancia para garantizar una transmisión de datos fiable desde la estación de monitoreo remota al servidor central. La antena está colocada para una óptima intensidad de señal y cobertura.",
+        "ImageAlt": "Antena utilizada para la transmisión de datos"
+      },
+      "Antenna": {
+        "Title": "Antena y SDR-RTL",
+        "Description": "Se utiliza una antena de alta ganancia para garantizar una transmisión de datos fiable desde la estación de monitoreo remota al servidor central. La antena está colocada para una óptima intensidad de señal y cobertura.",
+        "ImageAlt": "Antena y SDR-RTL"
+      },
+      "RaspberryPi": {
+        "Title": "Raspberry Pi",
+        "Description": "Una Raspberry Pi sirve como unidad central de procesamiento de la estación de monitoreo. Recopila datos de los sensores, los procesa y los transmite al servidor. Su bajo consumo de energía y tamaño compacto la hacen ideal para esta aplicación.",
+        "ImageAlt": "Raspberry Pi"
+      },
+      "Power": {
+        "Title": "Energía",
+        "Description": "La estación de monitoreo se alimenta mediante una combinación de paneles solares y un sistema de batería de respaldo. Esto garantiza un funcionamiento continuo, incluso durante períodos de poca luz solar o cortes de energía.",
+        "ImageAlt": "Fuente de alimentación"
+      },
+      "Enclosure": {
+        "Title": "Recinto",
+        "Description": "Un recinto robusto protege los componentes de la estación de monitoreo de los elementos, lo que garantiza un funcionamiento fiable en diversas condiciones climáticas.",
+        "ImageAlt": "Recinto"
+      }
+    }
+  }
+  

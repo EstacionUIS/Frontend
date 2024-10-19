@@ -9,7 +9,7 @@ function Power() {
   const { t } = useTranslation();
 
   return (
-    <CollapsibleSection title={t("Power.Title")}>
+    <CollapsibleSection title={t("About.Power.Title")}>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-8">

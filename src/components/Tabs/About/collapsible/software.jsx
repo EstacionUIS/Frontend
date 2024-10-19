@@ -9,7 +9,7 @@ function Software() {
   const { t } = useTranslation(); 
 
   return (
-    <CollapsibleSection title={t("Software.Title")}> {/* Use translation for the title */}
+    <CollapsibleSection title={t("About.Software.Title")}> {/* Use translation for the title */}
       <div className="container"> {/* Container to center the content */}
         <div className="row justify-content-center">
           <div className="col-md-8"> {/* Adjust column width as needed */}
