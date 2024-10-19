@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import panel from '../../../../public/Images/station/station_1.jpg';
 
 function Installation() {
-  const { t } = useTranslation("About"); // Specify the namespace 
+  const { t } = useTranslation(); // Specify the namespace 
 
   return (
     <div className="container mt-4"> {/* Container to center the content */}
@@ -13,24 +13,24 @@ function Installation() {
           {/* Installation */}
           <div className="row">
             <div className="col-md-6 order-md-2"> {/* Image on the left for medium screens and above */}
-              <img src={panel} alt={t("Installation.ImageAlt")} className="img-fluid" style={{ maxWidth: '60%' }} /> 
+              <img src={panel} alt={t("About.Installation.ImageAlt")} className="img-fluid" style={{ maxWidth: '60%' }} /> 
             </div>
             <div className="col-md-6 order-md-1"> {/* Text on the right for medium screens and above */}
-              <h3>{t("Installation.Title")}</h3>
-              <p>{t("Installation.Description")}</p>
+              <h3>{t("About.Installation.Title")}</h3>
+              <p>{t("About.Installation.Description")}</p>
             </div>
           </div>
 
           {/* Materials */}
           <div className="row mt-4">
             <div className="col-12">
-              <h3>{t("Installation.MaterialsTitle")}</h3>
-              <p>{t("Installation.MaterialsDescription")}</p>
+              <h3>{t("About.Installation.MaterialsTitle")}</h3>
+              <p>{t("About.Installation.MaterialsDescription")}</p>
               <ul>
-                <li>{t("Installation.MaterialsList1")}</li>
-                <li>{t("Installation.MaterialsList2")}</li>
-                <li>{t("Installation.MaterialsList3")}</li>
-                <li>{t("Installation.MaterialsList4")}</li>
+                <li>{t("About.Installation.MaterialsList1")}</li>
+                <li>{t("About.Installation.MaterialsList2")}</li>
+                <li>{t("About.Installation.MaterialsList3")}</li>
+                <li>{t("About.Installation.MaterialsList4")}</li>
               </ul>
             </div>
           </div>

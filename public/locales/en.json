@@ -13,6 +13,7 @@
     },
 
     "Observations": {
+        "Tab": "Observations",
         "Title": "Observations",
         "Previous": "Previous",
         "Next": "Next",
@@ -23,6 +24,7 @@
     "Error": "An error ocurred",
 
     "Station": {
+        "Tab": "Station",
         "Location": {
             "Title": "Location",
             "Latitude": "Latitude",
@@ -46,6 +48,8 @@
     },
 
     "About": {
+        "Tab" : "About",
+        
         "Intro": {
             "Title": "About this project",
             "Description": "This project is designed to monitor and analyze environmental conditions in real-time. It provides valuable data for research, education, and public awareness."

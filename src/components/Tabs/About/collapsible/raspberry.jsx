@@ -6,7 +6,7 @@ import CollapsibleSection from '../../../Collapsible/collapsibleSection';
 import raspberry from '../../../../../public/Images/station/raspberry.jpg'; 
 
 function Raspberry() {
-  const { t } = useTranslation("About");
+  const { t } = useTranslation();
 
   return (
     <CollapsibleSection title={t("RaspberryPi.Title")}>
@@ -15,10 +15,10 @@ function Raspberry() {
           <div className="col-md-8">
             <div className="row">
               <div className="col-md-6 order-md-2">
-                <img src={raspberry} alt={t("RaspberryPi.ImageAlt")} className="img-fluid" />
+                <img src={raspberry} alt={t("About.RaspberryPi.ImageAlt")} className="img-fluid" />
               </div>
               <div className="col-md-6 order-md-1">
-                <p>{t("RaspberryPi.Description")}</p>
+                <p>{t("About.RaspberryPi.Description")}</p>
               </div>
             </div>
           </div>

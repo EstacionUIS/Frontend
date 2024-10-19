@@ -6,7 +6,7 @@ import CollapsibleSection from '../../../Collapsible/collapsibleSection';
 import power from '../../../../../public/Images/station/power.png'; 
 
 function Power() {
-  const { t } = useTranslation("About");
+  const { t } = useTranslation();
 
   return (
     <CollapsibleSection title={t("Power.Title")}>
@@ -15,10 +15,10 @@ function Power() {
           <div className="col-md-8">
             <div className="row">
               <div className="col-md-6 order-md-2">
-                <img src={power} alt={t("Power.ImageAlt")} className="img-fluid" />
+                <img src={power} alt={t("About.Power.ImageAlt")} className="img-fluid" />
               </div>
               <div className="col-md-6 order-md-1">
-                <p>{t("Power.Description")}</p>
+                <p>{t("About.Power.Description")}</p>
               </div>
             </div>
           </div>

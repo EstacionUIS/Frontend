@@ -17,9 +17,9 @@ function Body() {
       <Tabs>
         <div> 
           <TabList>
-            <Tab>{t('About')}</Tab>
-            <Tab>{t('Station')}</Tab>
-            <Tab>{t('Observations')}</Tab>
+            <Tab>{t('About.Tab')}</Tab>
+            <Tab>{t('Station.Tab')}</Tab>
+            <Tab>{t('Observations.Tab')}</Tab>
           </TabList>
         </div>
         <div className="p-3"> 

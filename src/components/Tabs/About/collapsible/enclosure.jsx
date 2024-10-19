@@ -6,7 +6,7 @@ import CollapsibleSection from '../../../Collapsible/collapsibleSection';
 import enclosure from '../../../../../public/Images/station/station_1.jpg'; // Make sure to import the correct image
 
 function Enclosure() {
-  const { t } = useTranslation("About");
+  const { t } = useTranslation();
 
   return (
     <CollapsibleSection title={t("Enclosure.Title")}>
@@ -15,10 +15,10 @@ function Enclosure() {
           <div className="col-md-8">
             <div className="row">
               <div className="col-md-6 order-md-2">
-                <img src={enclosure} alt={t("Enclosure.ImageAlt")} className="img-fluid" /> {/* Use the enclosure image */}
+                <img src={enclosure} alt={t("About.Enclosure.ImageAlt")} className="img-fluid" /> {/* Use the enclosure image */}
               </div>
               <div className="col-md-6 order-md-1">
-                <p>{t("Enclosure.Description")}</p>
+                <p>{t("About.Enclosure.Description")}</p>
               </div>
             </div>
           </div>
