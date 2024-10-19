@@ -17,8 +17,14 @@
       "Title": "Observaciones",
       "Previous": "Anterior",
       "Next": "Siguiente",
-      "Id": "Id",
-      "TimeStamp": "Fecha y hora"
+      "Status": {
+        "future": "Futuro",
+        "good": "Bueno",
+        "bad": "Malo",
+        "unknown": "Desconocido",
+        "failed": "Fallido"
+      },
+      "Id": "Id", "TimeStamp": "Fecha y hora"
     },
   
     "Loading": "Cargando...",

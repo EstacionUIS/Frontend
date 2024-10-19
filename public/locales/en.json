@@ -17,6 +17,13 @@
         "Title": "Observations",
         "Previous": "Previous",
         "Next": "Next",
+        "Status": {
+            "future": "Future",
+            "good": "Good",
+            "bad": "Bad",
+            "unknown": "Unknown",
+            "failed": "Failed"
+        },
         "Id": "Id", "TimeStamp": "Time Stamp"
     },
 

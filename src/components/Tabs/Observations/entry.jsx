@@ -29,7 +29,7 @@ function Entry({ observation }) {
     return (
     <li key={observation.id}>
         {/* Display relevant observation details */}
-        <b>{t('Observations.Id')}:</b> {observation.id}, <Badge bg={badgeVariant}>{observation.status}</Badge>, <b>{t('Observations.TimeStamp')}:</b> {observation.start}
+        <b>{t('Observations.Id')}:</b> {observation.id}, <Badge bg={badgeVariant}>{t(`Observations.Status.${observation.status}`)}</Badge>, <b>{t('Observations.TimeStamp')}:</b> {observation.start}
     </li>
     );
 }
