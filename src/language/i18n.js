@@ -9,10 +9,10 @@ i18n
     fallbackLng: 'en',
     resources: {
       en: {
-        translation: require('./locales/en.json'),
+        translation: require('../../Public/locales/en.json'),
       },
       es: {
-        translation: require('./locales/es.json'),
+        translation: require('../../Public/locales/es.json'),
       },
     },
     interpolation: {
