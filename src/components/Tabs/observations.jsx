@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getObservationsByStationId } from '../../api/satnogsAPI';
 import { useTranslation } from 'react-i18next';
+import Spinner from 'react-bootstrap/Spinner';
 
 import Entry from './Observations/entry';
 
