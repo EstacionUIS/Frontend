@@ -36,6 +36,8 @@ function Entry({ observation }) {
   }
 
   const formattedDate = moment(observation.start).format('YYYY-MM-DD HH:mm:ss');
+  const imageUrl = satelliteData ? `https://db-satnogs.freetls.fastly.net/media/${satelliteData.image}` : '';
+  const databaseUrl = `https://db.satnogs.org/satellites/${observation.norad_cat_id}`; 
 
   return (
     <Card key={observation.id} className="mb-3">
@@ -55,35 +57,32 @@ function Entry({ observation }) {
         </div>
       </Card.Header>
       <Collapse in={open}>
-        <div id="observation-details">
-          <Card.Body>
-            <div className="d-flex"> {/* Container for left and right sections */}
-              <div> {/* Left section */}
-                <p><b>Ground Station:</b> {observation.ground_station}</p>
-                <p><b>NORAD CAT ID:</b> {observation.norad_cat_id}</p>
-                {/* Add more details as needed */}
-              </div>
-              <div> {/* Right section */}
-                <Card>
-                  <Card.Body>
-                    <div className="d-flex flex-column align-items-center"> {/* Changed to flex-column and added align-items-center */}
-                      <Card.Title>{observation.tle0 ? observation.tle0 : ''}</Card.Title>
-                      <Card.Img variant="top" src="..." alt="Satellite Image" style={{ width: '150px' }} /> {/* Added width for the image */}
-                      <a href={`https://db.satnogs.org/satellites/${observation.norad_cat_id}`} target="_blank" rel="noopener noreferrer">
-                        View on SatNOGS DB
-                      </a>
-                    </div>
-                  </Card.Body>
-                </Card>
-              </div>
-            </div>
-          </Card.Body>
-        </div>
-      </Collapse>
+                <div id="observation-details">
+                    <Card.Body>
+                        <div className="d-flex"> 
+                            <div> 
+                                {/* ... (your existing left section code) ... */}
+                                <p><b>Status:</b> {satelliteData ? satelliteData.status : 'Loading...'}</p> {/* Display satellite status */}
+                            </div>
+                            <div> 
+                                <Card>
+                                    <Card.Body>
+                                        <div className="d-flex flex-column align-items-center"> 
+                                            <Card.Title>{observation.tle0 ? observation.tle0 : ''}</Card.Title>
+                                            {imageUrl && <Card.Img variant="top" src={imageUrl} alt="Satellite Image" style={{ width: '150px' }} />} {/* Conditionally render image */}
+                                            <a href={databaseUrl} target="_blank" rel="noopener noreferrer">
+                                                View on SatNOGS DB
+                                            </a>
+                                        </div>
+                                    </Card.Body>
+                                </Card>
+                            </div>
+                        </div>
+                    </Card.Body>
+                </div>
+            </Collapse>
     </Card>
   );
 }
 
 export default Entry;
-
-
