@@ -104,7 +104,6 @@ function Entry({ observation }) {
                     <Card.Body>
                         <div className="d-flex justify-content-between"> {/* Distribute content to left and right */}
                             <div className="d-flex flex-column align-items-start w-50"> {/* Container to the left, content aligned to the start */}
-                                {/* ... (your existing left section code) ... */}
                                 <p>
                                     <b>Status:</b> {satelliteStatus ? 
                                         <Badge bg={badgeStatusVariant}>{satelliteStatus}</Badge> : 
