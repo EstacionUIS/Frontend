@@ -6,6 +6,8 @@ import Card from 'react-bootstrap/Card';
 import moment from 'moment';
 import { getSatelliteByNoradId } from '../../../api/satnogsAPI'; 
 
+import sat from '../../../../public/Imagessat_purple.png'; 
+
 function Entry({ observation }) {
     const { t } = useTranslation();
     const [open, setOpen] = useState(false);
@@ -48,8 +50,9 @@ function Entry({ observation }) {
     }
 
   const formattedDate = moment(observation.start).format('YYYY-MM-DD HH:mm:ss');
-  const imageUrl = satelliteData ? `https://db-satnogs.freetls.fastly.net/media/${satelliteData.image}` : '';
-  const databaseUrl = `https://db.satnogs.org/satellites/${observation.norad_cat_id}`; 
+  
+  const imageUrl = satelliteData ? `${VITE_MEDIA_URL}/${satelliteData.image}` : sat;
+  const databaseUrl = `${VITE_SATELLITES_URL}/${observation.norad_cat_id}`; 
 
   return (
     <Card key={observation.id} className="mb-3">
