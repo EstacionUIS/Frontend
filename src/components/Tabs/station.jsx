@@ -18,7 +18,7 @@ function Station() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [lastUpdated, setLastUpdated] = useState(null);
-
+  
   const { t } = useTranslation();
 
   useEffect(() => {
