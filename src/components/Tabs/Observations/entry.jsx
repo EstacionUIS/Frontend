@@ -66,10 +66,12 @@ function Entry({ observation }) {
                 aria-expanded={open}
                 style={{ cursor: 'pointer' }}
             >
-                <div className="d-flex justify-content-between align-items-center">
+                <div className="d-flex flex-column"> {/* Stack elements vertically */}
                     <div>
-                        <b>{t('Observations.Id')}:</b> {observation.id}, <b>{t('Observations.TimeStamp')}:</b>{' '}
-                        {formattedDate}
+                        <b>{t('Observations.Id')}:</b> {observation.id}
+                    </div>
+                    <div>
+                        <b>{t('Observations.TimeStamp')}:</b> {formattedDate}
                     </div>
                     <div>
                         <Badge bg={badgeVariant}>

@@ -54,54 +54,53 @@
         }
     },
 
-    "About": {
-        "Tab" : "About",
-        
-        "Intro": {
-            "Title": "About this project",
-            "Description": "This project is designed to monitor and analyze environmental conditions in real-time. It provides valuable data for research, education, and public awareness."
-        },
-        "Location": {
-            "Title": "Location",
-            "Description": "The monitoring station is strategically located in a pristine natural environment to capture accurate and representative data. It is situated away from major sources of pollution and human activity to minimize interference.",
-            "ImageAlt": "Location of the monitoring station"
-        },
-        "Installation": {
-            "Title": "Installation",
-            "Description": "The installation process was carefully planned and executed to ensure the stability and accuracy of the monitoring station. The station was securely mounted and the sensors were calibrated to provide reliable data.",
-            "ImageAlt": "Installation of the monitoring station",
-            "MaterialsTitle": "Materials",
-            "MaterialsDescription": "The station is constructed using high-quality, weather-resistant materials to ensure durability and longevity. Key components include:",
-            "MaterialsList1": "Solar panels for power generation",
-            "MaterialsList2": "Sensors for data collection",
-            "MaterialsList3": "Data logger for storage and transmission",
-            "MaterialsList4": "Protective enclosure"
-        },
-        "Software": {
-            "Title": "Software",
-            "Description": "A high-gain antenna is used to ensure reliable data transmission from the remote monitoring station to the central server. The antenna is positioned for optimal signal strength and coverage.",
-            "ImageAlt": "Antenna used for data transmission" 
-        },
-        "Antenna": {
-            "Title": "Antenna & SDR-RTL",
-            "Description": "A high-gain antenna is used to ensure reliable data transmission from the remote monitoring station to the central server. The antenna is positioned for optimal signal strength and coverage.",
-            "ImageAlt": "Antenna and SDR-RTL"
-        },
-        "RaspberryPi": {
-            "Title": "Raspberry Pi",
-            "Description": "A Raspberry Pi serves as the central processing unit of the monitoring station. It collects data from the sensors, processes it, and transmits it to the server. Its low power consumption and compact size make it ideal for this application.",
-            "ImageAlt": "Raspberry Pi"
-        },
-        "Power": {
-            "Title": "Power",
-            "Description": "The monitoring station is powered by a combination of solar panels and a battery backup system. This ensures continuous operation, even during periods of low sunlight or power outages.",
-            "ImageAlt": "Power source"
-        },
-        "Enclosure": {
-            "Title": "Enclosure",
-            "Description": "A robust enclosure protects the monitoring station's components from the elements, ensuring reliable operation in various weather conditions.",
-            "ImageAlt": "Enclosure"
-        }
+  "About": {
+    "Tab": "About",
+    "Intro": {
+      "Title": "About this project",
+      "Description": "This project details the implementation of a ground station based on software-defined radio (SDR) at the School of Electrical, Electronic and Telecommunications Engineering (E3T) of the Industrial University of Santander. The initiative arises from the lack of access to updated satellite data and images, attributed to the absence of a functional ground station. By reactivating this station, it is incorporated into the network of satNOGS ground stations, being the first active one in Bucaramanga."
+    },
+    "Location": {
+      "Title": "Location",
+      "Description": "The ground station is located at the School of Electrical, Electronic and Telecommunications Engineering (E3T) of the Industrial University of Santander, Bucaramanga.",
+      "ImageAlt": "Location of the monitoring station"
+    },
+    "Installation": {
+      "Title": "Installation",
+      "Description": "The installation process involved: Evaluating the space in the high voltage lab, Mounting the Raspberry Pi 3 B+ and RTL-SDR in an IP65 sealed box, Connecting the ethernet cable, power supply, and adjusting parameters for optimal signal reception, Configuring the SatNOGS client and assigning observations through the SatNOGS website, Testing signal reception from NOAA 15 satellite.",
+      "ImageAlt": "Installation of the monitoring station",
+      "MaterialsTitle": "Materials",
+      "MaterialsDescription": "The station is constructed using high-quality, weather-resistant materials to ensure durability and longevity. Key components include:",
+      "MaterialsList1": "Raspberry Pi 3 B+",
+      "MaterialsList2": "RTL-SDR USB",
+      "MaterialsList3": "Industrial switching power supply",
+      "MaterialsList4": "IP65 Sealed box"
+    },
+    "Software": {
+      "Title": "Software",
+      "Description": "The software used in the project includes: Raspbian operating system, SatNOGS client software, SoapySDR and CubicSDR for signal visualization, GNU Radio for signal processing, HTML, CSS, and JavaScript for the web platform.", 
+      "ImageAlt": "Software used for data transmission"
+    },
+    "Antenna": {
+      "Title": "Antenna & SDR-RTL",
+      "Description": "A monopole antenna is used, provided by the high voltage laboratory. It is located on the roof of the building and is connected to the station with a coaxial cable. This antenna is suitable for capturing signals from satellites with trajectories far from the zenith.",
+      "ImageAlt": "Antenna and SDR-RTL"
+    },
+    "RaspberryPi": {
+      "Title": "Raspberry Pi",
+      "Description": "A Raspberry Pi 3 B+ serves as the central processing unit of the ground station. It is equipped with processing and storage capabilities and runs the SatNOGS software to coordinate the operation of the station.",
+      "ImageAlt": "Raspberry Pi"
+    },
+    "Power": {
+      "Title": "Power",
+      "Description": "An industrial switching power supply is used to power the ground station. It has a 5V, 10A output and ensures a stable power supply for continuous operation of the Raspberry Pi, RTL-SDR, and other devices.",
+      "ImageAlt": "Power source"
+    },
+    "Enclosure": {
+      "Title": "Enclosure",
+      "Description": "A sealed box with an IP65 rating is used to protect the components of the ground station from dust and water.",
+      "ImageAlt": "Enclosure"
     }
+  }
 }
   
