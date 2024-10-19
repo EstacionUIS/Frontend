@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 import moment from 'moment';
 import { getSatelliteByNoradId } from '../../../api/satnogsAPI'; 
 
-import sat from '../../../../public/Imagessat_purple.png'; 
+import sat from '../../../../public/Images/sat_purple.png'; 
 
 function Entry({ observation }) {
     const { t } = useTranslation();
@@ -50,7 +50,7 @@ function Entry({ observation }) {
     }
 
   const formattedDate = moment(observation.start).format('YYYY-MM-DD HH:mm:ss');
-  
+
   const imageUrl = satelliteData ? `${VITE_MEDIA_URL}/${satelliteData.image}` : sat;
   const databaseUrl = `${VITE_SATELLITES_URL}/${observation.norad_cat_id}`; 
 
