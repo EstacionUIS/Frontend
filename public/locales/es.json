@@ -17,6 +17,7 @@
     "Title": "Observaciones",
     "Previous": "Anterior",
     "Next": "Siguiente",
+    "Link": "Ver en SatNOGS DB",
     "StatusTitle": "Estado",    
     "Status": {
       "future": "Futuro",
