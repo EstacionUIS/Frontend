@@ -31,20 +31,20 @@ function Header({ observation }) { // Receive t function as prop
             badgeVariant = 'secondary';
     }
 
-    const formattedDate = moment(observation.start).format('YYYY-MM-DD HH:mm:ss');
+    const formattedDate = moment(observation.start).format('LLL');
 
     return (
         <div className="d-flex flex-column">
+            <div>
+                <Badge bg={badgeVariant}>
+                    <b>Status:</b></b> {t(`Observations.Status.${observation.status}`)}
+                </Badge>
+            </div>            
             <div>
                 <b>{t('Observations.Id')}:</b> {observation.id}
             </div>
             <div>
                 <b>{t('Observations.TimeStamp')}:</b> {formattedDate}
-            </div>
-            <div>
-                <Badge bg={badgeVariant}>
-                    {t(`Observations.Status.${observation.status}`)}
-                </Badge>
             </div>
         </div>
     );
