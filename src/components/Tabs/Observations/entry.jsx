@@ -8,7 +8,6 @@ import Body from './card/body';
 
 function Entry({ observation }) {
     
-    const { t } = useTranslation();
     const [open, setOpen] = useState(false);
 
     return (

@@ -7,6 +7,8 @@ import { getSatelliteByNoradId } from '../../../../api/satnogsAPI';
 
 function Body({ observation }) { // Receive isLoading prop
 
+    const { t } = useTranslation();
+
     const [satelliteData, setSatelliteData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
