@@ -66,13 +66,13 @@ function Body({ observation }) { // Receive isLoading prop
                                         }}
                                     />                              
                                     <Card.Title>
-                                        satelliteData.name
+                                        {satelliteData.name}
                                     </Card.Title>
                                     <Card.Text>
-                                        satelliteData.citation 
+                                        {satelliteData.citation} 
                                     </Card.Text>
                                     <Card.Link href={databaseUrl}>
-                                        View on SatNOGS DB
+                                        {t('Observations.link')}
                                     </Card.Link>
                                 </div>
                             </Card.Body>
