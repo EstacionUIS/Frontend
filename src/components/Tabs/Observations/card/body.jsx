@@ -1,9 +1,47 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import Spinner from 'react-bootstrap/Spinner';
 
 import sat from '../../../../../public/Images/sat_purple.png';
+import { getSatelliteByNoradId } from '../../../../api/satnogsAPI';
 
-function Body({ observation, satelliteData }) { // Receive isLoading prop
+function Body({ observation }) { // Receive isLoading prop
+
+    const [satelliteData, setSatelliteData] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
+    
+    useEffect(() => {
+        const fetchSatelliteData = async () => {
+            if (observation && observation.norad_cat_id) {
+                try {
+                    const data = await getSatelliteByNoradId(observation.norad_cat_id);
+                    setSatelliteData(data);
+                } catch (error) {
+                    console.error("Error fetching satellite data:", error);
+                    // Consider setting an error state to display to the user
+                } finally {
+                    setIsLoading(false);
+                }
+            }
+        };
+
+        fetchSatelliteData();
+    }, [observation]); 
+
+    if (!observation) {
+        return null; 
+    }
+
+    if (isLoading) {
+        return ( 
+            <div className="d-flex justify-content-center align-items-center vh-100"> {/* Center the spinner */}
+                <Spinner animation="border" role="status"> {/* Display the spinner */}
+                    <span className="visually-hidden">{t('loading')}...</span>
+                </Spinner>
+            </div>
+        );
+    }
     
     const imageUrl = satelliteData?.image
         ? `${import.meta.env.VITE_MEDIA_URL}/${satelliteData.image}`
