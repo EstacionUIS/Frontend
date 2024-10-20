@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Collapse from 'react-bootstrap/Collapse';
 import Card from 'react-bootstrap/Card';
