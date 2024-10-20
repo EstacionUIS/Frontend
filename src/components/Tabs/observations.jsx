@@ -10,7 +10,9 @@ function Observations() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+
   const observationsPerPage = 10; // Number of observations per page
+  const totalPages = Math.ceil(observations.length / observationsPerPage);
 
   const { t } = useTranslation();
 
@@ -50,26 +52,36 @@ function Observations() {
       </div>
     );
   } else {
-    return (
-      <div>
-
-        <h2>{t('Observations.Title')}</h2>
-        <ul>
-          {currentObservations.map((observation) => (
-            <Entry key={observation.id} observation={observation} />
-          ))}
-        </ul>
-
-        {/* Pagination controls */}
+      return (
         <div>
-          <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
-            {t('Observations.Previous')}
-          </button>
-          <button onClick={() => paginate(currentPage + 1)} disabled={indexOfLastObservation >= observations.length}>
-          {t('Observations.Next')}
-          </button>
+            <h2>{t('Observations.Title')}</h2>
+            <ul>
+                {currentObservations.map((observation) => (
+                    <Entry key={observation.id} observation={observation} />
+                ))}
+            </ul>
+
+            {/* Pagination controls */}
+            <div className="d-flex justify-content-center align-items-center">
+                {/* Center the buttons and page count */}
+                <button
+                    onClick={() => paginate(currentPage - 1)}
+                    disabled={currentPage === 1}
+                >
+                    {t('Observations.Previous')}
+                </button>
+                <span className="mx-3">
+                    {/* Add spacing around the page count */}
+                    {currentPage} / {totalPages}
+                </span>
+                <button
+                    onClick={() => paginate(currentPage + 1)}
+                    disabled={indexOfLastObservation >= observations.length}
+                >
+                    {t('Observations.Next')}
+                </button>
+            </div>
         </div>
-      </div>
     );
   }
 }
