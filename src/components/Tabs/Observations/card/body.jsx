@@ -55,7 +55,7 @@ function Body({ observation }) { // Receive isLoading prop
         <div id="observation-details">
             <div className="d-flex justify-content-center">
                 <div>
-                    <pre>{JSON.stringify(data, null, 2)}</pre>
+                    <pre>{JSON.stringify(satelliteData, null, 2)}</pre>
                 </div>
                 <div>
                     <>
