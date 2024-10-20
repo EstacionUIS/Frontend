@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Collapse from 'react-bootstrap/Collapse';
 import Card from 'react-bootstrap/Card';
-import Spinner from 'react-bootstrap/Spinner'; // Import Spinner
 
 import { getSatelliteByNoradId } from '../../../api/satnogsAPI'; 
 
@@ -14,7 +13,6 @@ function Entry({ observation }) {
     
     const [open, setOpen] = useState(false);
     const [satelliteData, setSatelliteData] = useState(null);
-    const [isLoading, setIsLoading] = useState(true); 
 
     useEffect(() => {
         const fetchSatelliteData = async () => {
@@ -25,8 +23,6 @@ function Entry({ observation }) {
                 } catch (error) {
                     console.error("Error fetching satellite data:", error);
                     // Consider setting an error state to display to the user
-                } finally {
-                    setIsLoading(false); 
                 }
             }
         };
@@ -36,16 +32,6 @@ function Entry({ observation }) {
 
     if (!observation) {
         return null; 
-    }
-
-    if (isLoading) {
-        return ( 
-            <div className="d-flex justify-content-center align-items-center vh-100"> 
-                <Spinner animation="border" role="status"> 
-                    <span className="visually-hidden">{t('loading')}...</span>
-                </Spinner>
-            </div>
-        );
     }
 
     return (
