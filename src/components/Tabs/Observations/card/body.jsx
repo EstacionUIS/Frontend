@@ -72,7 +72,7 @@ function Body({ observation }) { // Receive isLoading prop
                                         {satelliteData.citation} 
                                     </Card.Text>
                                     <Card.Link href={databaseUrl}>
-                                        {t('Observations.link')}
+                                        {t('Observations.Link')}
                                     </Card.Link>
                                 </div>
                             </Card.Body>
