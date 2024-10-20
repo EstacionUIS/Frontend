@@ -17,6 +17,7 @@
     "Title": "Observaciones",
     "Previous": "Anterior",
     "Next": "Siguiente",
+    "StatusTitle": "Estado",    
     "Status": {
       "future": "Futuro",
       "good": "Buena",
