@@ -49,7 +49,7 @@ function Body({ observation }) { // Receive isLoading prop
     const imageUrl = satelliteData?.image
         ? `${import.meta.env.VITE_MEDIA_URL}/${satelliteData.image}`
         : sat;
-    const databaseUrl = `${import.meta.env.VITE_SATELLITES_URL}/${observation.sat_id}`;
+    const databaseUrl = `${import.meta.env.VITE_SATELLITES_URL}/${satelliteData.sat_id}`;
 
     return (
         <div id="observation-details">
