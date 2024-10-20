@@ -18,6 +18,7 @@
         "Previous": "Previous",
         "Next": "Next",
         "StatusTitle": "Status",
+        "Link": "View in SatNOGS DB",
         "Status": {
             "future": "Future",
             "good": "Good",
