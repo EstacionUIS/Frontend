@@ -1,6 +1,7 @@
 import React from 'react';
 import Badge from 'react-bootstrap/Badge';
 import { useTranslation } from 'react-i18next';
+import Card from 'react-bootstrap/Card';
 import moment from 'moment';
 
 function Header({ observation, open, setOpen }) {
