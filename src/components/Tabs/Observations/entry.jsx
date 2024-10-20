@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Badge from 'react-bootstrap/Badge';
 import { useTranslation } from 'react-i18next';
 import Collapse from 'react-bootstrap/Collapse';
 import Card from 'react-bootstrap/Card';
-import moment from 'moment';
+
 import { getSatelliteByNoradId } from '../../../api/satnogsAPI'; 
 
-import sat from '../../../../public/Images/sat_purple.png'; 
+import Header from './card/header'; // Import the new Header component
+import Body from './card/body'; // Import the new Body component
 
 function Entry({ observation }) {
     const { t } = useTranslation();
@@ -28,97 +28,15 @@ function Entry({ observation }) {
         return null; 
     }
 
-    let badgeVariant;
-    switch (observation.status) {
-        case 'future':
-            badgeVariant = 'primary';
-            break;
-        case 'good':
-            badgeVariant = 'success';
-            break;
-        case 'bad':
-            badgeVariant = 'danger';
-            break;
-        case 'unknown':
-            badgeVariant = 'warning';
-            break;
-        case 'failed':
-            badgeVariant = 'secondary';
-            break;
-        default:
-            badgeVariant = 'secondary';
-    }
-
-    const formattedDate = moment(observation.start).format('YYYY-MM-DD HH:mm:ss');
-
-    // Use optional chaining and a fallback to handle potentially undefined image URLs
-    const imageUrl = satelliteData?.image
-        ? `${import.meta.env.VITE_MEDIA_URL}/${satelliteData.image}`
-        : sat;
-
-    const databaseUrl = `${import.meta.env.VITE_SATELLITES_URL}/${observation.sat_id}`; 
-
     return (
         <Card key={observation.id} className="mb-3">
-            <Card.Header
-                onClick={() => setOpen(!open)}
-                aria-controls="observation-details"
-                aria-expanded={open}
-                style={{ cursor: 'pointer' }}
-            >
-                <div className="d-flex flex-column"> {/* Stack elements vertically */}
-                    <div>
-                        <b>{t('Observations.Id')}:</b> {observation.id}
-                    </div>
-                    <div>
-                        <b>{t('Observations.TimeStamp')}:</b> {formattedDate}
-                    </div>
-                    <div>
-                        <Badge bg={badgeVariant}>
-                            {t(`Observations.Status.${observation.status}`)}
-                        </Badge>
-                    </div>
-                </div>
-            </Card.Header>
+            <Header
+                observation={observation}
+                open={open}
+                setOpen={setOpen}
+            />
             <Collapse in={open}>
-                <div id="observation-details">
-                    <Card.Body>
-                        <div className="d-flex justify-content-center"> {/* Center the content */}
-                            <div>
-                                <p>
-                                    <b>Status:</b> {satelliteData ? satelliteData.status : 'Loading...'}
-                                </p>
-                                <Card>
-                                    <Card.Body>
-                                        <div className="d-flex flex-column align-items-center">
-                                            <Card.Title>
-                                                {observation.tle0 ? observation.tle0 : ''}
-                                            </Card.Title>
-                                            {/* Conditionally render the image */}
-                                            <Card.Img
-                                                variant="top"
-                                                src={imageUrl}
-                                                alt="Satellite Image"
-                                                style={{ width: '150px' }}
-                                                onError={(e) => {
-                                                    e.target.onerror = null;
-                                                    e.target.src = sat;
-                                                }}
-                                            />
-                                            <a
-                                                href={databaseUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                View on SatNOGS DB
-                                            </a>
-                                        </div>
-                                    </Card.Body>
-                                </Card>
-                            </div>
-                        </div>
-                    </Card.Body>
-                </div>
+                <Body observation={observation} satelliteData={satelliteData} />
             </Collapse>
         </Card>
     );
