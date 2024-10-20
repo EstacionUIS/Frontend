@@ -17,6 +17,7 @@
         "Title": "Observations",
         "Previous": "Previous",
         "Next": "Next",
+        "StatusTitle": "Status",
         "Status": {
             "future": "Future",
             "good": "Good",
