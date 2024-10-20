@@ -37,7 +37,7 @@ function Header({ observation }) { // Receive t function as prop
         <div className="d-flex flex-column">
             <div>
                 <Badge bg={badgeVariant}>
-                    <b>Status:</b></b> {t(`Observations.Status.${observation.status}`)}
+                    <b>Status: {t(`Observations.Status.${observation.status}`)}</b>
                 </Badge>
             </div>            
             <div>
