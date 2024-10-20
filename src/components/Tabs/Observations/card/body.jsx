@@ -3,7 +3,8 @@ import Card from 'react-bootstrap/Card';
 
 import sat from '../../../../../public/Images/sat_purple.png';
 
-function Body({ observation, satelliteData }) {
+function Body({ observation, satelliteData }) { // Receive isLoading prop
+    
     const imageUrl = satelliteData?.image
         ? `${import.meta.env.VITE_MEDIA_URL}/${satelliteData.image}`
         : sat;
@@ -11,12 +12,10 @@ function Body({ observation, satelliteData }) {
 
     return (
         <div id="observation-details">
-            <Card.Body>
-                <div className="d-flex justify-content-center">
-                    <div>
-                        <p>
-                            <b>Status:</b> {satelliteData ? satelliteData.status : 'Loading...'}
-                        </p>
+            <div className="d-flex justify-content-center">
+                <div>
+                    <>
+                        <p><b>Status:</b> {satelliteData ? satelliteData.status : 'N/A'}</p>
                         <Card>
                             <Card.Body>
                                 <div className="d-flex flex-column align-items-center">
@@ -43,9 +42,9 @@ function Body({ observation, satelliteData }) {
                                 </div>
                             </Card.Body>
                         </Card>
-                    </div>
+                    </>
                 </div>
-            </Card.Body>
+            </div>
         </div>
     );
 }
