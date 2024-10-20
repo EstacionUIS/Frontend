@@ -46,7 +46,7 @@ function Entry({ observation }) {
             </Card.Header>
             <Collapse in={open}>
                 <Card.Body> 
-                    <Body observation={observation} satelliteData={satelliteData} />  {/* No need to pass isLoading */}
+                    <Body observation={observation} />  {/* No need to pass isLoading */}
                 </Card.Body>
             </Collapse>
         </Card>
