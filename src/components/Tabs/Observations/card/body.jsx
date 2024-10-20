@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import Spinner from 'react-bootstrap/Spinner';
+import { useTranslation } from 'react-i18next';
 
 import sat from '../../../../../public/Images/sat_purple.png';
 import { getSatelliteByNoradId } from '../../../../api/satnogsAPI';
