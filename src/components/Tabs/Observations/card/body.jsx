@@ -19,7 +19,7 @@ function Body({ observation }) { // Receive isLoading prop
             if (observation && observation.norad_cat_id) {
                 try {
                     const data = await getSatelliteByNoradId(observation.norad_cat_id);
-                    setSatelliteData(data);
+                    setSatelliteData(data[0]);
                 } catch (error) {
                     console.error("Error fetching satellite data:", error);
                     // Consider setting an error state to display to the user
