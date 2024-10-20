@@ -52,17 +52,9 @@ function Body({ observation }) { // Receive isLoading prop
     const databaseUrl = `${import.meta.env.VITE_SATELLITES_URL}/${satelliteData.sat_id}`;
 
     return (
-        <div id="observation-details">
-            <div className="d-flex justify-content-center">
-                <div>
-                    <>
-                        <p><b>Status:</b> {satelliteData ? satelliteData.status : 'N/A'}</p>
                         <Card>
                             <Card.Body>
                                 <div className="d-flex flex-column align-items-center">
-                                    <Card.Title>
-                                        {observation.tle0 ? observation.tle0 : ''}
-                                    </Card.Title>
                                     <Card.Img
                                         variant="top"
                                         src={imageUrl}
@@ -72,21 +64,19 @@ function Body({ observation }) { // Receive isLoading prop
                                             e.target.onerror = null;
                                             e.target.src = sat;
                                         }}
-                                    />
-                                    <a
-                                        href={databaseUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
+                                    />                              
+                                    <Card.Title>
+                                        satelliteData.name
+                                    </Card.Title>
+                                    <Card.Text>
+                                        satelliteData.citation 
+                                    </Card.Text>
+                                    <Card.Link href={databaseUrl}>
                                         View on SatNOGS DB
-                                    </a>
+                                    </Card.Link>
                                 </div>
                             </Card.Body>
                         </Card>
-                    </>
-                </div>
-            </div>
-        </div>
     );
 }
 
