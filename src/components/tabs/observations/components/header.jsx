@@ -7,6 +7,10 @@ import Badge from 'react-bootstrap/Badge';
 
 function Header({ observation }) {
 
+    if(!observation) {
+        return null;
+    }
+
     const { t } = useTranslation();
 
     let badgeVariant;

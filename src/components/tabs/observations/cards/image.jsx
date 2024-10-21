@@ -7,6 +7,10 @@ import sat from '../../../../../public/images/sat_purple.png';
 
 function Image({ satelliteData }) { 
 
+    if(satelliteData) {
+        return null;
+    }
+
     return (
         <div>
             <pre>{JSON.stringify(satelliteData, null, 2)}</pre>
