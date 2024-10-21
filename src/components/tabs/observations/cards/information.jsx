@@ -20,7 +20,7 @@ function Information({ satelliteData }) {
         const fetchData = async () => {
           try {
             const data = await getSatelliteDescriptionByNoradId(satelliteData.sat_id);
-            setDescription(data[0]);
+            setDescription(data);
           } catch (error) {
             setError(error);
           }
@@ -37,7 +37,7 @@ function Information({ satelliteData }) {
         return null;
     }
 
-    console.log(description);
+    console.log(description.Description);
 
     return (
         <Card>
