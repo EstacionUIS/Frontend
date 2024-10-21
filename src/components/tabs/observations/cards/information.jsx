@@ -20,6 +20,7 @@ function Information({ satelliteData }) {
         const fetchData = async () => {
           try {
             const data = await getSatelliteDescriptionByNoradId(satelliteData.sat_id);
+            console.log(satelliteData.sat_id);
             setDescription(data);
           } catch (error) {
             setError(error);

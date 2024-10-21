@@ -28,7 +28,6 @@ function Entry({ observation }) {
         const fetchData = async () => {
           try {
             const data = await getSatelliteByNoradId(observation.norad_cat_id);
-            console.log(data);
             setSatelliteData(data[0]);
           } catch (error) {
             setError(error);
