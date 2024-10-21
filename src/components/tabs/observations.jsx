@@ -54,7 +54,6 @@ function Observations() {
   } else {
       return (
         <div>
-            <h2>{t('Observations.Title')}</h2>
             <ul>
                 {currentObservations.map((observation) => (
                     <Entry key={observation.id} observation={observation} />

@@ -50,7 +50,7 @@ function Description({ satelliteData }) {
                 </div>
                 : <div> 
                     <Card.Title>
-                        {t('Observation.Description')}
+                        {t('Observations.Description')}
                     </Card.Title>
                     <Card.Body>
                     <div>
