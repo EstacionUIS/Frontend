@@ -63,7 +63,7 @@ function Entry({ observation }) {
                             <span className="visually-hidden">{t('Loading')}...</span>
                             </Spinner>
                         </div> 
-                        : <div className="d-flex flex-row mt-2"> 
+                        : <div className="d-flex flex-row mt-3"> 
                             <div><Information satelliteData={ satelliteData } /></div>
                             <div><Image satelliteData={ satelliteData } /></div>
                             <div><Description satelliteData={satelliteData} /> </div>

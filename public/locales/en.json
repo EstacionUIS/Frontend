@@ -19,6 +19,7 @@
       "Next": "Next",
       "StatusTitle": "Status",
       "Link": "View in SatNOGS DB",
+      "Description": "Description",
       "Satellite": {
         "Name": "Name",
         "AlternativeNames": "Alternate Names",
