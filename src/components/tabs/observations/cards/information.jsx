@@ -31,14 +31,14 @@ function Information({ satelliteData }) {
                         <p><b>{t('Observations.Satellite.NoradId')}:</b></p>
                         <p>{satelliteData.norad_cat_id || 'N/A'}</p>
                     </div>
+                    <div className="d-flex justify-content-between align-items-center">
+                        <p><b>{t('Observations.Satellite.Country')}:</b></p>
+                        <pre>{JSON.stringify(satelliteData.countries, null, 2)}</pre>
+                    </div>
                     <div className="d-flex justify-content-between">
                         <a href={satelliteData.website} target="_blank" rel="noopener noreferrer">
                             {t('Observations.Satellite.Website') || 'N/A'}
                         </a>
-                    </div>
-                    <div className="d-flex justify-content-between align-items-center">
-                        <p><b>{t('Observations.Satellite.Country')}:</b></p>
-                        <pre>{JSON.stringify(satelliteData.countries, null, 2)}</pre>
                     </div>
                 </div>
             </Card.Body>
