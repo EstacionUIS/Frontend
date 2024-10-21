@@ -31,9 +31,7 @@ function Image({ satelliteData }) {
                     <div className="d-flex justify-content-center"> {/* Center flags */}
                         {satelliteData?.countries ? (
                             satelliteData.countries.split(',').map((code) => (
-                                <div>
-                                    <Flagpack code={code} size='m' hasDropShadow={true}/>
-                                </div>
+                                <Flagpack code={code} size='m' hasDropShadow={true}/>
                             ))
                         ) : (
                             "N/A"
