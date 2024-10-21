@@ -7,7 +7,7 @@ import sat from '../../../../../public/images/sat_purple.png';
 
 function Image({ satelliteData }) { 
 
-    if(satelliteData) {
+    if(!satelliteData) {
         return null;
     }
 
