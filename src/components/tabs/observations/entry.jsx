@@ -24,7 +24,7 @@ function Entry({ observation }) {
         const fetchData = async () => {
           try {
             const data = await getSatelliteByNoradId(observation.norad_cat_id);
-            setSatelliteData(data);
+            setSatelliteData(data[0]);
           } catch (error) {
             setError(error);
           } finally {
@@ -55,7 +55,7 @@ function Entry({ observation }) {
             </Card.Header>
             <Collapse in={open}>
                 <Card.Body> 
-                    { isLoading? 
+                    { ( isLoading || !satelliteData ) ? 
                         <div className="d-flex justify-content-center align-items-center vh-100"> {/* Center the spinner */}
                             <Spinner animation="border" role="status"> {/* Display the spinner */}
                             <span className="visually-hidden">{t('loading')}...</span>
