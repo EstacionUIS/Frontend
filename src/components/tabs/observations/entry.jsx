@@ -41,10 +41,6 @@ function Entry({ observation }) {
     if (error) {
         return <div>Error: {error.message}</div>;
     }
- 
-    if(!satelliteData) {
-        return null;
-    }
 
     return (
         <Card key={observation.id} className="mb-3">

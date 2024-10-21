@@ -5,7 +5,11 @@ import Flagpack from 'react-flagpack';
 
 import sat from '../../../../../public/images/sat_purple.png';
 
-function Body({ satelliteData }) { // Receive isLoading prop
+function Image({ satelliteData }) { // Receive isLoading prop
+
+    if(satelliteData) {
+        return null;
+    }
 
     const { t } = useTranslation();
 
@@ -29,4 +33,4 @@ function Body({ satelliteData }) { // Receive isLoading prop
     );
 }
 
-export default Body;
+export default Image;
