@@ -70,7 +70,7 @@ function Entry({ observation }) {
                         <Body observation={observation} />
                         <p>A text</p>
                     </div>
-                </Card.Body
+                </Card.Body>
             </Collapse>
         </Card>
     );
