@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
 import Collapse from 'react-bootstrap/Collapse';
 import Card from 'react-bootstrap/Card';
- 
+import { useTranslation } from 'react-i18next';
+import Badge from 'react-bootstrap/Badge';
+import moment from 'moment';
+
 import Body from './card/body'; 
 
 function Entry({ observation }) {
-    
+
+    const { t } = useTranslation();
+ 
     const [open, setOpen] = useState(false);
 
+    if (!observation) {
+        return null;
+    }
+ 
     let badgeVariant;
     switch (observation.status) {
         case 'future':
