@@ -6,8 +6,10 @@ import Card from 'react-bootstrap/Card';
 import Spinner from 'react-bootstrap/Spinner';
 
 import Header from './components/header';
+
 import Image from './cards/image';
 import Information from './cards/information';
+import Description from './cards/description';
 
 import { getSatelliteByNoradId } from '../../../api/satnogsAPI';
 
@@ -64,6 +66,7 @@ function Entry({ observation }) {
                         : <div className="d-flex flex-row mt-2"> 
                             <div><Information satelliteData={ satelliteData } /></div>
                             <div><Image satelliteData={ satelliteData } /></div>
+                            <div><Description satelliteData={satelliteData} /> </div>
                         </div> 
                     }
                 </Card.Body>
