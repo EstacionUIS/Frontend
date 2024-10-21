@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { useTranslation } from 'react-i18next';
-import Flagpack from 'react-flagpack';
+import FlagPack from 'react-flagpack';
 
 import sat from '../../../../../public/images/sat_purple.png';
 
@@ -30,9 +30,9 @@ function Image({ satelliteData }) {
                     <div>{satelliteData.name}</div>
                     <div className="d-flex justify-content-center"> {/* Center flags */}
                         {satelliteData?.countries ? (
-                            [satelliteData.countries].map((code) => (
-                                <div key={code} style={{ margin: '0 5px' }}> {/* Add spacing between flags */}
-                                    <Flagpack code={code} size='M' hasDropShadow={true} />
+                            satelliteData.countries.map((code) => (
+                                <div>
+                                    <FlagPack code={code} size='M' />
                                 </div>
                             ))
                         ) : (
