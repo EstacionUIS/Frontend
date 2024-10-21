@@ -5,7 +5,7 @@ import Flagpack from 'react-flagpack';
 
 import sat from '../../../../../public/images/sat_purple.png';
 
-function Image({ satelliteData }) { // Receive isLoading prop
+function Image({ satelliteData }) { 
 
     return (
         <div>
