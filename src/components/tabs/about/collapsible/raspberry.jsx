@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import CollapsibleSection from '../../../collapsible/collapsibleSection';
 
-import raspberry from '../../../../../public/Images/station/raspberry.jpg'; 
+import raspberry from '../../../../../public/images/station/raspberry.jpg'; 
 
 function Raspberry() {
   const { t } = useTranslation();
