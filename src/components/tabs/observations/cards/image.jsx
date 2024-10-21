@@ -31,7 +31,7 @@ function Image({ satelliteData }) {
                     <div>{satelliteData.name}</div>
                     <div>
                         <ul>
-                            { (satelliteData.countries && satelliteData.countries.size > 0) ? 
+                            { (satelliteData?.countries && satelliteData.countries.size > 0) ? 
                                 Array.from(satelliteData.countries).map((code) => (
                                     <li>{code}</li>
                                 ))
