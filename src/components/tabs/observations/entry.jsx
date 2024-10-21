@@ -62,8 +62,8 @@ function Entry({ observation }) {
                             </Spinner>
                         </div> 
                         : <div className="d-flex flex-row">
-                            
-                            <div><Image observation={observation} /></div>
+                                
+                            <b>Image</b>
                         </div> 
                     }
                 </Card.Body>
