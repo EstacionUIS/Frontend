@@ -13,6 +13,10 @@ import { getSatelliteByNoradId } from '../../../api/satnogsAPI';
 
 function Entry({ observation }) {
 
+    if (!observation) {
+        return null;
+    }
+
     const { t } = useTranslation();
  
     const [open, setOpen] = useState(false);
@@ -38,10 +42,6 @@ function Entry({ observation }) {
     if (error) {
         return <div>Error: {error.message}</div>;
     }
-
-    if (!observation) {
-        return null;
-    }
  
     return (
         <Card key={observation.id} className="mb-3">
@@ -61,9 +61,8 @@ function Entry({ observation }) {
                             <span className="visually-hidden">{t('loading')}...</span>
                             </Spinner>
                         </div> 
-                        : <div className="d-flex flex-row">
-                                
-                            <b>Image</b>
+                        : <div className="d-flex flex-row">    
+                            <div><Image observation={satelliteData} /></div>
                         </div> 
                     }
                 </Card.Body>

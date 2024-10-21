@@ -7,6 +7,10 @@ import sat from '../../../../../public/images/sat_purple.png';
 
 function Body({ satelliteData }) { // Receive isLoading prop
 
+    if(!satelliteData) {
+        return null;
+    }
+
     const { t } = useTranslation();
 
     const imageUrl = satelliteData?.image
