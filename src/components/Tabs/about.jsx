@@ -2,15 +2,15 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 // Section
-import Location from './About/location';
-import Installation from './About/installation';
+import Location from './about/location';
+import Installation from './about/installation';
 
 // Collapsible
-import Software from './About/collapsible/software';
-import Antenna from './About/collapsible/antenna';
-import Raspberry from './About/collapsible/raspberry';
-import Power from './About/collapsible/power';
-import Enclosure from './About/collapsible/enclosure';
+import Software from './about/collapsible/software';
+import Antenna from './about/collapsible/antenna';
+import Raspberry from './about/collapsible/raspberry';
+import Power from './about/collapsible/power';
+import Enclosure from './about/collapsible/enclosure';
 
 function About() {
   const { t } = useTranslation();

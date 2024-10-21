@@ -32,6 +32,10 @@ function Body({ observation }) { // Receive isLoading prop
         fetchSatelliteData();
     }, [observation]); 
 
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
+
     if (!observation) {
         return null; 
     }

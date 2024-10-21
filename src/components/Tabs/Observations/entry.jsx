@@ -1,46 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import Collapse from 'react-bootstrap/Collapse';
 import Card from 'react-bootstrap/Card';
-import { useTranslation } from 'react-i18next';
-import Badge from 'react-bootstrap/Badge';
-import moment from 'moment';
 
-import Body from './card/body'; 
-import Information from './card/information';
+import Header from './components/header';
+import Image from './cards/image';
+
+import { getSatelliteByNoradId } from '../../../api/satnogsAPI';
 
 function Entry({ observation }) {
 
     const { t } = useTranslation();
  
     const [open, setOpen] = useState(false);
+    const [satelliteData, setSatelliteData] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);    
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const data = await getSatelliteByNoradId(observation.norad_cat_id);
+            setSatelliteData(data);
+          } catch (error) {
+            setError(error);
+          } finally {
+            setIsLoading(false);
+          }
+        };
+    
+        fetchData();
+    }, []);
+
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
 
     if (!observation) {
         return null;
     }
  
-    let badgeVariant;
-    switch (observation.status) {
-        case 'future':
-            badgeVariant = 'primary';
-            break;
-        case 'good':
-            badgeVariant = 'success';
-            break;
-        case 'bad':
-            badgeVariant = 'danger';
-            break;
-        case 'unknown':
-            badgeVariant = 'warning';
-            break;
-        case 'failed':
-            badgeVariant = 'secondary';
-            break;
-        default:
-            badgeVariant = 'secondary';
-    }
-
-    const formattedDate = moment(observation.start).format('LLL');
-    
     return (
         <Card key={observation.id} className="mb-3">
             <Card.Header 
@@ -48,27 +48,13 @@ function Entry({ observation }) {
                 aria-controls="observation-details"
                 aria-expanded={open}
                 style={{ cursor: 'pointer' }}
-            >         
-            <div className="d-flex flex-column">
-            <div>
-                <b>{t('Observations.StatusTitle')}</b>:<b> </b>
-                <Badge bg={badgeVariant}>
-                    <b>{t(`Observations.Status.${observation.status}`)}</b>
-                </Badge>
-            </div>            
-            <div>
-                <b>{t('Observations.Id')}:</b> {observation.id}
-            </div>
-            <div>
-                <b>{t('Observations.TimeStamp')}:</b> {formattedDate}
-            </div>
-        </div>                
+            >                       
+                <Header observation={observation} />
             </Card.Header>
             <Collapse in={open}>
                 <Card.Body> 
-                    <div>
-                        <Body observation={observation} />
-                        <p>A text</p>
+                    <div className="d-flex flex-row">
+                        <Image observation={observation} />
                     </div>
                 </Card.Body>
             </Collapse>
