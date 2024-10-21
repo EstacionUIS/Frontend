@@ -4,7 +4,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import { useTranslation } from 'react-i18next';
 
 import sat from '../../../../../public/Images/sat_purple.png';
-import { getSatelliteByNoradId } from '../../../../api/satnogsAPI';
+import { getSatelliteByNoradId } from '../../../../Api/satnogsAPI';
 
 function Body({ observation }) { // Receive isLoading prop
 

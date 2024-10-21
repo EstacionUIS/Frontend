@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card';
 import Header from './components/header';
 import Image from './cards/image';
 
-import { getSatelliteByNoradId } from '../../../api/satnogsAPI';
+import { getSatelliteByNoradId } from '../../../Api/satnogsAPI';
 
 function Entry({ observation }) {
 
