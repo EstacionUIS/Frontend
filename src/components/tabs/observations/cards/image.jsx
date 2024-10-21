@@ -5,9 +5,8 @@ import Flagpack from 'react-flagpack';
 
 import sat from '../../../../../public/images/sat_purple.png';
 
-function Image({ satelliteData }) { 
-
-    if(!satelliteData) {
+function Image({ satelliteData }) {
+    if (!satelliteData) {
         return null;
     }
 
@@ -19,29 +18,29 @@ function Image({ satelliteData }) {
     const databaseUrl = `${import.meta.env.VITE_SATELLITES_URL}/${satelliteData.sat_id}`;
 
     return (
-        <Card>
-            <Card.Img variant="top" src={imageUrl} alt={t('Observations.ImgAlt')} style={{ width: '150px' }}
+        <Card className="text-center"> {/* Center card content */}
+            <Card.Img variant="top" src={imageUrl} alt={t('Observations.ImgAlt')} style={{ width: '150px', margin: '0 auto' }}
                 onError={(e) => {
                     e.target.onerror = null;
                     e.target.src = sat;
                 }}
-            />    
+            />
             <Card.Title>
                 <div>
                     <div>{satelliteData.name}</div>
-                    <div>
-                        { satelliteData?.countries ? 
+                    <div className="d-flex justify-content-center"> {/* Center flags */}
+                        {satelliteData?.countries ? (
                             [satelliteData.countries].map((code) => (
-                                <div>
-                                    <div>{code}</div>
-                                    <div><Flagpack code={code} size='M' hasDropShadow={true}/></div>
+                                <div key={code} style={{ margin: '0 5px' }}> {/* Add spacing between flags */}
+                                    <Flagpack code={code} size='M' hasDropShadow={true} />
                                 </div>
                             ))
-                            : "N/A"
-                        }
+                        ) : (
+                            "N/A"
+                        )}
                     </div>
                 </div>
-            </Card.Title>             
+            </Card.Title>
             <Card.Link href={databaseUrl}>
                 {t('Observations.Link')}
             </Card.Link>
