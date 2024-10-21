@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import Collapse from 'react-bootstrap/Collapse';
 import Card from 'react-bootstrap/Card';
 
-import Header from './components/header';
-import Image from './cards/image';
+import Header from './Components/header';
+import Image from './Cards/image';
 
 import { getSatelliteByNoradId } from '../../../Api/satnogsAPI';
 

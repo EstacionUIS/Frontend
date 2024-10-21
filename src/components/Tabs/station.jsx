@@ -4,7 +4,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button';
 import moment from 'moment';
 
-import { getStationById } from '../../api/satnogsAPI';
+import { getStationById } from '../../Api/satnogsAPI';
 
 import Header from './Station/header';
 import Desc from './Station/desc';
