@@ -10,6 +10,8 @@ import Header from './components/header';
 import Image from './cards/image';
 import Information from './cards/information';
 import Description from './cards/description';
+import Waterfall from './cards/waterfall';
+import Demoddata from './cards/demoddata';
 
 import { getSatelliteByNoradId } from '../../../api/satnogsAPI';
 
@@ -65,10 +67,12 @@ function Entry({ observation }) {
                             </Spinner>
                         </div> 
                         : 
-                        <div className="col-mt-4">
+                        <div className="row-mt-4">
                             <div><Information satelliteData={ satelliteData } /></div>
                             <div><Image satelliteData={ satelliteData } /></div>
                             <div><Description satelliteData={ satelliteData } /> </div>
+                            <div><Waterfall observation={ observation }/></div>
+                            <div><Demoddata observation={ observation }/></div>
                         </div>
                     }
                 </Card.Body>
