@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 
 import Header from './components/header';
 import Image from './cards/image';
+import Information from './cards/information';
 
 import { getSatelliteByNoradId } from '../../../api/satnogsAPI';
 
@@ -55,6 +56,7 @@ function Entry({ observation }) {
                 <Card.Body> 
                     <div className="d-flex flex-row">
                         <Image observation={observation} />
+                        <Information satelliteData={satelliteData} />
                     </div>
                 </Card.Body>
             </Collapse>
