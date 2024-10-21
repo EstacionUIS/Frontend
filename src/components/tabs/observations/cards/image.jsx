@@ -7,29 +7,10 @@ import sat from '../../../../../public/images/sat_purple.png';
 
 function Image({ satelliteData }) { // Receive isLoading prop
 
-    if(!satelliteData) {
-        return null;
-    }
-
-    const { t } = useTranslation();
-
-    const imageUrl = satelliteData?.image
-        ? `${import.meta.env.VITE_MEDIA_URL}/${satelliteData.image}`
-        : sat;
-    const databaseUrl = `${import.meta.env.VITE_SATELLITES_URL}/${satelliteData.sat_id}`;
-
     return (
-        <Card>
-            <Card.Img variant="top" src={imageUrl} alt={t('Observations.ImgAlt')} style={{ width: '150px' }}
-                onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = sat;
-                }}
-            />                 
-            <Card.Link href={databaseUrl}>
-                {t('Observations.Link')}
-            </Card.Link>
-        </Card>
+        <div>
+            <pre>{JSON.stringify(satelliteData, null, 2)}</pre>
+        </div>
     );
 }
 
