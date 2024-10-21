@@ -60,27 +60,27 @@ function Entry({ observation }) {
       </Card.Header>
       <Collapse in={open}>
         <Card.Body className="d-flex flex-column align-items-center justify-content-center">
-          {isLoading ? (
-            <div className="d-flex justify-content-center align-items-center vh-100">
-              <Spinner animation="border" role="status">
-                <span className="visually-hidden">{t('Loading')}...</span>
-              </Spinner>
-            </div>
-          ) : (
-            <>
-              <Row className="mt-3" style={{ alignItems: 'stretch' }}> 
-                <Col><Information satelliteData={satelliteData} /></Col>
-                <Col><Image satelliteData={satelliteData} /></Col>
-                <Col><Description satelliteData={satelliteData} /></Col>
-              </Row>
-              {observation.waterfall_status === "with-signal" && (
-                <Row className="mt-3">
-                  <Col><Waterfall observation={observation} /></Col>
-                  <Col><Demoddata observation={observation} /></Col>
-                </Row>
-              )}
-            </>
-          )}
+            { isLoading ?
+                <div className="d-flex justify-content-center align-items-center vh-100">
+                <Spinner animation="border" role="status">
+                    <span className="visually-hidden">{t('Loading')}...</span>
+                </Spinner>
+                </div> 
+                : 
+                <div>
+                    <Row className="mt-3" style={{ alignItems: 'stretch' }}> 
+                        <Col><Information satelliteData={satelliteData} /></Col>
+                        <Col><Image satelliteData={satelliteData} /></Col>
+                        <Col><Description satelliteData={satelliteData} /></Col>
+                    </Row>
+                    {observation.waterfall_status === "with-signal" && (
+                        <Col className="mt-3">
+                        <Row><Waterfall observation={observation} /></Row>
+                        <Row><Demoddata observation={observation} /></Row>
+                        </Col>
+                    )}
+                </div>
+            }
         </Card.Body>
       </Collapse>
     </Card>

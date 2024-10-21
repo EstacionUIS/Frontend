@@ -37,7 +37,7 @@ function Description({ satelliteData }) {
       }
 
     return (
-        <Card>
+        <Card className="text-center">
             { isLoading?
                 <div>
                     <Card.Body>

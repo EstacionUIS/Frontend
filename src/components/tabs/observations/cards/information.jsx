@@ -14,7 +14,7 @@ function Information({ satelliteData }) {
     const { t } = useTranslation();
 
     return (
-        <Card>
+        <Card className="text-center">
             <Card.Body>
                 <div>
                     <div className="d-flex flex-column">
