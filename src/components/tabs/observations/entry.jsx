@@ -7,7 +7,6 @@ import Spinner from 'react-bootstrap/Spinner';
 
 import Header from './components/header';
 import Image from './cards/image';
-import Information from './cards/information';
 
 import { getSatelliteByNoradId } from '../../../api/satnogsAPI';
 
@@ -43,6 +42,10 @@ function Entry({ observation }) {
         return <div>Error: {error.message}</div>;
     }
  
+    if(!satelliteData) {
+        return null;
+    }
+
     return (
         <Card key={observation.id} className="mb-3">
             <Card.Header 
@@ -58,7 +61,7 @@ function Entry({ observation }) {
                     { ( isLoading || !satelliteData ) ? 
                         <div className="d-flex justify-content-center align-items-center vh-100"> {/* Center the spinner */}
                             <Spinner animation="border" role="status"> {/* Display the spinner */}
-                            <span className="visually-hidden">{t('loading')}...</span>
+                            <span className="visually-hidden">{t('Loading')}...</span>
                             </Spinner>
                         </div> 
                         : <div className="d-flex flex-row">   
