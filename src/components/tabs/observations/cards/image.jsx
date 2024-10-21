@@ -32,7 +32,7 @@ function Image({ satelliteData }) {
                         {satelliteData?.countries ? (
                             satelliteData.countries.split(',').map((code) => (
                                 <div>
-                                    <Flagpack code={code} size='M' hasDropShadow={true}/>
+                                    <Flagpack code={code} size='m' hasDropShadow={true}/>
                                 </div>
                             ))
                         ) : (
