@@ -20,7 +20,6 @@ function Information({ satelliteData }) {
         const fetchData = async () => {
           try {
             const data = await getSatelliteDescriptionByNoradId(satelliteData.sat_id);
-            console.log(satelliteData.sat_id);
             setDescription(data);
           } catch (error) {
             setError(error);
@@ -37,6 +36,8 @@ function Information({ satelliteData }) {
     if(!description) {
         return null;
     }
+
+    console.log(description);
 
     return (
         <Card>
@@ -66,9 +67,6 @@ function Information({ satelliteData }) {
                         <a href={satelliteData.website} target="_blank" rel="noopener noreferrer">
                             {t('Observations.Satellite.Website') || 'N/A'}
                         </a>
-                    </div>
-                    <div>
-                        <p>{description}</p>
                     </div>
                 </div>
             </Card.Body>

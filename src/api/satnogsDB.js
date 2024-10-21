@@ -4,8 +4,6 @@ const fetchTextData = async (queryParams = "") => {
         const url = `${import.meta.env.VITE_SERVER_URL}/satellite/description/${queryParams}`;
         const response = await fetch(url);
 
-        console.log(url);
-
         if (!response.ok) {
             if (response.status === 404) {
               throw new Error(`Station not found.`);
