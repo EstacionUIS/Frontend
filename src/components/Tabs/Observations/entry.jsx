@@ -6,6 +6,7 @@ import Badge from 'react-bootstrap/Badge';
 import moment from 'moment';
 
 import Body from './card/body'; 
+import Information from './card/information';
 
 function Entry({ observation }) {
 
@@ -65,8 +66,11 @@ function Entry({ observation }) {
             </Card.Header>
             <Collapse in={open}>
                 <Card.Body> 
-                    <Body observation={observation} />  {/* No need to pass isLoading */}
-                </Card.Body>
+                    <div>
+                        <Body observation={observation} />
+                        <p>A text</p>
+                    </div>
+                </Card.Body
             </Collapse>
         </Card>
     );
