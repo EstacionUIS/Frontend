@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
-import Spinner from 'react-bootstrap/Spinner';
 import { useTranslation } from 'react-i18next';
+import Flagpack from 'react-flagpack';
 
 import sat from '../../../../../public/images/sat_purple.png';
 import { getSatelliteByNoradId } from '../../../../api/satnogsAPI';
@@ -11,8 +11,6 @@ function Body({ observation }) { // Receive isLoading prop
     const { t } = useTranslation();
 
     const [satelliteData, setSatelliteData] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
     
     useEffect(() => {
         const fetchSatelliteData = async () => {
@@ -32,22 +30,8 @@ function Body({ observation }) { // Receive isLoading prop
         fetchSatelliteData();
     }, [observation]); 
 
-    if (error) {
-        return <div>Error: {error.message}</div>;
-    }
-
     if (!observation) {
         return null; 
-    }
-
-    if (isLoading) {
-        return ( 
-            <div className="d-flex justify-content-center align-items-center vh-100"> {/* Center the spinner */}
-                <Spinner animation="border" role="status"> {/* Display the spinner */}
-                    <span className="visually-hidden">{t('loading')}...</span>
-                </Spinner>
-            </div>
-        );
     }
     
     const imageUrl = satelliteData?.image
@@ -56,31 +40,36 @@ function Body({ observation }) { // Receive isLoading prop
     const databaseUrl = `${import.meta.env.VITE_SATELLITES_URL}/${satelliteData.sat_id}`;
 
     return (
-                        <Card>
-                            <Card.Body>
-                                <div className="d-flex flex-column align-items-center">
-                                    <Card.Img
-                                        variant="top"
-                                        src={imageUrl}
-                                        alt="Satellite Image"
-                                        style={{ width: '150px' }}
-                                        onError={(e) => {
-                                            e.target.onerror = null;
-                                            e.target.src = sat;
-                                        }}
-                                    />                              
-                                    <Card.Title>
-                                        {satelliteData.name}
-                                    </Card.Title>
-                                    <Card.Text>
-                                        {satelliteData.citation} 
-                                    </Card.Text>
-                                    <Card.Link href={databaseUrl}>
-                                        {t('Observations.Link')}
-                                    </Card.Link>
-                                </div>
-                            </Card.Body>
-                        </Card>
+        <Card>
+            <Card.Body>
+                <div className="d-flex flex-column align-items-center">
+                    <Card.Img variant="top" src={imageUrl} alt={t('Observations.ImgAlt')} style={{ width: '150px' }}
+                        onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = sat;
+                        }}
+                    />                              
+                    <Card.Title>
+                        <div>
+                            <div>{satelliteData.name}</div>
+                            <div>
+                                { satelliteData?.countries && satelliteData.countries.size > 0 ? 
+                                    [satelliteData.countries].map((code) => (
+                                        <Flagpack
+                                            key={code} code={code} size='medium'
+                                        />
+                                    ))
+                                    : "N/A"
+                                }
+                            </div>
+                        </div>
+                    </Card.Title>
+                    <Card.Link href={databaseUrl}>
+                        {t('Observations.Link')}
+                    </Card.Link>
+                </div>
+            </Card.Body>
+        </Card>
     );
 }
 

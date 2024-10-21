@@ -35,12 +35,10 @@ function Header({ observation }) {
     return (
         <div className="d-flex flex-column">
             <div>
-                <p>
-                    <b>{t('Observations.StatusTitle')}</b>: 
-                        <Badge bg={badgeVariant}>
-                            <b>{t(`Observations.Status.${observation.status}`)}</b>
-                        </Badge>
-                </p>
+                <b>{t('Observations.StatusTitle')}: </b> 
+                <Badge bg={badgeVariant}>
+                    <b>{t(`Observations.Status.${observation.status}`)}</b>
+                </Badge>
             </div>  
             <div>
                 <b>{t('Observations.Id')}:</b> {observation.id}

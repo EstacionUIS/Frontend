@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import Collapse from 'react-bootstrap/Collapse';
 import Card from 'react-bootstrap/Card';
+import Spinner from 'react-bootstrap/Spinner';
 
 import Header from './components/header';
 import Image from './cards/image';
@@ -54,10 +55,17 @@ function Entry({ observation }) {
             </Card.Header>
             <Collapse in={open}>
                 <Card.Body> 
-                    <div className="d-flex flex-row">
-                        <Image observation={observation} />
-                        <Information satelliteData={satelliteData} />
-                    </div>
+                    { isLoading? 
+                        <div className="d-flex justify-content-center align-items-center vh-100"> {/* Center the spinner */}
+                            <Spinner animation="border" role="status"> {/* Display the spinner */}
+                            <span className="visually-hidden">{t('loading')}...</span>
+                            </Spinner>
+                        </div> 
+                        : <div className="d-flex flex-row">
+                            <div><Information satelliteData={satelliteData} /></div>
+                            <div><Image observation={observation} /></div>
+                        </div> 
+                    }
                 </Card.Body>
             </Collapse>
         </Card>
