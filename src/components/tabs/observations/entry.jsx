@@ -47,20 +47,13 @@ function Entry({ observation }) {
 
     return (
         <Card key={observation.id} className="mb-3">
-            <Card.Header 
-                onClick={() => setOpen(!open)}
-                aria-controls="observation-details"
-                aria-expanded={open}
-                style={{ cursor: 'pointer' }}
-            >                       
-                <Header observation={observation} />
-            </Card.Header>
+            {/* ... (Card.Header code) */}
             <Collapse in={open}>
-                <Card.Body> 
+                <Card.Body className="d-flex flex-column align-items-center justify-content-center"> 
                     { isLoading ? 
-                        <div className="d-flex justify-content-center align-items-center vh-100"> {/* Center the spinner */}
-                            <Spinner animation="border" role="status"> {/* Display the spinner */}
-                            <span className="visually-hidden">{t('Loading')}...</span>
+                        <div className="d-flex justify-content-center align-items-center vh-100"> 
+                            <Spinner animation="border" role="status"> 
+                                <span className="visually-hidden">{t('Loading')}...</span>  
                             </Spinner>
                         </div> 
                         : <div className="d-flex flex-row mt-3"> 
