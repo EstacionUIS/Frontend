@@ -30,14 +30,12 @@ function Image({ satelliteData }) {
                 <div>
                     <div>{satelliteData.name}</div>
                     <div>
-                        <ul>
-                            { satelliteData?.countries ? 
-                                [satelliteData.countries].map((code) => (
-                                    <li>{code}</li>
-                                ))
-                                : <li>"N/A"</li>
-                            }
-                        </ul>
+                        { satelliteData?.countries ? 
+                            [satelliteData.countries].map((code) => (
+                                <div><Flagpack code={code} size='M' hasDropShadow={true}/></div>
+                            ))
+                            : "N/A"
+                        }
                     </div>
                 </div>
             </Card.Title>             
