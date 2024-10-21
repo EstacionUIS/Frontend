@@ -62,7 +62,7 @@ function Entry({ observation }) {
                             </Spinner>
                         </div> 
                         : <div className="d-flex flex-row">   
-                            <pre>{JSON.stringify(satelliteData, null, 2)}</pre>
+                            <div><Image observation={ satelliteData } /></div>
                         </div> 
                     }
                 </Card.Body>
