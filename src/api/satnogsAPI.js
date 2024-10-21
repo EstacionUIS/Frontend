@@ -1,5 +1,5 @@
 
-const fetchData = async (endpoint, queryParams = "") => {
+const fetchAPIData = async (endpoint, queryParams = "") => {
   try {
     const url = `${import.meta.env.VITE_SERVER_URL}/${endpoint}?${queryParams}`;
     const response = await fetch(url);
@@ -24,13 +24,13 @@ const fetchData = async (endpoint, queryParams = "") => {
 };
 
 export const getObservationsByStationId = (id) => {
-  return fetchData('observations', `id=${id}`);
+  return fetchAPIData('observations', `id=${id}`);
 };
 
 export const getStationById = (id) => {
-  return fetchData('stations', `id=${id}`);
+  return fetchAPIData('stations', `id=${id}`);
 };
 
 export const getSatelliteByNoradId = (id) => {
-  return fetchData('satellites', `id=${id}`);
+  return fetchAPIData('satellites', `id=${id}`);
 }
