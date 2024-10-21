@@ -63,7 +63,7 @@ function Entry({ observation }) {
                         </div> 
                         : <div className="d-flex flex-row">   
                             <Image satelliteData={ satelliteData } />
-
+                            <Information satelliteData={ satelliteData } />
                         </div> 
                     }
                 </Card.Body>
