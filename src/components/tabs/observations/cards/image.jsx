@@ -7,7 +7,7 @@ import sat from '../../../../../public/images/sat_purple.png';
 
 function Image({ satelliteData }) { // Receive isLoading prop
 
-    if(satelliteData) {
+    if(!satelliteData) {
         return null;
     }
 
