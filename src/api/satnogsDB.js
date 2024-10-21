@@ -1,7 +1,7 @@
 
 const fetchTextData = async (queryParams = "") => {
     try {
-        const url = `${import.meta.env.VITE_SERVER_URL}/satellite/description/?${queryParams}`;
+        const url = `${import.meta.env.VITE_SERVER_URL}/satellite/description?${queryParams}`;
         const response = await fetch(url);
 
         if (!response.ok) {

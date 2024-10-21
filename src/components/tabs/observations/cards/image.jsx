@@ -32,7 +32,10 @@ function Image({ satelliteData }) {
                     <div>
                         { satelliteData?.countries ? 
                             [satelliteData.countries].map((code) => (
-                                <div><Flagpack code={code} size='M' hasDropShadow={true}/></div>
+                                <div>
+                                    <div>{code}</div>
+                                    <div><Flagpack code={code} size='M' hasDropShadow={true}/></div>
+                                </div>
                             ))
                             : "N/A"
                         }
