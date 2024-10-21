@@ -18,12 +18,7 @@ function Body({ satelliteData }) { // Receive isLoading prop
         <Card>
             <Card.Body>
                 <div className="d-flex flex-column align-items-center">
-                    <Card.Img variant="top" src={imageUrl} alt={t('Observations.ImgAlt')} style={{ width: '150px' }}
-                        onError={(e) => {
-                            e.target.onerror = null;
-                            e.target.src = sat;
-                        }}
-                    />                              
+                          
                     <Card.Title>
                         <div>
                             <div>{satelliteData.name}</div>
