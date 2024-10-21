@@ -54,14 +54,14 @@ function Entry({ observation }) {
             </Card.Header>
             <Collapse in={open}>
                 <Card.Body> 
-                    { ( isLoading ) ? 
+                    { isLoading ? 
                         <div className="d-flex justify-content-center align-items-center vh-100"> {/* Center the spinner */}
                             <Spinner animation="border" role="status"> {/* Display the spinner */}
                             <span className="visually-hidden">{t('Loading')}...</span>
                             </Spinner>
                         </div> 
                         : <div className="d-flex flex-row">   
-                            <pre>{JSON.stringify(satelliteData, null, 2)}</pre>
+                            <Header satelliteData={ satelliteData } />
                         </div> 
                     }
                 </Card.Body>
