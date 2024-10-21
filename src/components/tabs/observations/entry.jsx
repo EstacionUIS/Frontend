@@ -65,12 +65,10 @@ function Entry({ observation }) {
                             </Spinner>
                         </div> 
                         : 
-                        <div className="row mt-4">
-                            <div className="col-md-6"> 
-                                <div><Information satelliteData={ satelliteData } /></div>
-                                <div><Image satelliteData={ satelliteData } /></div>
-                                <div><Description satelliteData={ satelliteData } /> </div>
-                            </div> 
+                        <div className="col-mt-4">
+                            <div><Information satelliteData={ satelliteData } /></div>
+                            <div><Image satelliteData={ satelliteData } /></div>
+                            <div><Description satelliteData={ satelliteData } /> </div>
                         </div>
                     }
                 </Card.Body>
