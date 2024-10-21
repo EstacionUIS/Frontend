@@ -69,7 +69,7 @@ function Entry({ observation }) {
                             <div className="col-md-6"> 
                                 <div><Information satelliteData={ satelliteData } /></div>
                                 <div><Image satelliteData={ satelliteData } /></div>
-                                <div><Description satelliteData={satelliteData} /> </div>
+                                <div><Description satelliteData={ satelliteData } /> </div>
                             </div> 
                         </div>
                     }

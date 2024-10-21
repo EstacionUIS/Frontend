@@ -40,11 +40,6 @@ function Information({ satelliteData }) {
                         </div>
                     </div>
                 </div>
-                <div>
-                    <Button variant="primary" size="lg" active href={satelliteData.website} target="_blank" rel="noopener noreferrer">
-                        {t('Observations.Satellite.Website') || 'N/A'}
-                    </Button>
-                </div>
             </Card.Body>
         </Card>
     );
