@@ -21,7 +21,7 @@
       "Link": "View in SatNOGS DB",
       "Satellite": {
         "Name": "Name",
-        "AlternateNames": "Alternate Names",
+        "AlternativeNames": "Alternate Names",
         "Id": "Satellite Id",
         "NoradId": "NORAD Id",
         "Website": "View WebSite",
