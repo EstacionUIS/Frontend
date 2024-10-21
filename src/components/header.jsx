@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import logo1 from '../../public/images/logo/logo1.png';
-import logo2 from '../../public/images/logo/logo2.png';
+import logo1 from '/images/logo/logo1.png';
+import logo2 from '/images/logo/logo2.png';
 
 function Header() {
   const { t, i18n } = useTranslation();
