@@ -16,29 +16,15 @@ function Body({ satelliteData }) { // Receive isLoading prop
 
     return (
         <Card>
-            <Card.Body>
-                <div className="d-flex flex-column align-items-center">
-                          
-                    <Card.Title>
-                        <div>
-                            <div>{satelliteData.name}</div>
-                            <div>
-                                { (satelliteData.countries && satelliteData.countries.size > 0) ? 
-                                    [satelliteData.countries].map((code) => (
-                                        <Flagpack
-                                            key={code} code={code} size='medium'
-                                        />
-                                    ))
-                                    : "N/A"
-                                }
-                            </div>
-                        </div>
-                    </Card.Title>
-                    <Card.Link href={databaseUrl}>
-                        {t('Observations.Link')}
-                    </Card.Link>
-                </div>
-            </Card.Body>
+            <Card.Img variant="top" src={imageUrl} alt={t('Observations.ImgAlt')} style={{ width: '150px' }}
+                onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = sat;
+                }}
+            />                 
+            <Card.Link href={databaseUrl}>
+                {t('Observations.Link')}
+            </Card.Link>
         </Card>
     );
 }

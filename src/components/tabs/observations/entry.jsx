@@ -69,6 +69,6 @@ function Entry({ observation }) {
             </Collapse>
         </Card>
     );
-}
+} 
 
 export default Entry;
