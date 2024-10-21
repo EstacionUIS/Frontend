@@ -49,35 +49,41 @@ function Entry({ observation }) {
 
     return (
         <Card key={observation.id} className="mb-3">
-            <Card.Header 
-                onClick={() => setOpen(!open)}
-                aria-controls="observation-details"
-                aria-expanded={open}
-                style={{ cursor: 'pointer' }}
-            >                       
-                <Header observation={observation} />
-            </Card.Header>
-            <Collapse in={open}>
-                <Card.Body className="d-flex flex-column align-items-center justify-content-center"> 
-                    { isLoading ? 
-                        <div className="d-flex justify-content-center align-items-center vh-100"> 
-                            <Spinner animation="border" role="status"> 
-                                <span className="visually-hidden">{t('Loading')}...</span>  
-
-                            </Spinner>
-                        </div> 
-                        : 
-                        <div className="row-mt-4">
-                            <div><Information satelliteData={ satelliteData } /></div>
-                            <div><Image satelliteData={ satelliteData } /></div>
-                            <div><Description satelliteData={ satelliteData } /> </div>
-                            <div><Waterfall observation={ observation }/></div>
-                            <div><Demoddata observation={ observation }/></div>
-                        </div>
-                    }
-                </Card.Body>
-            </Collapse>
-        </Card>
+        <Card.Header
+          onClick={() => setOpen(!open)}
+          aria-controls="observation-details"
+          aria-expanded={open}
+          style={{ cursor: 'pointer' }}
+        >
+          <Header observation={observation} />
+        </Card.Header>
+        <Collapse in={open}>
+          <Card.Body className="d-flex flex-column align-items-center justify-content-center">
+            {isLoading ? (
+              <div className="d-flex justify-content-center align-items-center vh-100">
+                <Spinner animation="border" role="status">
+                  <span className="visually-hidden">{t('Loading')}...</span>  
+  
+                </Spinner>
+              </div>
+            ) : (
+              <>
+                <Row className="mt-3" style={{ alignItems: 'stretch' }}> 
+                  <Col><Information satelliteData={satelliteData} /></Col>
+                  <Col><Image satelliteData={satelliteData} /></Col>
+                  <Col><Description satelliteData={satelliteData} /></Col>
+                </Row>
+                {observation.waterfall_status === "with-signal" && (
+                  <Row className="mt-3">
+                    <Col><Waterfall observation={observation} /></Col>
+                    <Col><Demoddata observation={observation} /></Col>
+                  </Row>
+                )}
+              </>
+            )}
+          </Card.Body>
+        </Collapse>
+      </Card>
     );
 } 
 

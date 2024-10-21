@@ -41,6 +41,9 @@ function Information({ satelliteData }) {
                     </div>
                 </div>
             </Card.Body>
+            <Card.Link href={observation.website} >
+                {t('Observations.Website')}
+            </Card.Link>
         </Card>
     );
 }

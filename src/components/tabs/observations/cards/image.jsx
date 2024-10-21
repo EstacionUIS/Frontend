@@ -39,7 +39,7 @@ function Image({ satelliteData }) {
                     </div>
                 </div>
             </Card.Title>
-            <Card.Link href={databaseUrl}>
+            <Card.Link href={databaseUrl} >
                 {t('Observations.Link')}
             </Card.Link>
         </Card>
