@@ -32,7 +32,7 @@ function Image({ satelliteData }) {
                     <div>
                         <ul>
                             { (satelliteData.countries && satelliteData.countries.size > 0) ? 
-                                [satelliteData.countries].map((code) => (
+                                Array.from(satelliteData.countries).map((code) => (
                                     <li>{code}</li>
                                 ))
                                 : <li>"N/A"</li>
