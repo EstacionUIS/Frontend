@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'bootstrap';
 import Card from 'react-bootstrap/Card';
 
 import { useTranslation } from 'react-i18next';
@@ -15,32 +16,34 @@ function Information({ satelliteData }) {
     return (
         <Card>
             <Card.Body>
-                <div className="d-flex flex-column">
-                    <div className="d-flex justify-content-between">
-                        <p><b>{t('Observations.Satellite.Name')}:</b></p>
-                        <p>{satelliteData.name || 'N/A'}</p>
+                <div>
+                    <div className="d-flex flex-column">
+                        <div className="d-flex justify-content-between">
+                            <p><b>{t('Observations.Satellite.Name')}:</b></p>
+                            <p>{satelliteData.name || 'N/A'}</p>
+                        </div>
+                        <div className="d-flex justify-content-between">
+                            <p><b>{t('Observations.Satellite.AlternativeNames')}:</b></p>
+                            <p>{satelliteData.names || 'N/A'}</p>
+                        </div>
+                        <div className="d-flex justify-content-between">
+                            <p><b>{t('Observations.Satellite.Id')}:</b></p>
+                            <p>{satelliteData.sat_id || 'N/A'}</p>
+                        </div>
+                        <div className="d-flex justify-content-between">
+                            <p><b>{t('Observations.Satellite.NoradId')}:</b></p>
+                            <p>{satelliteData.norad_cat_id || 'N/A'}</p>
+                        </div>
+                        <div className="d-flex justify-content-between align-items-center">
+                            <p><b>{t('Observations.Satellite.Country')}:</b></p>
+                            <pre>{JSON.stringify(satelliteData.countries, null, 2)}</pre>
+                        </div>
                     </div>
-                    <div className="d-flex justify-content-between">
-                        <p><b>{t('Observations.Satellite.AlternativeNames')}:</b></p>
-                        <p>{satelliteData.names || 'N/A'}</p>
-                    </div>
-                    <div className="d-flex justify-content-between">
-                        <p><b>{t('Observations.Satellite.Id')}:</b></p>
-                        <p>{satelliteData.sat_id || 'N/A'}</p>
-                    </div>
-                    <div className="d-flex justify-content-between">
-                        <p><b>{t('Observations.Satellite.NoradId')}:</b></p>
-                        <p>{satelliteData.norad_cat_id || 'N/A'}</p>
-                    </div>
-                    <div className="d-flex justify-content-between align-items-center">
-                        <p><b>{t('Observations.Satellite.Country')}:</b></p>
-                        <pre>{JSON.stringify(satelliteData.countries, null, 2)}</pre>
-                    </div>
-                    <div className="d-flex justify-content-between">
-                        <a href={satelliteData.website} target="_blank" rel="noopener noreferrer">
-                            {t('Observations.Satellite.Website') || 'N/A'}
-                        </a>
-                    </div>
+                </div>
+                <div>
+                    <Button variant="primary" size="lg" active={!!satelliteData.website} href={satelliteData.website} target="_blank" rel="noopener noreferrer">
+                        {t('Observations.Satellite.Website') || 'N/A'}
+                    </Button>
                 </div>
             </Card.Body>
         </Card>

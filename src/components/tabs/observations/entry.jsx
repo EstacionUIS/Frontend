@@ -65,11 +65,13 @@ function Entry({ observation }) {
                             </Spinner>
                         </div> 
                         : 
-                        <div className="d-flex flex-row mt-3" style={{ alignItems: 'stretch' }}> 
-                            <div><Information satelliteData={ satelliteData } /></div>
-                            <div><Image satelliteData={ satelliteData } /></div>
-                            <div><Description satelliteData={satelliteData} /> </div>
-                        </div> 
+                        <div className="row mt-4">
+                            <div className="col-md-6"> 
+                                <div><Information satelliteData={ satelliteData } /></div>
+                                <div><Image satelliteData={ satelliteData } /></div>
+                                <div><Description satelliteData={satelliteData} /> </div>
+                            </div> 
+                        </div>
                     }
                 </Card.Body>
             </Collapse>
