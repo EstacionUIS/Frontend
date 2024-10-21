@@ -1,60 +1,68 @@
 {
-    "Contact": {
-        "Title": "Contact",
-        "Text1": "If you have any questions or inquiries, please feel free to contact us:",
-        "Text2": "Email: info@example.com",
-        "Text3": "Phone: +1 (555) 123-4567"
-    },
+  "Contact": {
+      "Title": "Contact",
+      "Text1": "If you have any questions or inquiries, please feel free to contact us:",
+      "Text2": "Email: info@example.com",
+      "Text3": "Phone: +1 (555) 123-4567"
+  },
 
-    "Information": {
-        "Title": "Information",
-        "Text1": "Welcome to our website! We are dedicated to providing you with up-to-date information about our ground station and its observations.",
-        "Text2": "Our mission is to contribute to the understanding of space by tracking satellites and sharing valuable data with the community."
-    },
+  "Information": {
+      "Title": "Information",
+      "Text1": "Welcome to our website! We are dedicated to providing you with up-to-date information about our ground station and its observations.",
+      "Text2": "Our mission is to contribute to the understanding of space by tracking satellites and sharing valuable data with the community."
+  },
 
-    "Observations": {
-        "Tab": "Observations",
-        "Title": "Observations",
-        "Previous": "Previous",
-        "Next": "Next",
-        "StatusTitle": "Status",
-        "Link": "View in SatNOGS DB",
-        "Status": {
-            "future": "Future",
-            "good": "Good",
-            "bad": "Bad",
-            "unknown": "Unknown",
-            "failed": "Failed"
-        },
-        "Id": "Id", "TimeStamp": "Time Stamp"
-    },
+  "Observations": {
+      "Tab": "Observations",
+      "Title": "Observations",
+      "Previous": "Previous",
+      "Next": "Next",
+      "StatusTitle": "Status",
+      "Link": "View in SatNOGS DB",
+      "Satellite": {
+        "Name": "Name",
+        "AlternateNames": "Alternate Names",
+        "Id": "Satellite Id",
+        "NoradId": "NORAD Id",
+        "Website": "View WebSite",
+        "Country": "Origin"
+      },
+      "Status": {
+          "future": "Future",
+          "good": "Good",
+          "bad": "Bad",
+          "unknown": "Unknown",
+          "failed": "Failed"
+      },
+      "Id": "Id", "TimeStamp": "Time Stamp"
+  },
 
-    "Loading": "Loading...",
-    "Error": "An error ocurred",
+  "Loading": "Loading...",
+  "Error": "An error ocurred",
 
-    "Station": {
-        "Tab": "Station",
-        "Location": {
-            "Title": "Location",
-            "Latitude": "Latitude",
-            "Longitude": "Longitude",
-            "Altitude": "Altitude"
-        },
-        "Activity": {
-            "Title": "Activity",
-            "LastSeen": "Last Seen",
-            "Created": "Created"
-        },
-        "Observations": {
-            "Title": "Observations",
-            "Number": "Number of Observations",
-            "SuccessRate": "Success Rate"
-        },
-        "Button": {
-            "Title": "Update",
-            "LastUpdated": "Last Updated"
-        }
-    },
+  "Station": {
+      "Tab": "Station",
+      "Location": {
+          "Title": "Location",
+          "Latitude": "Latitude",
+          "Longitude": "Longitude",
+          "Altitude": "Altitude"
+      },
+      "Activity": {
+          "Title": "Activity",
+          "LastSeen": "Last Seen",
+          "Created": "Created"
+      },
+      "Observations": {
+          "Title": "Observations",
+          "Number": "Number of Observations",
+          "SuccessRate": "Success Rate"
+      },
+      "Button": {
+          "Title": "Update",
+          "LastUpdated": "Last Updated"
+      }
+  },
 
   "About": {
     "Tab": "About",
@@ -105,4 +113,3 @@
     }
   }
 }
-  
