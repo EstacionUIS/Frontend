@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import CollapsibleSection from '../../../collapsible/collapsibleSection';
 
-import power from '../../../../../public/images/station/power.png'; 
+import power from '/images/station/power.png'; 
 
 function Power() {
   const { t } = useTranslation();

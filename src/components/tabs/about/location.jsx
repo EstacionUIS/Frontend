@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import location from '../../../../public/images/station/station_2.jpg';
+import location from '/public/images/station/station_2.jpg';
 
 function Location() {
   const { t } = useTranslation(); // Specify the namespace

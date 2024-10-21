@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import panel from '../../../../public/images/station/station_1.jpg';
+import panel from '/images/station/station_1.jpg';
 
 function Installation() {
   const { t } = useTranslation(); // Specify the namespace 

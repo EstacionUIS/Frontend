@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import CollapsibleSection from '../../../collapsible/collapsibleSection';
 
-import enclosure from '../../../../../public/images/station/station_1.jpg'; // Make sure to import the correct image
+import enclosure from '/images/station/station_1.jpg'; // Make sure to import the correct image
 
 function Enclosure() {
   const { t } = useTranslation();
