@@ -1,15 +1,19 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 
+import { useTranslation } from 'react-i18next';
+
 function Information({ satelliteData }) { 
+
     if (!satelliteData) {
         return null;
     }
 
+    const { t } = useTranslation();
+
     return (
         <Card>
             <Card.Body>
-                <Card.Title>Mission Information</Card.Title>
                 <div className="d-flex flex-column">
                     <div className="d-flex justify-content-between">
                         <p><b>Name:</b></p>

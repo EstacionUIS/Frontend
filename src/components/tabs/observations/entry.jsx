@@ -7,6 +7,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 import Header from './components/header';
 import Image from './cards/image';
+import Information from './cards/information';
 
 import { getSatelliteByNoradId } from '../../../api/satnogsAPI';
 
@@ -62,6 +63,7 @@ function Entry({ observation }) {
                         </div> 
                         : <div className="d-flex flex-row">   
                             <Image satelliteData={ satelliteData } />
+
                         </div> 
                     }
                 </Card.Body>
