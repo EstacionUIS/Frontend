@@ -61,7 +61,7 @@ function Entry({ observation }) {
                             </Spinner>
                         </div> 
                         : <div className="d-flex flex-row">   
-                            <Header satelliteData={ satelliteData } />
+                            <Image satelliteData={ satelliteData } />
                         </div> 
                     }
                 </Card.Body>
