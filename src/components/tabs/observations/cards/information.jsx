@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Card from 'react-bootstrap/Card';
 
 import { useTranslation } from 'react-i18next';
 
-import { getSatelliteDescriptionByNoradId } from '../../../../api/satnogsDB';
 
 function Information({ satelliteData }) { 
 
@@ -12,32 +11,6 @@ function Information({ satelliteData }) {
     }
 
     const { t } = useTranslation();
-
-    const [description, setDescription] = useState(null);
-    const [error, setError] = useState(null);    
-
-    useEffect(() => {
-        const fetchData = async () => {
-          try {
-            const data = await getSatelliteDescriptionByNoradId(satelliteData.sat_id);
-            setDescription(data);
-          } catch (error) {
-            setError(error);
-          }
-        };
-    
-        fetchData();
-    }, []);
-
-    if (error) {
-        return <div>Error: {error.message}</div>;
-    }
-
-    if(!description) {
-        return null;
-    }
-
-    console.log(description.Description);
 
     return (
         <Card>
