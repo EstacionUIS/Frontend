@@ -61,8 +61,8 @@ function Entry({ observation }) {
                             <span className="visually-hidden">{t('loading')}...</span>
                             </Spinner>
                         </div> 
-                        : <div className="d-flex flex-row">    
-                            <div><Image observation={satelliteData} /></div>
+                        : <div className="d-flex flex-row">   
+                            <pre>{JSON.stringify(satelliteData, null, 2)}</pre>
                         </div> 
                     }
                 </Card.Body>
