@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import CollapsibleSection from '../../../Collapsible/collapsibleSection';
+import CollapsibleSection from '../../../collapsible/collapsibleSection';
 
 import enclosure from '../../../../../public/Images/station/station_1.jpg'; // Make sure to import the correct image
 
