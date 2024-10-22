@@ -27,23 +27,16 @@ function Station() {
         <p className="text-center">{t('About.Intro.Description')}</p>
       </div>
       <Card>
-        <Card.Header
-          onClick={() => setOpen(!open)}
-          aria-controls="observation-details"
-          aria-expanded={open}
-          style={{ cursor: 'pointer' }}
-        >
+        <Card.Header onClick={() => setOpen(!open)} style={{ cursor: 'pointer' }>
           {t('About.StationProject')}
         </Card.Header>
         <Collapse in={open}>
-          <Card.Body>
-            <div>
-              <div><Location/></div>
-              <div><Installation/></div>
-              <div><Antenna /></div>
-              <div><Power /></div>
-              <div><Enclosure /></div>
-            </div>
+            <Card.Body>
+                <div><Location/></div>
+                <div><Installation/></div>
+                <div><Antenna /></div>
+                <div><Power /></div>
+                <div><Enclosure /></div>
           </Card.Body>
         </Collapse>
       </Card>
