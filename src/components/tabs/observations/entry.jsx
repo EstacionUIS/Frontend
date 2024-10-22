@@ -8,12 +8,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'; 
 
 import Header from './components/header';
+import Data from './components/data';
 
 import Image from './cards/image';
 import Information from './cards/information';
 import Description from './cards/description';
-import Waterfall from './cards/waterfall';
-import Demoddata from './cards/demoddata'; 
 
 import { getSatelliteByNoradId } from '../../../api/satnogsAPI';
 
@@ -73,12 +72,9 @@ function Entry({ observation }) {
                         <Col><Image satelliteData={satelliteData} /></Col>
                         <Col><Description satelliteData={satelliteData} /></Col>
                     </Row>
-                    {observation.waterfall_status === "with-signal" && (
-                        <Col className="mt-3">
-                        <Row><Waterfall observation={observation} /></Row>
-                        <Row><Demoddata observation={observation} /></Row>
-                        </Col>
-                    )}
+                    { observation.waterfall_status == "with-signal" 
+                       ( <Data observation={ observation } /> )
+                    }
                 </div>
             }
         </Card.Body>
