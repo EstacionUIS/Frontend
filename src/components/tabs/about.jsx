@@ -8,6 +8,7 @@ function About() {
   return (
     <div>
       <div><StationAbout /></div>
+      <div><InnerWorks/></div>
     </div>
   );
 }
