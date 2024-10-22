@@ -50,7 +50,7 @@ function App() {
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
-          <LanguageSelector /> 
+          <b>Selector</b> 
         </Container>
       </Navbar>
 
