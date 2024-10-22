@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Navbar, Nav, Container, Tabs, Tab } from 'react-bootstrap';
+import React from 'react';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 import logo1 from '/images/logo/logo1.png';
 import logo2 from '/images/logo/logo2.png';
@@ -13,66 +14,57 @@ import LanguageSelector from './components/header/languageSelector';
 import ThemeSelector from './components/header/themeSelector';
 
 function App() {
-  
-  const [activeTab, setActiveTab] = useState('home');
-
   return (
-    <div>
-      <Navbar bg="primary" variant="dark" expand="lg"> 
-        <Container>
-          <Navbar.Brand>
-            <img
-              src={logo1}
-              alt="Logo 1"
-              className="d-inline-block align-top me-2" 
-              style={{ height: '50px' }}
-            />
-            <img
-              src={logo2}
-              alt="Logo 2"
-              className="d-inline-block align-top"
-              style={{ height: '50px' }}
-            />
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center"> 
-            <Nav activeKey={activeTab} onSelect={(k) => setActiveTab(k)}>
-              <Nav.Item>
-                <Nav.Link eventKey="home">Home</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="about">About</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="station">Station</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="observation">Observations</Nav.Link> 
-              </Nav.Item>
-            </Nav>
-          </Navbar.Collapse>
-          <LanguageSelector />
-          <ThemeSelector />
-        </Container>
-      </Navbar>
+    <BrowserRouter>
+      <div>
+        <Navbar bg="primary" variant="dark" expand="lg">
+          <Container>
+            <Navbar.Brand>
+              <img
+                src={logo1}
+                alt="Logo 1"
+                className="d-inline-block align-top me-2"
+                style={{ height: '50px' }}
+              />
+              <img
+                src={logo2}
+                alt="Logo 2"
+                className="d-inline-block align-top"
+                style={{ height: '50px' }}
+              />
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
+              <Nav>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/">Home</Nav.Link> 
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/about">About</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/station">Station</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/observation">Observations</Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </Navbar.Collapse>
+            <LanguageSelector />
+            <ThemeSelector />
+          </Container>
+        </Navbar>
 
-      <Container> 
-        <Tabs activeKey={activeTab} onSelect={(k) => setActiveTab(k)} className="mb-3">
-          <Tab eventKey="home" title="Home">
-            <Home />
-          </Tab>
-          <Tab eventKey="about" title="About">
-            <About />
-          </Tab>
-          <Tab eventKey="station" title="Station">
-            <Station />
-          </Tab>
-          <Tab eventKey="observation" title="Observations"> 
-            <Observation />
-          </Tab>
-        </Tabs>
-      </Container>
-    </div>
+        <Container>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/station" element={<Station />} />
+            <Route path="/observation" element={<Observation />} />
+          </Routes>
+        </Container>
+      </div>
+    </BrowserRouter>
   );
 }
 
