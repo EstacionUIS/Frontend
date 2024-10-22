@@ -6,11 +6,11 @@ import Location from './about/location';
 import Installation from './about/installation';
 
 // Collapsible
-import Software from './about/collapsible/software';
+//import Software from './about/collapsible/software';
 import Antenna from './about/collapsible/antenna';
-import Raspberry from './about/collapsible/raspberry';
+/*import Raspberry from './about/collapsible/raspberry';
 import Power from './about/collapsible/power';
-import Enclosure from './about/collapsible/enclosure';
+import Enclosure from './about/collapsible/enclosure';*/
 
 function About() {
   const { t } = useTranslation();
@@ -35,11 +35,7 @@ function About() {
             <div className="container mt-4"> {/* Container for the collapsible sections */}
               <div className="row justify-content-center">
                 <div className="col-md-6"> {/* Adjust column width as needed */}
-                  <Software />
                   <Antenna />
-                  <Raspberry />
-                  <Power />
-                  <Enclosure />
                 </div>
               </div>
             </div>

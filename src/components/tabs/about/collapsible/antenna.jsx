@@ -1,30 +1,40 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import CollapsibleSection from '../../../collapsible/collapsibleSection';
+import Collapse from 'react-bootstrap/Collapse';
+import Card from 'react-bootstrap/Card';
+
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col'; 
 
 import antenna from '/images/station/station_2.jpg'; 
 
 function Antenna() {
+
   const { t } = useTranslation();
 
   return (
-    <CollapsibleSection title={t("About.Antenna.Title")}>
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-md-8">
-            <div className="row">
-              <div className="col-md-6 order-md-2">
-                <img src={antenna} alt={t("About.Antenna.ImageAlt")} className="img-fluid" />
-              </div>
-              <div className="col-md-6 order-md-1">
-                <p>{t("About.Antenna.Description")}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </CollapsibleSection>
+
+    <Card>
+      <Card.Header
+        onClick={() => setOpen(!open)}
+        aria-controls="observation-details"
+        aria-expanded={open}
+        style={{ cursor: 'pointer' }}
+      >
+        {t("About.Antenna.Title")}
+      </Card.Header>
+      <Collapse in={open}>
+        <Row className="mt-3" style={{ alignItems: 'stretch' }}> 
+          <Col>
+            <p>{t("About.Antenna.Description")}</p>
+          </Col>
+          <Col>
+            <img src={antenna} alt={t("About.Antenna.ImageAlt")} className="img-fluid" />
+          </Col>
+        </Row>
+      </Collapse>
+    </Card>
   );
 }
 
