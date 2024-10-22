@@ -9,8 +9,6 @@ import About from './components/tabs/about';
 import Station from './components/tabs/station';
 import Observation from './components/tabs/station/observation';
 
-import LanguageSelector from './components/header/languageSel';
-
 function App() {
   
   const [activeTab, setActiveTab] = useState('home');
