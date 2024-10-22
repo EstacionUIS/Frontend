@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Collapse from 'react-bootstrap/Collapse';
@@ -12,6 +12,7 @@ import antenna from '/images/station/station_2.jpg';
 function Antenna() {
 
   const { t } = useTranslation();
+  const [open, setOpen] = useState(false);
 
   return (
 
