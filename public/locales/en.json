@@ -1,116 +1,123 @@
 {
-  "Contact": {
-      "Title": "Contact",
-      "Text1": "If you have any questions or inquiries, please feel free to contact us:",
-      "Text2": "Email: info@example.com",
-      "Text3": "Phone: +1 (555) 123-4567"
-  },
 
-  "Information": {
-      "Title": "Information",
-      "Text1": "Welcome to our website! We are dedicated to providing you with up-to-date information about our ground station and its observations.",
-      "Text2": "Our mission is to contribute to the understanding of space by tracking satellites and sharing valuable data with the community."
-  },
-
-  "Observations": {
-      "Tab": "Observations",
-      "Title": "Observations",
-      "Previous": "Previous",
-      "Next": "Next",
-      "StatusTitle": "Status",
-      "Link": "View in SatNOGS DB",
-      "Description": "Description",
-      "Satellite": {
-        "Name": "Name",
-        "AlternativeNames": "Alternate Names",
-        "Id": "Satellite Id",
-        "NoradId": "NORAD Id",
-        "Website": "View WebSite",
-        "Country": "Origin"
-      },
-      "Status": {
-          "future": "Future",
-          "good": "Good",
-          "bad": "Bad",
-          "unknown": "Unknown",
-          "failed": "Failed"
-      },
-      "Id": "Id", "TimeStamp": "Time Stamp"
-  },
-
-  "Loading": "Loading...",
-  "Error": "An error ocurred",
-
-  "Station": {
-      "Tab": "Station",
-      "Location": {
-          "Title": "Location",
-          "Latitude": "Latitude",
-          "Longitude": "Longitude",
-          "Altitude": "Altitude"
-      },
-      "Activity": {
-          "Title": "Activity",
-          "LastSeen": "Last Seen",
-          "Created": "Created"
-      },
-      "Observations": {
-          "Title": "Observations",
-          "Number": "Number of Observations",
-          "SuccessRate": "Success Rate"
-      },
-      "Button": {
-          "Title": "Update",
-          "LastUpdated": "Last Updated"
+  "FrontPage" : {
+    
+    "Header": {
+      "Language": {
+        "Title": "Language",
+        "Selection": {
+          "En": "English",
+          "Es": "Spanish"
+        }
       }
+    },
+
+    "Contact": {
+      "Title": "Contact",
+      "Content": {
+        "Text1": "If you have any questions or inquiries, please feel free to contact us:",
+        "Text2": "Email: info@example.com",
+        "Text3": "Phone: +1 (555) 123-4567"
+      }
+    },
+
+    "Information": {
+      "Title": "Information",
+      "Content": {
+        "Text1": "Welcome to our website! We are dedicated to providing you with up-to-date information about our ground station and its observations.",
+        "Text2": "Our mission is to contribute to the understanding of space by tracking satellites and sharing valuable data with the community."
+      }
+    },
+
+    "Tab": {
+      "About": "About",
+      "Station": "Station",
+      "Observations": "Observation"
+    }
+
   },
 
   "About": {
-    "Tab": "About",
-    "Intro": {
-      "Title": "About this project",
-      "Description": "This project details the implementation of a ground station based on software-defined radio (SDR) at the School of Electrical, Electronic and Telecommunications Engineering (E3T) of the Industrial University of Santander. The initiative arises from the lack of access to updated satellite data and images, attributed to the absence of a functional ground station. By reactivating this station, it is incorporated into the network of satNOGS ground stations, being the first active one in Bucaramanga."
+
+    "Station": {
+
+      "Intro": {
+        "Title": "About this project",
+        "Description": "This project details the implementation of a ground station based on software-defined radio (SDR) at the School of Electrical, Electronic and Telecommunications Engineering (E3T) of the Industrial University of Santander. The initiative arises from the lack of access to updated satellite data and images, attributed to the absence of a functional ground station. By reactivating this station, it is incorporated into the network of satNOGS ground stations, being the first active one in Bucaramanga."
+      },
+
+      "Location": {
+        "Title": "Location",
+        "Content": {
+          "Description": "The ground station is located at the School of Electrical, Electronic and Telecommunications Engineering (E3T) of the Industrial University of Santander, Bucaramanga.",
+          "ImageAlt": "Location of the monitoring station"
+        }
+      },
+
+      "Installation": {
+        "Title": "Installation",
+        "Content": {
+          "Description": "The installation process involved: Evaluating the space in the high voltage lab, Mounting the Raspberry Pi 3 B+ and RTL-SDR in an IP65 sealed box, Connecting the ethernet cable, power supply, and adjusting parameters for optimal signal reception, Configuring the SatNOGS client and assigning observations through the SatNOGS website, Testing signal reception from NOAA 15 satellite.",
+          "ImageAlt": "Installation of the monitoring station",
+          "Materials": {
+            "Title": "Materials",
+            "Card": {
+
+              "Software": {
+                "Header": "Software",
+                "Content": {
+                  "Description": "The software used in the project includes: Raspbian operating system, SatNOGS client software, SoapySDR and CubicSDR for signal visualization, GNU Radio for signal processing, HTML, CSS, and JavaScript for the web platform.", 
+                  "ImageAlt": "Software used for data transmission"
+                }
+              },
+        
+              "Antenna": {
+                "Header": "Antenna & SDR-RTL",
+                "Content": {
+                  "Description": "A monopole antenna is used, provided by the high voltage laboratory. It is located on the roof of the building and is connected to the station with a coaxial cable. This antenna is suitable for capturing signals from satellites with trajectories far from the zenith.",
+                  "ImageAlt": "Antenna and SDR-RTL"
+                }
+              },
+        
+              "RaspberryPi": {
+                "Header": "Raspberry Pi",
+                "Content": {
+                  "Description": "A Raspberry Pi 3 B+ serves as the central processing unit of the ground station. It is equipped with processing and storage capabilities and runs the SatNOGS software to coordinate the operation of the station.",
+                  "ImageAlt": "Raspberry Pi"
+                }
+              },
+        
+              "Power": {
+                "Header": "Power",
+                "Content": {
+                  "Description": "An industrial switching power supply is used to power the ground station. It has a 5V, 10A output and ensures a stable power supply for continuous operation of the Raspberry Pi, RTL-SDR, and other devices.",
+                  "ImageAlt": "Power source"
+                }
+              },
+        
+              "Enclosure": {
+                "Header": "Enclosure",
+                "Content": {
+                  "Description": "A sealed box with an IP65 rating is used to protect the components of the ground station from dust and water.",
+                  "ImageAlt": "Enclosure"
+                }
+              }
+            }
+          }
+        }
+      }
     },
-    "Location": {
-      "Title": "Location",
-      "Description": "The ground station is located at the School of Electrical, Electronic and Telecommunications Engineering (E3T) of the Industrial University of Santander, Bucaramanga.",
-      "ImageAlt": "Location of the monitoring station"
-    },
-    "Installation": {
-      "Title": "Installation",
-      "Description": "The installation process involved: Evaluating the space in the high voltage lab, Mounting the Raspberry Pi 3 B+ and RTL-SDR in an IP65 sealed box, Connecting the ethernet cable, power supply, and adjusting parameters for optimal signal reception, Configuring the SatNOGS client and assigning observations through the SatNOGS website, Testing signal reception from NOAA 15 satellite.",
-      "ImageAlt": "Installation of the monitoring station",
-      "MaterialsTitle": "Materials",
-      "MaterialsDescription": "The station is constructed using high-quality, weather-resistant materials to ensure durability and longevity. Key components include:",
-      "MaterialsList1": "Raspberry Pi 3 B+",
-      "MaterialsList2": "RTL-SDR USB",
-      "MaterialsList3": "Industrial switching power supply",
-      "MaterialsList4": "IP65 Sealed box"
-    },
-    "Software": {
-      "Title": "Software",
-      "Description": "The software used in the project includes: Raspbian operating system, SatNOGS client software, SoapySDR and CubicSDR for signal visualization, GNU Radio for signal processing, HTML, CSS, and JavaScript for the web platform.", 
-      "ImageAlt": "Software used for data transmission"
-    },
-    "Antenna": {
-      "Title": "Antenna & SDR-RTL",
-      "Description": "A monopole antenna is used, provided by the high voltage laboratory. It is located on the roof of the building and is connected to the station with a coaxial cable. This antenna is suitable for capturing signals from satellites with trajectories far from the zenith.",
-      "ImageAlt": "Antenna and SDR-RTL"
-    },
-    "RaspberryPi": {
-      "Title": "Raspberry Pi",
-      "Description": "A Raspberry Pi 3 B+ serves as the central processing unit of the ground station. It is equipped with processing and storage capabilities and runs the SatNOGS software to coordinate the operation of the station.",
-      "ImageAlt": "Raspberry Pi"
-    },
-    "Power": {
-      "Title": "Power",
-      "Description": "An industrial switching power supply is used to power the ground station. It has a 5V, 10A output and ensures a stable power supply for continuous operation of the Raspberry Pi, RTL-SDR, and other devices.",
-      "ImageAlt": "Power source"
-    },
-    "Enclosure": {
-      "Title": "Enclosure",
-      "Description": "A sealed box with an IP65 rating is used to protect the components of the ground station from dust and water.",
-      "ImageAlt": "Enclosure"
+
+    "HowItWorks": {
+      "Intro": {
+        "Title": "How it works",
+        "Description": "Descriptions",
+
+        "Card": {
+          "Title1": "A",
+          "Title2": "B"
+        }
+      }
     }
   }
 }

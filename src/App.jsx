@@ -1,16 +1,25 @@
 import React from 'react';
 
 import Header from './components/header';
+import Contact from './components/header/contact';
+import Information from './components/header/information';
 import Body from './components/body';
 
 function App() {
-  return (
-    <div className="container-fluid">
-      <Header />
-      <Body /> {/* Render the Body component */}
-
-      {/* Blue decorative Bar */}
-      <div className="bg-primary py-3 mt-4"></div>
+  return(
+    <div>
+      <div>
+        <Header />
+      </div>
+      <div>
+        <Contact />
+      </div>
+      <div>
+        <Information />
+      </div>
+      <div>
+        <Body />
+      </div>
     </div>
   );
 }
