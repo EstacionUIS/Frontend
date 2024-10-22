@@ -13,12 +13,15 @@ function Waterfall({ observation }) {
     return (
         <Card className="text-center"> {/* Center card content */}
             { observation.waterfall? 
-                <Card.Img variant="top" src={observation.waterfall} alt="Waterfall" style={{ width: '150px', margin: '0 auto' }} />
+                <div style={{ transform: 'rotate(90deg)', margin: '0 auto', overflow: 'hidden' }}> 
+                    <Card.Img variant="top" src={observation.waterfall} alt="Waterfall" style={{ width: '150px', margin: '0 auto' }} />
+                </div>
                 : 
                 <div>
                     {t('Observations.WaterfallNotFound')}
                 </div>
             }
+            
             <Card.Title>
                 Waterfall
             </Card.Title>

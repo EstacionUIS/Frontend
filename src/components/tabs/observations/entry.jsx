@@ -72,9 +72,13 @@ function Entry({ observation }) {
                         <Col><Image satelliteData={satelliteData} /></Col>
                         <Col><Description satelliteData={satelliteData} /></Col>
                     </Row>
-                    { observation.waterfall_status == "with-signal" 
-                       ( <Data observation={ observation } /> )
-                    }
+                    { observation.waterfall_status === "with-signal" && (
+                        <Row className="mt-3">
+                            <Col>
+                                <Data observation={observation} /> {/* Render Data component here */}
+                            </Col>
+                        </Row>
+                    )}
                 </div>
             }
         </Card.Body>
