@@ -36,6 +36,10 @@ function Description({ satelliteData }) {
         return <div>t{('Error')}: {error.message}</div>;
       }
 
+    if(!description) {
+        return null;
+    }
+
     return (
         <Card className="text-center">
             { isLoading?
