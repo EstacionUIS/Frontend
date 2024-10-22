@@ -10,19 +10,21 @@ function StationAbout() {
 
   return (
     <div>
-      <h2 className="mt-4 text-center">{t('About.Intro.Title')}</h2> 
-      <p className="text-center">{t('About.Intro.Description')}</p>
-    </div>
-    <Card>
-      <Card.Header onClick={() => setOpen(!open)} style={{ cursor: 'pointer' }} >
-        {t('About.StationProject')}
-      </Card.Header>
-      <Collapse in={open}>
-        <Card.Body>
+      <div>
+        <h2 className="mt-4 text-center">{t('About.Intro.Title')}</h2> 
+        <p className="text-center">{t('About.Intro.Description')}</p>
+      </div>
+      <Card>
+        <Card.Header onClick={() => setOpen(!open)} style={{ cursor: 'pointer' }}>
+          {t('About.StationProject')}
+        </Card.Header>
+        <Collapse in={open}>
+          <Card.Body>
           Hello! I'm the content of the card.
-        </Card.Body>
-      </Collapse>
-    </Card>
+          </Card.Body>
+        </Collapse>
+      </Card>
+    </div>
   );
 }
 
