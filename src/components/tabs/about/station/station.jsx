@@ -14,10 +14,7 @@ function StationAbout() {
       <p className="text-center">{t('About.Intro.Description')}</p>
     </div>
     <Card>
-      <Card.Header 
-        onClick={() => setOpen(!open)} 
-        style={{ cursor: 'pointer' }}
-        >
+      <Card.Header onClick={() => setOpen(!open)} style={{ cursor: 'pointer' }} >
         {t('About.StationProject')}
       </Card.Header>
       <Collapse in={open}>
