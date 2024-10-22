@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlagIcon } from 'flagpack';
+import Flagpack from 'react-flagpack';
 import { useTranslation } from 'react-i18next';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 
@@ -14,10 +14,10 @@ function LanguageSelector() {
   return (
     <DropdownButton variant="secondary" title={t('Title')} className="me-2">
       <Dropdown.Item onClick={() => changeLanguage('en')}>
-        <FlagIcon code="GB" /> {t('Selection.En')}
+      <Flagpack code="GB" size='m' /> {t('Selection.En')}
       </Dropdown.Item>
       <Dropdown.Item onClick={() => changeLanguage('es')}>
-        <FlagIcon code="ES" /> {t('Selection.Es')}
+        <Flagpack code="ES" size='m' /> {t('Selection.Es')}
       </Dropdown.Item>
     </DropdownButton>
   );
