@@ -9,6 +9,9 @@ import About from './components/tabs/about';
 import Station from './components/tabs/station';
 import Observation from './components/tabs/station/observation';
 
+import LanguageSelector from './components/header/languageSelector';
+import ThemeSelector from './components/header/themeSelector';
+
 function App() {
   
   const [activeTab, setActiveTab] = useState('home');
@@ -48,7 +51,8 @@ function App() {
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
-          <b>Selector</b> 
+          <LanguageSelector />
+          <ThemeSelector />
         </Container>
       </Navbar>
 
