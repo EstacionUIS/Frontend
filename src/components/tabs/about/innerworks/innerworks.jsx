@@ -5,7 +5,7 @@ import Collapse from 'react-bootstrap/Collapse';
 import Card from 'react-bootstrap/Card';
 
 // Section
-import HoItWorks from './about/innerworks/howitworks';
+import HoItWorks from '../innerworks/howitworks';
 
 // Collapsible
 
