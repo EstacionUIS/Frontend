@@ -1,16 +1,11 @@
-import React from 'react';
-
-import StationAbout from './about/station/station';
-import InnerWorks from './about/innerworks/innerworks';
+import React from "react";
 
 function About() {
-
-  return (
-    <div>
-      <div><StationAbout /></div>
-      <div><InnerWorks/></div>
-    </div>
-  );
+    return (
+        <div>
+            About
+        </div>
+    );
 }
 
 export default About;
