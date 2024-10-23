@@ -22,16 +22,75 @@ a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  justify-content: center; /* Horizontally center content */
-}
-
 #root {
   display: flex;
   flex-direction: column; /* Align items vertically within #root */
   width: 100%; 
+}
+
+.navbar .dropdown-toggle {
+  color: white; /* Or any color that contrasts with your navbar */
+}
+
+.navbar .dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white background */
+}
+
+.top-navbar {
+  background-image: linear-gradient(to right, 
+  #004691,
+  #006adb, 
+  #007bff, 
+  #006adb,
+  #004691); 
+}
+
+.bottom-navbar {
+  background-color: #c2d6ec; 
+  transition: background-color 0.3s ease-out;
+  position: sticky; /* Make the navbar sticky */
+  top: 0; /* Stick it to the top of the viewport */
+  z-index: 100; /* Ensure it's above other content  */
+}
+
+body.dark .bottom-navbar { 
+  background-color: #7188a0; /* Darker color for dark theme */
+}
+
+@media (max-width: 200px) { /* Adjust breakpoint as needed */
+  .bottom-navbar .navbar-collapse {
+    justify-content: flex-start; /* Align menu to the left on mobile */
+  }
+}
+
+body.dark .bottom-navbar .navbar-nav .nav-link { 
+  color: #eee; /* Brighter color for nav links in dark theme */
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  transition: background-color 0.3s ease-out; /* Add transition for smooth change */
+}
+
+body.light {
+  background-color: #e8e9eb; /* Light grey for light theme */
+}
+
+body.dark {
+  background-color: #343a40; /* Dark grey for dark theme */
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 h1 {
@@ -56,6 +115,17 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+figcaption {
+  font-style: italic;
+  font-size: 0.9em;
+  color: #6c757d; /* Example color */
+}
+
+.list-group-item {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 @media (prefers-color-scheme: light) {

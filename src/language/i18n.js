@@ -12,14 +12,32 @@ i18n
     fallbackLng: 'en',
     resources: {
       en: {
-        translation: enTranslation
+        translation: enTranslation,
+        "Logo": enTranslation.TopBar.Logo,
+        "Routes": enTranslation.BottomBar.Routes,
+        "LanguageSelector": enTranslation.TopBar.LanguageSelector,
+        "ThemeSelector": enTranslation.TopBar.ThemeSelector,
+
+        "Home": enTranslation.Home,
+        "Home.Station": enTranslation.Home.Station,
+        "Home.Functionality": enTranslation.Home.Functionality,
+        "Home.Facts": enTranslation.Home.Facts
       },
       es: {
-        translation: esTranslation
+        translation: esTranslation,
+        "Logo": esTranslation.TopBar.Logo,
+        "Routes": esTranslation.BottomBar.Routes,
+        "LanguageSelector": esTranslation.TopBar.LanguageSelector,
+        "ThemeSelector": esTranslation.TopBar.ThemeSelector,
+
+        "Home": esTranslation.Home,
+        "Home.Station": esTranslation.Home.Station,
+        "Home.Functionality": esTranslation.Home.Functionality,
+        "Home.Facts": esTranslation.Home.Facts
       },
     },
     interpolation: {
-      escapeValue: false, // React already handles this
+      escapeValue: false, 
     },
   });
 

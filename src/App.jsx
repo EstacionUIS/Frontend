@@ -1,57 +1,64 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-import logo1 from '/images/logo/logo1.png';
-import logo2 from '/images/logo/logo2.png';
+// Routes
+import Home from './components/routes/home';
+import About from './components/routes/about';
+import Station from './components/routes/station';
+import Observation from './components/routes/observations';
+import Satellites from './components/routes/satellites';
 
-import Home from './components/tabs/home';
-import About from './components/tabs/about';
-import Station from './components/tabs/station';
-import Observation from './components/tabs/station/observation';
+// Logos
+import Logos from './components/navbar/logos';
 
-import LanguageSelector from './components/header/languageSelector';
-import ThemeSelector from './components/header/themeSelector';
+// Acessories
+import LanguageSelector from './components/navbar/languageSelector';
+import ThemeSelector from './components/navbar/themeSelector';
 
 function App() {
+
+  const { t } = useTranslation("Routes");
+
   return (
     <BrowserRouter>
       <div>
-        <Navbar bg="primary" variant="dark" expand="lg">
+
+        <Navbar bg="primary" variant="dark" expand="lg" className="top-navbar"> 
           <Container>
             <Navbar.Brand>
-              <img
-                src={logo1}
-                alt="Logo 1"
-                className="d-inline-block align-top me-2"
-                style={{ height: '50px' }}
-              />
-              <img
-                src={logo2}
-                alt="Logo 2"
-                className="d-inline-block align-top"
-                style={{ height: '50px' }}
-              />
+              <Logos />
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <LanguageSelector />
+              <ThemeSelector />
+            </div>
+          </Container>
+        </Navbar>
+
+        <Navbar expand="lg" className="bottom-navbar">
+          <Container>
+            <Navbar.Toggle aria-controls="routes-navbar-nav" /> 
+            <Navbar.Collapse id="routes-navbar-nav"> 
               <Nav>
                 <Nav.Item>
-                  <Nav.Link as={Link} to="/">Home</Nav.Link> 
+                  <Nav.Link as={Link} to="/">{t("Home")}</Nav.Link> 
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link as={Link} to="/about">About</Nav.Link>
+                  <Nav.Link as={Link} to="/about">{t("About")}</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link as={Link} to="/station">Station</Nav.Link>
+                  <Nav.Link as={Link} to="/station">{t("Station")}</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link as={Link} to="/observation">Observations</Nav.Link>
+                  <Nav.Link as={Link} to="/observation">{t("Observations")}</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/satellites">{t("Satellites")}</Nav.Link>
                 </Nav.Item>
               </Nav>
             </Navbar.Collapse>
-            <LanguageSelector />
-            <ThemeSelector />
           </Container>
         </Navbar>
 
@@ -61,6 +68,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/station" element={<Station />} />
             <Route path="/observation" element={<Observation />} />
+            <Route path="/satellites" element={<Satellites />} />
           </Routes>
         </Container>
       </div>

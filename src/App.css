@@ -38,16 +38,6 @@
   border-radius: 10px; /* Adjust the value for desired roundness */
 }
 
-body.light {
-  background-color: #fff;
-  color: #333;
-}
-
-body.dark {
-  background-color: #333;
-  color: #fff;
-}
-
 .card {
   padding: 2em;
 }

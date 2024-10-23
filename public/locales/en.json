@@ -1,122 +1,149 @@
 {
-
-  "FrontPage" : {
-    
-    "Header": {
-      "Language": {
-        "Title": "Language",
-        "Selection": {
-          "En": "English",
-          "Es": "Spanish"
-        }
-      }
+  "TopBar": {
+    "Logo": {
+      "e3tAlt": "Electric, Electronic and Telecomunications' School logo",
+      "uisAlt": "Santander's industrial university logo"
     },
-
-    "Contact": {
-      "Title": "Contact",
+    "LanguageSelector": {
+      "Title": "Language",
       "Content": {
-        "Text1": "If you have any questions or inquiries, please feel free to contact us:",
-        "Text2": "Email: info@example.com",
-        "Text3": "Phone: +1 (555) 123-4567"
+        "English": "English",
+        "Spanish": "Spanish"
       }
     },
-
-    "Information": {
-      "Title": "Information",
+    "ThemeSelector": {
+      "Title": "Theme",
       "Content": {
-        "Text1": "Welcome to our website! We are dedicated to providing you with up-to-date information about our ground station and its observations.",
-        "Text2": "Our mission is to contribute to the understanding of space by tracking satellites and sharing valuable data with the community."
+        "Dark": "Dark",
+        "Light": "Light",
+        "System": "System"
       }
-    },
-
-    "Tab": {
+    }
+  },
+  "BottomBar": {
+    "Routes": {
+      "Home": "Home",
       "About": "About",
       "Station": "Station",
-      "Observations": "Observation"
+      "Observations": "Observations",
+      "Satellites": "Satellites"
     }
-
   },
-
-  "About": {
-
-    "Station": {
-
-      "Intro": {
-        "Title": "About this project",
-        "Description": "This project details the implementation of a ground station based on software-defined radio (SDR) at the School of Electrical, Electronic and Telecommunications Engineering (E3T) of the Industrial University of Santander. The initiative arises from the lack of access to updated satellite data and images, attributed to the absence of a functional ground station. By reactivating this station, it is incorporated into the network of satNOGS ground stations, being the first active one in Bucaramanga."
-      },
-
-      "Location": {
-        "Title": "Location",
+  "Home": {
+    "Station": { 
+      "Title": "Connecting to the Cosmos",
+      "Description": "This ground station, built by students at the Industrial University of Santander, is a window to outer space. It allows us to receive signals and data from satellites orbiting Earth, contributing to scientific research and expanding our understanding of the cosmos.",
+      "Goal": {
+        "Title": "Mission and Goals",
         "Content": {
-          "Description": "The ground station is located at the School of Electrical, Electronic and Telecommunications Engineering (E3T) of the Industrial University of Santander, Bucaramanga.",
-          "ImageAlt": "Location of the monitoring station"
+          "Goal1": "To provide students and researchers with access to real-time satellite data for educational and research purposes.",
+          "Goal2": "To contribute to the global SatNOGS network and advance citizen science in the field of satellite observation.",
+          "Goal3": "To promote interest in STEM fields and inspire the next generation of engineers and scientists."
         }
       },
-
-      "Installation": {
-        "Title": "Installation",
-        "Content": {
-          "Description": "The installation process involved: Evaluating the space in the high voltage lab, Mounting the Raspberry Pi 3 B+ and RTL-SDR in an IP65 sealed box, Connecting the ethernet cable, power supply, and adjusting parameters for optimal signal reception, Configuring the SatNOGS client and assigning observations through the SatNOGS website, Testing signal reception from NOAA 15 satellite.",
-          "ImageAlt": "Installation of the monitoring station",
-          "Materials": {
-            "Title": "Materials",
-            "Card": {
-
-              "Software": {
-                "Header": "Software",
-                "Content": {
-                  "Description": "The software used in the project includes: Raspbian operating system, SatNOGS client software, SoapySDR and CubicSDR for signal visualization, GNU Radio for signal processing, HTML, CSS, and JavaScript for the web platform.", 
-                  "ImageAlt": "Software used for data transmission"
-                }
-              },
-        
-              "Antenna": {
-                "Header": "Antenna & SDR-RTL",
-                "Content": {
-                  "Description": "A monopole antenna is used, provided by the high voltage laboratory. It is located on the roof of the building and is connected to the station with a coaxial cable. This antenna is suitable for capturing signals from satellites with trajectories far from the zenith.",
-                  "ImageAlt": "Antenna and SDR-RTL"
-                }
-              },
-        
-              "RaspberryPi": {
-                "Header": "Raspberry Pi",
-                "Content": {
-                  "Description": "A Raspberry Pi 3 B+ serves as the central processing unit of the ground station. It is equipped with processing and storage capabilities and runs the SatNOGS software to coordinate the operation of the station.",
-                  "ImageAlt": "Raspberry Pi"
-                }
-              },
-        
-              "Power": {
-                "Header": "Power",
-                "Content": {
-                  "Description": "An industrial switching power supply is used to power the ground station. It has a 5V, 10A output and ensures a stable power supply for continuous operation of the Raspberry Pi, RTL-SDR, and other devices.",
-                  "ImageAlt": "Power source"
-                }
-              },
-        
-              "Enclosure": {
-                "Header": "Enclosure",
-                "Content": {
-                  "Description": "A sealed box with an IP65 rating is used to protect the components of the ground station from dust and water.",
-                  "ImageAlt": "Enclosure"
-                }
-              }
+      "Content": {
+        "Exploring": {
+          "Title": "Exploring the Universe",
+          "Description": "It uses a software-defined radio (SDR) to receive radio signals from orbiting satellites. It can track satellites as they pass overhead within range, capture their transmissions, and decode valuable data. This data can include images, sensor readings, and other information that helps us understand our planet and the space around it.",
+          "Caption1": "Image downloaded from NOAA-15",
+          "Caption2": "Image downloaded from NOAA-15"
+        },
+        "Location": {
+          "Title": "At Campus",
+          "Description": "The ground station is located at the laboratory of School of Electrical, Electronic and Telecommunications Engineering (E3T) at the Industrial University of Santander. It is housed in a weatherproof enclosure inside the building.",
+          "Images": {
+            "Caption1": "Mounting and location inside the facilities",
+            "caption2": "The facilities from up close"
+          }
+        },
+        "Materials": {
+          "Title": "Inside the Station",
+          "Description": "The ground station is built using a Raspberry Pi computer, an RTL-SDR receiver, a monopole antenna, and other essential components. These components work together to capture, process, and transmit satellite data.",
+          "Content": {
+            "Material1": {
+              "Title": "Raspberry pi",
+              "Description": "We use a Raspberry Pi 3 Model B+ as the brain of our ground station. This small and affordable computer is powerful enough to run the SatNOGS software and control the other components. It has a 1.4 GHz 64-bit quad-core processor, 1 GB of RAM, and built-in Wi-Fi and Bluetooth connectivity.",
+              "Link": "Raspberry website",
+              "Caption": "Raspberry PI B+ Model."
+            },
+            "Material2": {
+              "Title": "Monopole Antenna and SDR",
+              "Description": "The monopole antenna is a vertical antenna that is used to receive signals from satellites. It is installed on the roof of the E3T building and connected to the RTL-SDR receiver using a coaxial cable. This type of antenna is suitable for receiving signals from satellites in a variety of orbits.",
+              "Link": "SDR website",
+              "Caption": "SDR-RTL V3."
+            },
+            "Material3": {
+              "Title": "Power Source",
+              "Description": "A 5V, 10A industrial switching power supply provides reliable power to all the components of the ground station. It is designed to operate continuously and provide stable voltage even under varying load conditions.",
+              "Caption": "Industrial Power Source."
+            },
+            "Material4": {
+              "Title": "Enclosure",
+              "Description": "All the components of the ground station are housed in a weatherproof IP65 enclosure. This protects them from dust, rain, and other environmental factors, ensuring the long-term reliability of the station.",
+              "Caption": "Waterproof enclosure."
             }
           }
         }
+      }      
+    },
+    "Functionality": {
+      "SatNOGS" : {
+        "Title": "SatNOGS: A Global Network of Satellite Enthusiasts",
+        "Description": "SatNOGS is an open-source network of satellite ground stations around the world, built and operated by a community of volunteers. The network allows anyone to track satellites, receive their signals, and collect valuable data, making satellite technology more accessible.",
+        "Content": {
+          "Title": "Most of the process is automated",
+          "Content": {
+            "Step1": "Users can schedule observations of satellites through the SatNOGS website",
+            "Step2": "The network automatically assigns the observation to the best-suited ground station based on location and availability",
+            "Step3": "The ground station tracks the satellite and records its signals",
+            "Step4": "The collected data is processed and shared with the entire network, contributing to a global database of satellite information"
+          },
+          "Link": "SatNOGS website"
+        }
+      },
+      "Skies": {
+        "Title": "Decoding the Skies",
+        "Description": "Satellite communication relies on radio waves, which are a type of electromagnetic radiation just like the light we see. These waves travel at the speed of light, carrying information between satellites in space and ground stations on Earth. Satellites transmit data using different frequencies, and these frequencies are carefully chosen based on the type of data being sent and the satellite's orbit. To encode information onto these radio waves, a technique called modulation is used. This is similar to how we change the pitch or rhythm of our voice to convey different emotions. As satellites are constantly moving, the frequency of the signals they transmit changes slightly due to the Doppler effect. Ground stations need to account for this shift to accurately receive and decode the signals. Specialized software is then used to process and decode the signals, extracting valuable data and images from the sky."
+      },
+      "Satellite": {
+        "Title": "Data and Images from Satellites",
+        "Content": {
+          "Data1": {
+            "Title": "Weather data",
+            "Description": "Cloud cover, temperature, precipitation, etc."
+          },
+          "Data2": {
+            "Title": "Environmental data",
+            "Description": "Forest fires, deforestation, pollution levels, etc."
+          },
+          "Data3": {
+            "Title": "Scientific data",
+            "Description": "Atmospheric conditions, ocean currents, magnetic fields, etc."
+          },
+          "Data4": {
+            "Title": "Images",
+            "Description": "High-resolution pictures of Earth's surface, including cities, landscapes, and natural phenomena."
+          }
+        }
+      },
+      "ImageDec" : {
+        "Image" : {
+          "Title": "APT: A Simple Way to Receive Satellite Images",
+          "Description": "Our ground station can receive images directly from weather satellites using a system called Automatic Picture Transmission (APT). This technology, developed in the 1960s, allows us to capture real-time images of Earth's cloud cover and other environmental data."
+        },
+        "Color" : {
+          "Title": "False Color: Seeing the Unseen",
+          "Description": "To make these images even more informative, we use a technique called false color. This involves assigning colors to different wavelengths of light, including those invisible to the human eye, such as infrared. By doing so, we can highlight hidden features and patterns in the images, such as different types of vegetation or areas of heat."
+        }
       }
     },
-
-    "HowItWorks": {
-      "Intro": {
-        "Title": "How it works",
-        "Description": "Descriptions",
-
-        "Card": {
-          "Title1": "A",
-          "Title2": "B"
-        }
+    "Facts" : {
+      "Title": "Some Facts",
+      "Content": {
+        "F1": " Some weather satellites are transmitting images 24/7, and the image you receive is a real-time image of your location.",
+        "F2": "The transmission is free to be received by anyone with an antenna, and there is no official decoder or receiver.",
+        "F3": "NOAA images are black and white. When you see a color image it means it was colorized. The images are upside down 50% of the time, that's because the satellites sometimes go from south to north and sometimes from north to south.",
+        "F4": "Images look much better in daylight, the satellites also send infrared images at night but I recommend receiving passes when the sun is high in the sky."
       }
     }
   }
