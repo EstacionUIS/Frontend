@@ -33,7 +33,7 @@ function Raspberry() {
         </div>
         <div className="col-md-5"> 
           <div>
-            <img src={img} className="img-fluid img-thumbnail" style={{ maxWidth: '330px' }}  
+            <img src={img} className="img-fluid img-thumbnail" style={{ maxWidth: '100px' }}  
               alt={t('Content.Materials.Content.Material1.Title')} 
             />
             <figcaption className="text-center"> 
