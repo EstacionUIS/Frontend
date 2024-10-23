@@ -11,81 +11,89 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* Define your CSS variables here */
+  --primary-color: #007bff;  /* Default primary color */
+  --text-color: #212529;     /* Default text color */
+  --background-color: #fff; /* Default background color */
+  --link-color: #007bff;     /* Default link color */
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--link-color); /* Use the link color variable */
   text-decoration: inherit;
 }
+
 a:hover {
-  color: #535bf2;
+  color: #535bf2; /* You might want to define a hover color variable as well */
 }
 
 #root {
   display: flex;
-  flex-direction: column; /* Align items vertically within #root */
-  width: 100%; 
+  flex-direction: column; 
+  min-height: 100vh; 
+  transition: background-color 0.3s ease-out, color 0.3s ease-out;
+}
+
+#root.light { 
+  --primary-color: #007bff;   
+  --text-color: #212529;      
+  --background-color: #fff;  
+  --link-color: #007bff; 
+}
+
+#root.dark {
+  --primary-color: #ffc107;  
+  --text-color: #f8f9fa;      
+  --background-color: #343a40;
+  --link-color: #ffc107;  
 }
 
 .navbar .dropdown-toggle {
-  color: white; /* Or any color that contrasts with your navbar */
+  color: white; 
 }
 
 .navbar .dropdown-menu {
-  background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white background */
+  background-color: rgba(255, 255, 255, 0.6); 
 }
 
 .top-navbar {
   background-image: linear-gradient(to right, 
-  #004691,
-  #006adb, 
-  #007bff, 
-  #006adb,
-  #004691); 
+   #004691,
+   #006adb, 
+   #007bff, 
+   #006adb,
+   #004691); 
 }
 
 .bottom-navbar {
   background-color: #c2d6ec; 
   transition: background-color 0.3s ease-out;
-  position: sticky; /* Make the navbar sticky */
-  top: 0; /* Stick it to the top of the viewport */
-  z-index: 100; /* Ensure it's above other content  */
+  position: sticky; 
+  top: 0; 
+  z-index: 100; 
 }
 
-body.dark .bottom-navbar { 
-  background-color: #7188a0; /* Darker color for dark theme */
+/* You can adjust these navbar colors based on your theme variables */
+.dark-theme .bottom-navbar { 
+  background-color: #7188a0; 
 }
 
-@media (max-width: 200px) { /* Adjust breakpoint as needed */
+.dark-theme .bottom-navbar .navbar-nav .nav-link {
+  color: #eee; 
+}
+
+@media (max-width: 200px) { 
   .bottom-navbar .navbar-collapse {
-    justify-content: flex-start; /* Align menu to the left on mobile */
+    justify-content: flex-start; 
   }
-}
-
-body.dark .bottom-navbar .navbar-nav .nav-link { 
-  color: #eee; /* Brighter color for nav links in dark theme */
-}
-
-body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  transition: background-color 0.3s ease-out; /* Add transition for smooth change */
-}
-
-body.light {
-  background-color: #e8e9eb; /* Light grey for light theme */
-}
-
-body.dark {
-  background-color: #343a40; /* Dark grey for dark theme */
 }
 
 @keyframes slide-down {
   from {
     opacity: 0;
-    transform: translateY(-10px); 
+    transform: translateY(-10px);  
   }
   to {
     opacity: 1;
@@ -96,6 +104,7 @@ body.dark {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: var(--text-color); /* Use the text color variable */
 }
 
 button {
@@ -105,13 +114,16 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #1a1a1a; /* You might want to use a variable for button color */
   cursor: pointer;
   transition: border-color 0.25s;
+  color: var(--text-color); /* Use the text color variable */
 }
+
 button:hover {
-  border-color: #646cff;
+  border-color: #646cff; /* Consider using a hover color variable */
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -120,23 +132,12 @@ button:focus-visible {
 figcaption {
   font-style: italic;
   font-size: 0.9em;
-  color: #6c757d; /* Example color */
+  color: #6c757d; /* Consider using a variable for this color */
 }
 
 .list-group-item {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 1rem 1.25rem; 
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+/* You no longer need this media query since you're using CSS variables */
+/* @media (prefers-color-scheme: light) { ... } */
