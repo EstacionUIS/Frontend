@@ -17,7 +17,7 @@ function Logos() {
           src={uis}
           alt={t("uisAlt")}
           className="d-inline-block align-top" 
-          style={{ height: '55px' }}
+          style={{ height: '40px' }}
         />
       </a>
       <div style={{ borderLeft: '1px solid white', height: '50px' }}></div> 
@@ -26,7 +26,7 @@ function Logos() {
           src={e3t}
           alt={t("e3tAlt")}
           className="d-inline-block align-top" 
-          style={{ height: '55px' }}
+          style={{ height: '40px' }}
         />
       </a>
     </div>
