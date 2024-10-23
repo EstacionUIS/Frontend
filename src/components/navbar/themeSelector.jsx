@@ -5,19 +5,20 @@ import { BsSun, BsMoon, BsLaptop } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 
 function ThemeSelector() {
-
   const { t } = useTranslation("ThemeSelector");
   const [theme, setTheme] = useState('system');
 
   useEffect(() => {
+    const rootElement = document.getElementById('root'); // Get the root element
+
     if (theme === 'light') {
-      document.body.classList.remove('dark');
-      document.body.classList.add('light');
+      rootElement.classList.remove('dark');
+      rootElement.classList.add('light');
     } else if (theme === 'dark') {
-      document.body.classList.remove('light');
-      document.body.classList.add('dark');
+      rootElement.classList.remove('light');
+      rootElement.classList.add('dark');
     } else {
-      document.body.classList.remove('light', 'dark');
+      rootElement.classList.remove('light', 'dark');
     }
   }, [theme]);
 
